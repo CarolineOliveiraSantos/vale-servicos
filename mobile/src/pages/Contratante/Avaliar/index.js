@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, TextInput } from "react-native";
-import { Entypo } from "@expo/vector-icons";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { Feather as Icon } from "@expo/vector-icons";
+import { Entypo, Feather as Icon, AntDesign } from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
 import {
   RectButton,
   ScrollView,
   TouchableOpacity,
-} from "react-native-gesture-handler";
-import { AntDesign } from "@expo/vector-icons";
-import { Rating, AirbnbRating } from "react-native-ratings";
-import api from "../../../services/api";
-import { color } from "react-native-reanimated";
+} from 'react-native-gesture-handler';
+import { Rating, AirbnbRating } from 'react-native-ratings';
+import { color } from 'react-native-reanimated';
+
+import api from '../../../services/api';
 // import { Feather } from "@expo/vector-icons";
 
 const Avaliar = () => {
@@ -22,7 +21,7 @@ const Avaliar = () => {
   const prestadorId = route.params.prestador.prestador_id;
   const prestadores = route.params.prestadores;
   const contratanteId = route.params.contratante.id;
-  const [start, setStart] = useState("");
+  const [start, setStart] = useState('');
 
   function ratingCompleted(rating) {
     // console.log("Rating is: " + rating);
@@ -30,8 +29,8 @@ const Avaliar = () => {
     // console.log(start);
   }
   // console.log(prestadores);
-  const [nota, setNota] = useState("");
-  const [comentario, setComentario] = useState("");
+  const [nota, setNota] = useState('');
+  const [comentario, setComentario] = useState('');
 
   function handleNavigateToBack() {
     navigation.goBack();
@@ -49,9 +48,9 @@ const Avaliar = () => {
     try {
       const response = await api.post(`avaliacao/${contratanteId}`, data);
       // console.log(response);
-      return navigation.navigate("Detalhess");
+      return navigation.navigate('Detalhess');
     } catch (err) {
-      alert("Erro ao avaliar serviço, tente novamente.");
+      alert('Erro ao avaliar serviço, tente novamente.');
     }
   }
 
@@ -76,8 +75,8 @@ const Avaliar = () => {
           style={[
             styles.description,
             {
-              textAlign: "center",
-              backgroundColor: "rgba(4, 38, 176, 0.5)",
+              textAlign: 'center',
+              backgroundColor: 'rgba(4, 38, 176, 0.5)',
               marginBottom: 9,
               // marginTop: 25,
               marginLeft: 20,
@@ -96,7 +95,7 @@ const Avaliar = () => {
         </View> */}
         <AirbnbRating
           count={5}
-          reviews={["Nota 1", "Nota 2", "Nota 3", "Nota 4", "Nota 5"]}
+          reviews={['Nota 1', 'Nota 2', 'Nota 3', 'Nota 4', 'Nota 5']}
           defaultRating={1}
           size={20}
           onFinishRating={ratingCompleted}
@@ -131,65 +130,65 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   star: {
-    color: "#0426B0",
+    color: '#0426B0',
   },
   emoji: {
     marginBottom: 15,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     fontSize: 15,
     paddingEnd: 70,
     paddingStart: 70,
   },
   buttonIcon1: {
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: 7,
-    textAlign: "center",
+    textAlign: 'center',
   },
   title: {
     fontSize: 22,
     marginBottom: 10,
-    color: "#13131a",
-    fontWeight: "bold",
-    textAlign: "center",
+    color: '#13131a',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   description: {
     fontSize: 18,
     marginBottom: 8,
-    color: "#13131a",
-    textAlign: "center",
+    color: '#13131a',
+    textAlign: 'center',
   },
   input: {
     marginLeft: 20,
     marginRight: 20,
     // height: 90,
-    backgroundColor: "#FFF",
+    backgroundColor: '#FFF',
     borderRadius: 10,
     marginBottom: 8,
     paddingHorizontal: 24,
     fontSize: 16,
   },
   button: {
-    backgroundColor: "#0426B0",
+    backgroundColor: '#0426B0',
     height: 60,
-    flexDirection: "row",
+    flexDirection: 'row',
     borderRadius: 10,
-    alignItems: "center",
+    alignItems: 'center',
     marginTop: 8,
   },
   buttonIcon: {
     height: 60,
     width: 60,
-    backgroundColor: "rgba(0, 0, 0, 0.1)",
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   buttonText: {
     flex: 1,
-    justifyContent: "center",
-    textAlign: "center",
-    color: "#FFF",
-    fontFamily: "Roboto_500Medium",
+    justifyContent: 'center',
+    textAlign: 'center',
+    color: '#FFF',
+    fontFamily: 'Roboto_500Medium',
     fontSize: 16,
   },
 });

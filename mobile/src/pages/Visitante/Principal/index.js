@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import { Feather as Icon, Entypo } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import SvgUri from 'expo-svg-uri';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-} from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import { Feather as Icon } from "@expo/vector-icons";
-import api from "../../../services/api";
-import { Entypo } from "@expo/vector-icons";
-import SvgUri from "expo-svg-uri";
+} from 'react-native';
+
+import api from '../../../services/api';
 
 const Principalll = () => {
   const navigation = useNavigation();
@@ -19,13 +19,13 @@ const Principalll = () => {
     navigation.goBack();
   }
   function handleNavigateToPrestadores(servico) {
-    navigation.navigate("Prestadores", { servico });
+    navigation.navigate('Prestadores', { servico });
   }
 
   const [servicos, setServicos] = useState([]);
 
   useEffect(() => {
-    api.get("servicoslist").then((res) => {
+    api.get('servicoslist').then((res) => {
       setServicos(res.data);
     });
   });
@@ -42,7 +42,7 @@ const Principalll = () => {
           <Text
             style={[
               {
-                fontWeight: "bold",
+                fontWeight: 'bold',
                 fontSize: 20,
                 marginTop: 5,
                 marginLeft: 80,
@@ -91,44 +91,44 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     fontSize: 15,
   },
   icon: {
-    width: "100",
-    height: "100",
+    width: '100',
+    height: '100',
     // color: "black",
   },
   headerText: {
     fontSize: 16,
     borderRadius: 5,
-    textAlign: "center",
+    textAlign: 'center',
     paddingTop: 12,
   },
   input: {
     width: 240,
     height: 50,
-    backgroundColor: "#FFF",
+    backgroundColor: '#FFF',
     borderRadius: 10,
     paddingHorizontal: 15,
     fontSize: 16,
   },
   searchSection: {
     flex: 1,
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   descriptionContainer: {
     flex: 1,
     height: 160,
-    flexDirection: "row-reverse",
-    justifyContent: "space-between",
+    flexDirection: 'row-reverse',
+    justifyContent: 'space-between',
     fontSize: 15,
-    backgroundColor: "rgba(4, 38, 176, 0.4)",
+    backgroundColor: 'rgba(4, 38, 176, 0.4)',
     paddingHorizontal: 5,
-    color: "#41414d",
+    color: '#41414d',
     borderRadius: 5,
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: 15,
     paddingLeft: 15,
   },
@@ -136,9 +136,9 @@ const styles = StyleSheet.create({
     marginStart: 110,
     paddingHorizontal: 10,
     fontSize: 17,
-    flexDirection: "row",
-    color: "black",
-    fontWeight: "bold",
+    flexDirection: 'row',
+    color: 'black',
+    fontWeight: 'bold',
   },
   dataValue: {
     marginStart: 110,
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginTop: 5,
     marginBottom: 10,
-    color: "black",
+    color: 'black',
   },
   text: {},
 });

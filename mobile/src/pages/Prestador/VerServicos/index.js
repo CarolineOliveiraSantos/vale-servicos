@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Alert } from "react-native";
-import { BaseButton, ScrollView } from "react-native-gesture-handler";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { Feather as Icon } from "@expo/vector-icons";
-import api from "../../../services/api";
-import { FontAwesome5 } from "@expo/vector-icons";
+import { Feather as Icon, FontAwesome5 } from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, Text, Alert } from 'react-native';
+import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+
+import api from '../../../services/api';
 
 const VerServicos = () => {
   const navigation = useNavigation();
@@ -20,13 +20,13 @@ const VerServicos = () => {
   const [servData, setServData] = useState([]);
 
   function handleNavigateToPrincipal() {
-    navigation.navigate("Principal");
+    navigation.navigate('Principal');
   }
   function handleNavigateToListaServicos() {
-    navigation.navigate("ListaServicos");
+    navigation.navigate('ListaServicos');
   }
   function handleNavigateToAlterarServicos(servico, prestador) {
-    navigation.navigate("AlterarServicos", { servico, prestador });
+    navigation.navigate('AlterarServicos', { servico, prestador });
   }
 
   useEffect(() => {
@@ -48,27 +48,27 @@ const VerServicos = () => {
       setPrestadores(prestadores.filter((prestador) => prestador.id !== id));
       return handleNavigateToListaServicos();
     } catch (err) {
-      alert("Erro ao excluir serviço, tente novamente.");
+      alert('Erro ao excluir serviço, tente novamente.');
     }
   }
 
   const createAlert = () =>
     Alert.alert(
-      "Excluir",
-      "Tem certeza que deseja excluir esse serviço?",
+      'Excluir',
+      'Tem certeza que deseja excluir esse serviço?',
       [
         {
-          text: "Cancelar",
+          text: 'Cancelar',
           onPress: () => console.log(),
         },
         {
-          text: "Excluir",
+          text: 'Excluir',
           onPress: () => {
             return handleDeleteAccount();
           },
         },
       ],
-      { cancelable: false }
+      { cancelable: false },
     );
 
   return (
@@ -95,8 +95,8 @@ const VerServicos = () => {
           style={[
             // styles.description,
             {
-              textAlign: "center",
-              backgroundColor: "rgba(4, 38, 176, 0.3)",
+              textAlign: 'center',
+              backgroundColor: 'rgba(4, 38, 176, 0.3)',
               marginBottom: 15,
               // marginTop: 5,
               marginLeft: 20,
@@ -125,8 +125,8 @@ const VerServicos = () => {
           style={[
             // styles.description,
             {
-              textAlign: "center",
-              backgroundColor: "rgba(4, 38, 176, 0.3)",
+              textAlign: 'center',
+              backgroundColor: 'rgba(4, 38, 176, 0.3)',
               marginBottom: 15,
               // marginTop: 5,
               marginLeft: 20,
@@ -156,51 +156,51 @@ const styles = StyleSheet.create({
   },
   header: {
     // flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: 20,
     marginBottom: 15,
-    color: "#13131a",
-    fontWeight: "bold",
-    textAlign: "center",
+    color: '#13131a',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   descriptionContainer: {
     flex: 1,
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
     marginStart: 10,
     marginEnd: 10,
-    flexDirection: "column",
-    backgroundColor: "rgba(0, 0, 0, 0.2)",
+    flexDirection: 'column',
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
     marginBottom: 15,
     paddingHorizontal: 5,
-    color: "#41414d",
+    color: '#41414d',
     borderRadius: 5,
   },
   description: {
     paddingHorizontal: 10,
     fontSize: 16,
-    flexDirection: "row",
-    color: "black",
-    fontWeight: "bold",
+    flexDirection: 'row',
+    color: 'black',
+    fontWeight: 'bold',
   },
   buttonIcon: {
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: 7,
-    textAlign: "center",
+    textAlign: 'center',
   },
   dataValue: {
     paddingHorizontal: 10,
     fontSize: 16,
     marginBottom: 10,
-    color: "black",
+    color: 'black',
   },
   button: {
     flex: 1,
     height: 50,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     fontSize: 15,
     marginBottom: 15,
     paddingEnd: 10,
@@ -208,11 +208,11 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     width: 150,
-    backgroundColor: "#0426B0",
-    color: "#FFF",
+    backgroundColor: '#0426B0',
+    color: '#FFF',
     fontSize: 16,
     borderRadius: 5,
-    textAlign: "center",
+    textAlign: 'center',
     paddingTop: 12,
   },
 });

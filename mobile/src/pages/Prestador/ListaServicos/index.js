@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text } from "react-native";
-import { BaseButton, ScrollView } from "react-native-gesture-handler";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { Feather as Icon } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
-import api from "../../../services/api";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Feather as Icon, AntDesign, MaterialIcons } from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, Text } from 'react-native';
+import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+
+import api from '../../../services/api';
+
 const ListaServicos = () => {
   const navigation = useNavigation();
   const route = useRoute();
@@ -17,10 +17,10 @@ const ListaServicos = () => {
   // console.log(servicos)
 
   function handleNavigateToPrincipal() {
-    navigation.navigate("Principal");
+    navigation.navigate('Principal');
   }
   function handleNavigateToVerServicos(servico, prestador) {
-    navigation.navigate("VerServicos", { servico, prestador });
+    navigation.navigate('VerServicos', { servico, prestador });
   }
 
   useEffect(() => {
@@ -74,8 +74,8 @@ const ListaServicos = () => {
           style={[
             // styles.description,
             {
-              textAlign: "center",
-              backgroundColor: "rgba(4, 38, 176, 0.3)",
+              textAlign: 'center',
+              backgroundColor: 'rgba(4, 38, 176, 0.3)',
               marginBottom: 9,
               marginTop: 5,
               marginLeft: 20,
@@ -114,21 +114,21 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: 20,
     marginBottom: 15,
-    color: "#13131a",
-    fontWeight: "bold",
-    textAlign: "center",
+    color: '#13131a',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   dataContainer1: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    backgroundColor: "rgba(4, 38, 176, 1)",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: 'rgba(4, 38, 176, 1)',
 
     marginStart: 10,
     marginEnd: 10,
@@ -136,29 +136,29 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   dataContainer: {
-    backgroundColor: "rgba(0, 0, 0, 0.2)",
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
     // height: 60,
-    flexDirection: "row",
+    flexDirection: 'row',
     borderRadius: 9,
     marginStart: 10,
     marginEnd: 10,
-    justifyContent: "space-between",
-    alignItems: "center",
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginTop: 10,
   },
   dataValue: {
     flex: 1,
-    justifyContent: "center",
-    color: "black",
+    justifyContent: 'center',
+    color: 'black',
     marginStart: 14,
     fontSize: 16,
     marginTop: 19,
     marginBottom: 19,
   },
   dataValueIcon: {
-    alignItems: "center",
+    alignItems: 'center',
     marginRight: 12,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
 
   dataValue1: {
@@ -166,13 +166,13 @@ const styles = StyleSheet.create({
     marginTop: 7,
     fontSize: 16,
     marginBottom: 18,
-    color: "white",
+    color: 'white',
     paddingTop: 13,
   },
   buttonIcon1: {
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: 7,
-    textAlign: "center",
+    textAlign: 'center',
   },
 });
 export default ListaServicos;

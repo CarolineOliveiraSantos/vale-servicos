@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Linking } from "react-native";
+import { Feather as Icon, Feather, FontAwesome } from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import * as MailComposer from 'expo-mail-composer';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, Text, Linking } from 'react-native';
 import {
   BaseButton,
   ScrollView,
   TouchableOpacity,
-} from "react-native-gesture-handler";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { Feather as Icon } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
-import { FontAwesome } from "@expo/vector-icons";
-import * as MailComposer from "expo-mail-composer";
-import api from "../../../services/api";
+} from 'react-native-gesture-handler';
+
+import api from '../../../services/api';
 
 const Detalhes = () => {
   const navigation = useNavigation();
@@ -22,10 +21,10 @@ const Detalhes = () => {
     navigation.goBack();
   }
   function handleNavigateToAllServicos(prestador) {
-    navigation.navigate("AllServicos", { prestador, servicoIdd });
+    navigation.navigate('AllServicos', { prestador, servicoIdd });
   }
   function handleNavigateToAvaliacoes(prestador) {
-    navigation.navigate("Avaliacoes", { prestador });
+    navigation.navigate('Avaliacoes', { prestador });
   }
 
   api
@@ -50,7 +49,7 @@ const Detalhes = () => {
 
   function sendWhatsapp() {
     Linking.openURL(
-      `whatsapp://send?phone=+55${prestador.telefone}&text=${message}`
+      `whatsapp://send?phone=+55${prestador.telefone}&text=${message}`,
     );
   }
 
@@ -73,10 +72,10 @@ const Detalhes = () => {
           <Text
             style={[
               {
-                fontWeight: "bold",
+                fontWeight: 'bold',
                 fontSize: 20,
                 marginBottom: 15,
-                textAlign: "center",
+                textAlign: 'center',
               },
             ]}
           >
@@ -95,8 +94,8 @@ const Detalhes = () => {
           style={[
             // styles.description,
             {
-              textAlign: "center",
-              backgroundColor: "rgba(4, 38, 176, 0.3)",
+              textAlign: 'center',
+              backgroundColor: 'rgba(4, 38, 176, 0.3)',
               // marginBottom: 12,
               marginTop: 9,
               marginLeft: 20,
@@ -111,7 +110,7 @@ const Detalhes = () => {
             style={[
               styles.description,
               {
-                textAlign: "center",
+                textAlign: 'center',
                 // backgroundColor: "rgba(4, 38, 176, 0.3)",
                 marginBottom: 9,
                 marginTop: 6,
@@ -139,8 +138,8 @@ const Detalhes = () => {
             style={[
               // styles.description,
               {
-                textAlign: "center",
-                backgroundColor: "rgba(4, 38, 176, 0.3)",
+                textAlign: 'center',
+                backgroundColor: 'rgba(4, 38, 176, 0.3)',
                 // marginBottom: 12,
                 marginTop: 5,
                 marginLeft: 20,
@@ -153,7 +152,7 @@ const Detalhes = () => {
             style={[
               styles.description,
               {
-                textAlign: "center",
+                textAlign: 'center',
                 // backgroundColor: "rgba(4, 38, 176, 0.3)",
                 marginBottom: 9,
                 marginTop: 6,
@@ -216,8 +215,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 18,
-    fontWeight: "bold",
-    color: "black",
+    fontWeight: 'bold',
+    color: 'black',
     paddingEnd: 20,
     paddingStart: 20,
     marginBottom: 10,
@@ -225,40 +224,40 @@ const styles = StyleSheet.create({
   descriptionn: {
     paddingHorizontal: 10,
     fontSize: 16,
-    flexDirection: "row",
-    color: "black",
+    flexDirection: 'row',
+    color: 'black',
     marginBottom: 3,
   },
   dataValuee: {
-    flexDirection: "row",
+    flexDirection: 'row',
     paddingHorizontal: 10,
     fontSize: 16,
     marginBottom: 10,
-    color: "black",
-    fontWeight: "bold",
+    color: 'black',
+    fontWeight: 'bold',
     paddingEnd: 20,
     paddingStart: 20,
   },
   descriptionContainerr: {
     paddingTop: 10,
     paddingBottom: 10,
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
     marginStart: 10,
     marginEnd: 10,
-    backgroundColor: "rgba(4, 38, 176, 0.3)",
+    backgroundColor: 'rgba(4, 38, 176, 0.3)',
     marginBottom: 15,
     paddingHorizontal: 5,
-    color: "#41414d",
+    color: '#41414d',
     borderRadius: 5,
   },
   descriptionContainer: {
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
     paddingHorizontal: 5,
   },
   icon: {
     flex: 1,
-    flexDirection: "column",
-    justifyContent: "space-between",
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   avalia: {
     borderRadius: 5,
@@ -267,38 +266,38 @@ const styles = StyleSheet.create({
     paddingEnd: 20,
     paddingStart: 9,
     marginBottom: 6,
-    flexDirection: "row",
+    flexDirection: 'row',
     // marginTop: 8,
   },
   description: {
     paddingHorizontal: 15,
     fontSize: 16,
-    flexDirection: "row",
-    color: "black",
+    flexDirection: 'row',
+    color: 'black',
 
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   dataValue: {
-    flexDirection: "row",
+    flexDirection: 'row',
     fontSize: 16,
     marginBottom: 8,
     paddingHorizontal: 15,
-    color: "black",
+    color: 'black',
   },
   iconUser: {
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   buttonn: {
-    marginTop: "auto",
-    flexDirection: "row",
-    justifyContent: "center",
+    marginTop: 'auto',
+    flexDirection: 'row',
+    justifyContent: 'center',
     fontSize: 15,
   },
   button: {
     marginTop: 10,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     fontSize: 15,
     marginBottom: 15,
     paddingEnd: 20,
@@ -315,8 +314,8 @@ const styles = StyleSheet.create({
   },
   buttonPad1: {
     marginTop: 5,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     fontSize: 15,
     marginBottom: 15,
     paddingEnd: 20,
@@ -325,36 +324,36 @@ const styles = StyleSheet.create({
   buttonText: {
     width: 150,
     height: 48,
-    backgroundColor: "#0426B0",
-    color: "#FFF",
+    backgroundColor: '#0426B0',
+    color: '#FFF',
     fontSize: 16,
     borderRadius: 5,
-    textAlign: "center",
+    textAlign: 'center',
     paddingTop: 12,
   },
   buttonText1: {
     width: 250,
     height: 42,
-    backgroundColor: "#0426B0",
+    backgroundColor: '#0426B0',
     // color: "#FFF",
     fontSize: 15,
     borderRadius: 5,
-    textAlign: "center",
+    textAlign: 'center',
     // paddingTop: 12,
   },
   linkSection: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 15,
     marginStart: 10,
     marginEnd: 10,
   },
   linkText: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 18,
     paddingHorizontal: 10,
-    color: "#0426B0",
+    color: '#0426B0',
   },
 });
 export default Detalhes;
