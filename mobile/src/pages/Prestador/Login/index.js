@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import { FontAwesome5, Feather as Icon } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react';
 import {
   View,
   StyleSheet,
@@ -6,42 +8,40 @@ import {
   TextInput,
   Alert,
   AsyncStorage,
-} from "react-native";
-import { BaseButton } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
-import { FontAwesome5 } from "@expo/vector-icons";
-import { Feather as Icon } from "@expo/vector-icons";
-import api from "../../../services/api";
+} from 'react-native';
+import { BaseButton } from 'react-native-gesture-handler';
+
+import api from '../../../services/api';
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
   const navigation = useNavigation();
 
   function handleNavigateToPrincipal(prestador) {
-    navigation.navigate("Principal", { prestador });
+    navigation.navigate('Principal', { prestador });
   }
   function handleNavigateToHome() {
-    navigation.goBack("Home");
+    navigation.goBack('Home');
   }
   function handleNavigateToCadastro() {
-    navigation.navigate("Cadastro");
+    navigation.navigate('Cadastro');
   }
   function handleNavigateToRecuperarAcesso() {
-    navigation.navigate("RecuperarAcesso");
+    navigation.navigate('RecuperarAcesso');
   }
 
   async function handleLogin() {
     try {
-      const response = await api.post("sessions", { email, senha });
+      const response = await api.post('sessions', { email, senha });
       if (!response.data.email & !response.data.senha) {
         return erroLogin();
       } else {
-        AsyncStorage.setItem("email", email);
-        AsyncStorage.setItem("senha", senha);
-        AsyncStorage.setItem("nome", response.data.nome);
-        AsyncStorage.setItem("prestador", response.data);
+        AsyncStorage.setItem('email', email);
+        AsyncStorage.setItem('senha', senha);
+        AsyncStorage.setItem('nome', response.data.nome);
+        AsyncStorage.setItem('prestador', response.data);
         const prestador = response.data;
         // console.log(email, response.data);
         return handleNavigateToPrincipal(prestador);
@@ -52,9 +52,9 @@ const Login = () => {
   }
 
   const erroLogin = () =>
-    Alert.alert("Erro na Autenticação", "Dados incorretos, tente novamente!", [
+    Alert.alert('Erro na Autenticação', 'Dados incorretos, tente novamente!', [
       {
-        text: "Ok",
+        text: 'Ok',
         onPress: () => console.log(),
       },
     ]);
@@ -80,8 +80,8 @@ const Login = () => {
         style={[
           // styles.description,
           {
-            textAlign: "center",
-            backgroundColor: "rgba(4, 38, 176, 0.3)",
+            textAlign: 'center',
+            backgroundColor: 'rgba(4, 38, 176, 0.3)',
             marginBottom: 15,
             // marginTop: 5,
             marginLeft: 20,
@@ -129,43 +129,43 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   text: {
-    textAlign: "center",
+    textAlign: 'center',
     marginBottom: 15,
     fontSize: 20,
   },
   buttonIcon: {
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: 7,
   },
   input: {
     height: 60,
-    backgroundColor: "#FFF",
+    backgroundColor: '#FFF',
     borderRadius: 10,
     marginBottom: 8,
     paddingHorizontal: 24,
     fontSize: 16,
   },
   button: {
-    backgroundColor: "#0426B0",
+    backgroundColor: '#0426B0',
     height: 60,
-    flexDirection: "row",
+    flexDirection: 'row',
     borderRadius: 10,
-    overflow: "hidden",
-    alignItems: "center",
+    overflow: 'hidden',
+    alignItems: 'center',
     marginTop: 8,
   },
   link: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     fontSize: 15,
     marginTop: 7,
   },
   buttonText: {
     flex: 1,
-    justifyContent: "center",
-    textAlign: "center",
-    color: "#FFF",
+    justifyContent: 'center',
+    textAlign: 'center',
+    color: '#FFF',
     fontSize: 16,
   },
 });

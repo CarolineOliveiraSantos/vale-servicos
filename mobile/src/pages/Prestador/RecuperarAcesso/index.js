@@ -1,45 +1,49 @@
-import React, { useState, useEffect} from 'react';
-import {View, StyleSheet, Text, TextInput, Alert} from 'react-native';
-import {BaseButton} from "react-native-gesture-handler";
-import {useNavigation} from "@react-navigation/native";
-import {FontAwesome5} from '@expo/vector-icons';
-import {Feather as Icon} from '@expo/vector-icons';
-import api from "../../../services/api";
+import { FontAwesome5, Feather as Icon } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, Text, TextInput, Alert } from 'react-native';
+import { BaseButton } from 'react-native-gesture-handler';
+
+import api from '../../../services/api';
 
 const RecuperarAcesso = () => {
   const navigation = useNavigation();
-  const [cpf, setCpf] = useState("")
-  const [senha, setSenha] = useState("")
+  const [cpf, setCpf] = useState('');
+  const [senha, setSenha] = useState('');
 
   function handleNavigateToHome() {
-    navigation.navigate("Home");
+    navigation.navigate('Home');
   }
   function handleNavigateToBack() {
     navigation.goBack();
   }
 
   async function handleRecuperar() {
-    const response = await api.post("sessions", { cpf });
+    const response = await api.post('sessions', { cpf });
     if (!response.data.cpf) {
-      Alert(erroRecuperar())
+      Alert(erroRecuperar());
     } else {
       const data = { senha };
       try {
         const response = await api.put(`editarprestador/${cpf}`, data);
-        navigation.navigate("Login");
+        navigation.navigate('Login');
       } catch (err) {
-        alert("Erro ao recuperar acesso, tente novamente.");
+        alert('Erro ao recuperar acesso, tente novamente.');
       }
     }
   }
   const erroRecuperar = () =>
-    Alert.alert("Erro ao Recuperar Acesso", "Dados incorretos, tente novamente!", [
-      {
-        text: "Ok",
-        onPress: () => console.log(),
-      },
-    ]);
-  
+    Alert.alert(
+      'Erro ao Recuperar Acesso',
+      'Dados incorretos, tente novamente!',
+      [
+        {
+          text: 'Ok',
+          onPress: () => console.log(),
+        },
+      ],
+    );
+
   return (
     <View style={styles.container}>
       <Text
@@ -61,8 +65,8 @@ const RecuperarAcesso = () => {
         style={[
           // styles.description,
           {
-            textAlign: "center",
-            backgroundColor: "rgba(4, 38, 176, 0.3)",
+            textAlign: 'center',
+            backgroundColor: 'rgba(4, 38, 176, 0.3)',
             marginBottom: 15,
             // marginTop: 5,
             marginLeft: 20,
@@ -102,36 +106,36 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   text: {
-    textAlign: "center",
+    textAlign: 'center',
     marginBottom: 15,
     fontSize: 20,
   },
-  buttonIcon:{
-    alignItems: "center",
+  buttonIcon: {
+    alignItems: 'center',
     marginBottom: 7,
   },
   input: {
     height: 60,
-    backgroundColor: "#FFF",
+    backgroundColor: '#FFF',
     borderRadius: 10,
     marginBottom: 8,
     paddingHorizontal: 24,
     fontSize: 16,
   },
   button: {
-    backgroundColor: "#0426B0",
+    backgroundColor: '#0426B0',
     height: 60,
-    flexDirection: "row",
+    flexDirection: 'row',
     borderRadius: 10,
-    overflow: "hidden",
-    alignItems: "center",
+    overflow: 'hidden',
+    alignItems: 'center',
     marginTop: 8,
   },
   buttonText: {
     flex: 1,
-    justifyContent: "center",
-    textAlign: "center",
-    color: "#FFF",
+    justifyContent: 'center',
+    textAlign: 'center',
+    color: '#FFF',
     fontSize: 16,
   },
 });

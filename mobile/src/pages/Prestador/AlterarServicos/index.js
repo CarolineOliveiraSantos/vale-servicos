@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, TextInput } from "react-native";
-import { BaseButton, ScrollView } from "react-native-gesture-handler";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { Feather as Icon } from "@expo/vector-icons";
-import api from "../../../services/api";
-import { AntDesign } from "@expo/vector-icons";
+import { Feather as Icon, AntDesign } from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, Text, TextInput } from 'react-native';
+import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+
+import api from '../../../services/api';
 
 const AlterarServicos = () => {
   const navigation = useNavigation();
@@ -21,10 +21,10 @@ const AlterarServicos = () => {
     navigation.goBack();
   }
   function handleNavigateToListaServicos() {
-    navigation.navigate("ListaServicos");
+    navigation.navigate('ListaServicos');
   }
 
-  const [tipodeservico, setTipodeservico] = useState("");
+  const [tipodeservico, setTipodeservico] = useState('');
   const [descricao, setDescricao] = useState(servico.descricao);
   const [img_url, setImg_url] = useState(servico.img_url);
 
@@ -53,10 +53,10 @@ const AlterarServicos = () => {
     }
   }
   const erroAlterar = () =>
-    Alert.alert("Erro ao Alterar Dados", "Tente novamente!", [
+    Alert.alert('Erro ao Alterar Dados', 'Tente novamente!', [
       {
-        text: "Ok",
-        onPress: () => console.log("Erro alterar"),
+        text: 'Ok',
+        onPress: () => console.log('Erro alterar'),
       },
     ]);
 
@@ -81,8 +81,8 @@ const AlterarServicos = () => {
           style={[
             // styles.description,
             {
-              textAlign: "center",
-              backgroundColor: "rgba(4, 38, 176, 0.3)",
+              textAlign: 'center',
+              backgroundColor: 'rgba(4, 38, 176, 0.3)',
               marginBottom: 15,
               // marginTop: 5,
               marginLeft: 20,
@@ -119,37 +119,37 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   textText: {
     marginStart: 12,
     marginBottom: 9,
     fontSize: 16,
 
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   text: {
-    textAlign: "center",
+    textAlign: 'center',
     marginBottom: 15,
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   buttonIcon: {
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: 7,
   },
 
   buttonIcon1: {
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: 7,
-    textAlign: "center",
+    textAlign: 'center',
   },
   input: {
     marginStart: 10,
     marginEnd: 10,
     height: 60,
-    backgroundColor: "#FFF",
+    backgroundColor: '#FFF',
     borderRadius: 10,
     marginBottom: 8,
     paddingHorizontal: 24,
@@ -158,19 +158,19 @@ const styles = StyleSheet.create({
   button: {
     marginStart: 10,
     marginEnd: 10,
-    backgroundColor: "#0426B0",
+    backgroundColor: '#0426B0',
     height: 60,
-    flexDirection: "row",
+    flexDirection: 'row',
     borderRadius: 10,
-    overflow: "hidden",
-    alignItems: "center",
+    overflow: 'hidden',
+    alignItems: 'center',
     marginTop: 8,
   },
   buttonText: {
     flex: 1,
-    justifyContent: "center",
-    textAlign: "center",
-    color: "#FFF",
+    justifyContent: 'center',
+    textAlign: 'center',
+    color: '#FFF',
     fontSize: 16,
   },
 });

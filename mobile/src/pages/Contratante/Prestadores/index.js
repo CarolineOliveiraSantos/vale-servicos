@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { Feather as Icon } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
-import api from "../../../services/api";
+import { Feather as Icon, Feather } from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+
+import api from '../../../services/api';
 
 const Prestadoress = () => {
   const navigation = useNavigation();
@@ -12,10 +12,10 @@ const Prestadoress = () => {
   const contratante = route.params.contratante;
 
   function handleNavigateToHome() {
-    navigation.navigate("homeContratante");
+    navigation.navigate('homeContratante');
   }
   function handleNavigateToDetalhes(prestador, contratante) {
-    navigation.navigate("Detalhess", { prestador, contratante });
+    navigation.navigate('Detalhess', { prestador, contratante });
   }
 
   const [prestadores, setPrestadores] = useState([]);
@@ -33,7 +33,7 @@ const Prestadoress = () => {
 
     const response = await api.get(`servicosPrestadores/${serv.id}`);
 
-    setTotal(response.headers["x-total-count"]);
+    setTotal(response.headers['x-total-count']);
   }
   useEffect(() => {
     loadPrestadores();
@@ -70,8 +70,8 @@ const Prestadoress = () => {
         style={[
           // styles.description,
           {
-            textAlign: "center",
-            backgroundColor: "rgba(4, 38, 176, 0.5)",
+            textAlign: 'center',
+            backgroundColor: 'rgba(4, 38, 176, 0.5)',
             marginBottom: 15,
             // marginTop: 5,
             marginLeft: 190,
@@ -113,62 +113,62 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 16,
-    color: "#737380",
-    textAlign: "right",
+    color: '#737380',
+    textAlign: 'right',
     marginEnd: 15,
   },
   headerTextText: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   linklink: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginBottom: 10,
   },
   title: {
     fontSize: 20,
     marginBottom: 15,
-    color: "#13131a",
-    fontWeight: "bold",
-    textAlign: "center",
+    color: '#13131a',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   descriptionContainer: {
     // height: 225,
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
     marginStart: 10,
     marginEnd: 10,
-    backgroundColor: "rgba(4, 38, 176, 0.3)",
+    backgroundColor: 'rgba(4, 38, 176, 0.3)',
     marginBottom: 15,
     paddingHorizontal: 5,
-    color: "#41414d",
+    color: '#41414d',
     borderRadius: 5,
   },
   description: {
     paddingHorizontal: 10,
     fontSize: 16,
-    flexDirection: "row",
-    color: "black",
-    fontWeight: "bold",
+    flexDirection: 'row',
+    color: 'black',
+    fontWeight: 'bold',
   },
   dataValue: {
-    flexDirection: "row",
+    flexDirection: 'row',
     paddingHorizontal: 10,
     fontSize: 16,
     marginBottom: 10,
-    color: "black",
+    color: 'black',
   },
   linkSection: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 15,
   },
   linkText: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 18,
     paddingHorizontal: 10,
-    color: "#0426B0",
+    color: '#0426B0',
   },
 });
 export default Prestadoress;

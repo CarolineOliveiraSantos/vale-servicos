@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { View, StyleSheet, Text } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { Feather as Icon } from "@expo/vector-icons";
-import api from "../../../services/api";
+import { Feather as Icon } from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import React, { useState } from 'react';
+import { View, StyleSheet, Text } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+
+import api from '../../../services/api';
 
 const AllServicos = () => {
   const navigation = useNavigation();
@@ -68,33 +69,33 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     marginBottom: 15,
-    color: "#13131a",
-    fontWeight: "bold",
-    textAlign: "center",
+    color: '#13131a',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   descriptionContainer: {
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
     marginStart: 10,
     marginEnd: 10,
-    backgroundColor: "rgba(4, 38, 176, 0.3)",
+    backgroundColor: 'rgba(4, 38, 176, 0.3)',
     marginBottom: 15,
     paddingHorizontal: 5,
-    color: "#41414d",
+    color: '#41414d',
     borderRadius: 5,
   },
   description: {
     paddingHorizontal: 10,
     fontSize: 16,
-    flexDirection: "row",
-    color: "black",
-    fontWeight: "bold",
+    flexDirection: 'row',
+    color: 'black',
+    fontWeight: 'bold',
   },
   dataValue: {
-    flexDirection: "row",
+    flexDirection: 'row',
     paddingHorizontal: 10,
     fontSize: 16,
     marginBottom: 10,
-    color: "black",
+    color: 'black',
   },
 });
 export default AllServicos;

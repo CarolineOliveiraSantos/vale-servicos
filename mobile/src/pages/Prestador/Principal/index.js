@@ -1,10 +1,12 @@
-import React from "react";
-import { View, StyleSheet, Text, Image, Alert } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { FontAwesome5 } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
+import {
+  MaterialCommunityIcons,
+  FontAwesome5,
+  Entypo,
+  Feather,
+} from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import React from 'react';
+import { View, StyleSheet, Text, Image, Alert } from 'react-native';
 
 const Principal = () => {
   const navigation = useNavigation();
@@ -13,40 +15,40 @@ const Principal = () => {
   // console.log(route.params.prestador);
 
   function handleNavigateToDadosPessoais(prestador) {
-    navigation.navigate("DadosPessoais", { prestador });
+    navigation.navigate('DadosPessoais', { prestador });
   }
   function handleNavigateToServicos(prestador) {
-    navigation.navigate("ListaServicos", { prestador });
+    navigation.navigate('ListaServicos', { prestador });
   }
   function handleNavigateToAdServicos(prestador) {
-    navigation.navigate("AdServicos", { prestador });
+    navigation.navigate('AdServicos', { prestador });
   }
   function handleNavigateToHome() {
-    navigation.navigate("Home");
+    navigation.navigate('Home');
   }
   const createAlert = () =>
     Alert.alert(
-      "Sair",
-      "Tem certeza que deseja sair?",
+      'Sair',
+      'Tem certeza que deseja sair?',
       [
         {
-          text: "Cancelar",
+          text: 'Cancelar',
           onPress: () => console.log(),
         },
         {
-          text: "Sair",
+          text: 'Sair',
           onPress: () => {
             return handleNavigateToHome();
           },
         },
       ],
-      { cancelable: false }
+      { cancelable: false },
     );
 
   return (
     <View style={styles.container}>
       <View style={styles.image}>
-        <Image source={require("../../../assets/background.png")} />
+        <Image source={require('../../../assets/background.png')} />
         <Text style={styles.title}>Olá, {prestador.nome}</Text>
       </View>
 
@@ -86,28 +88,28 @@ const styles = StyleSheet.create({
   },
   menu: {
     flex: 0.1,
-    backgroundColor: "#0426B0",
-    alignItems: "flex-end",
-    justifyContent: "space-between",
-    flexDirection: "row",
+    backgroundColor: '#0426B0',
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
   },
   menuIcon: {
-    marginBottom: "auto",
-    marginTop: "auto",
+    marginBottom: 'auto',
+    marginTop: 'auto',
     paddingEnd: 30,
     paddingStart: 30,
   },
   image: {
     flex: 0.9,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   title: {
     fontSize: 17,
     marginBottom: 15,
-    color: "#13131a",
+    color: '#13131a',
     // fontWeight: "bold",
-    textAlign: "center",
+    textAlign: 'center',
   },
 });
 export default Principal;

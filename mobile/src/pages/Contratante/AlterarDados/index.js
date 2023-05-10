@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, TextInput, Alert } from "react-native";
-import { BaseButton, ScrollView } from "react-native-gesture-handler";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { FontAwesome5 } from "@expo/vector-icons";
-import { Feather as Icon } from "@expo/vector-icons";
-import api from "../../../services/api";
+import { FontAwesome5, Feather as Icon } from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, Text, TextInput, Alert } from 'react-native';
+import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+
+import api from '../../../services/api';
 
 const AlterarDadoss = () => {
   const navigation = useNavigation();
@@ -20,7 +20,7 @@ const AlterarDadoss = () => {
   // console.log(contratanteId);
 
   function handleNavigateToDadosPessoais() {
-    navigation.navigate("DadosPessoaiss");
+    navigation.navigate('DadosPessoaiss');
   }
 
   const [nome, setNome] = useState(contratante.nome);
@@ -53,7 +53,7 @@ const AlterarDadoss = () => {
       };
       const response = await api.put(
         `editarcontratantes/${contratanteId}`,
-        data
+        data,
       );
       return handleNavigateToDadosPessoais();
     } catch (err) {
@@ -61,9 +61,9 @@ const AlterarDadoss = () => {
     }
   }
   const erroAlterar = () =>
-    Alert.alert("Erro ao Alterar Dados", "Tente novamente!", [
+    Alert.alert('Erro ao Alterar Dados', 'Tente novamente!', [
       {
-        text: "Ok",
+        text: 'Ok',
         onPress: () => console.log(),
       },
     ]);
@@ -89,8 +89,8 @@ const AlterarDadoss = () => {
           style={[
             // styles.description,
             {
-              textAlign: "center",
-              backgroundColor: "rgba(4, 38, 176, 0.3)",
+              textAlign: 'center',
+              backgroundColor: 'rgba(4, 38, 176, 0.3)',
               marginBottom: 13,
               // marginTop: 5,
               marginLeft: 20,
@@ -170,50 +170,50 @@ const styles = StyleSheet.create({
   },
   textText: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   header: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   text: {
-    textAlign: "center",
+    textAlign: 'center',
     marginBottom: 15,
     fontSize: 20,
   },
   buttonIcon: {
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: 7,
   },
   input: {
     height: 55,
-    backgroundColor: "#FFF",
+    backgroundColor: '#FFF',
     borderRadius: 10,
     marginBottom: 8,
     paddingHorizontal: 24,
     fontSize: 16,
   },
   button: {
-    backgroundColor: "#0426B0",
+    backgroundColor: '#0426B0',
     height: 55,
-    flexDirection: "row",
+    flexDirection: 'row',
     borderRadius: 10,
-    alignItems: "center",
+    alignItems: 'center',
     marginTop: 8,
   },
   link: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     fontSize: 16,
     marginTop: 10,
   },
   buttonText: {
     flex: 1,
-    justifyContent: "center",
-    textAlign: "center",
-    color: "#FFF",
+    justifyContent: 'center',
+    textAlign: 'center',
+    color: '#FFF',
     fontSize: 16,
   },
 });

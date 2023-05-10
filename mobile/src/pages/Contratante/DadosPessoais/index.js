@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Alert, Image } from "react-native";
-import { BaseButton, ScrollView } from "react-native-gesture-handler";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { Feather as Icon } from "@expo/vector-icons";
-import api from "../../../services/api";
-import { FontAwesome5 } from "@expo/vector-icons";
+import { Feather as Icon, FontAwesome5 } from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, Text, Alert, Image } from 'react-native';
+import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+
+import api from '../../../services/api';
 
 const DadosPessoaiss = () => {
   const navigation = useNavigation();
@@ -18,10 +18,10 @@ const DadosPessoaiss = () => {
     navigation.goBack();
   }
   function handleNavigateToHome() {
-    navigation.navigate("Home");
+    navigation.navigate('Home');
   }
   function handleNavigateToAlterarDados(contratante) {
-    navigation.navigate("AlterarDadoss", { contratante });
+    navigation.navigate('AlterarDadoss', { contratante });
   }
 
   useEffect(() => {
@@ -41,31 +41,31 @@ const DadosPessoaiss = () => {
     try {
       await api.delete(`contratanteApagar/${id}`);
       setContratantes(
-        contratantes.filter((contratante) => contratante.id !== id)
+        contratantes.filter((contratante) => contratante.id !== id),
       );
-      return navigation.navigate("Home");
+      return navigation.navigate('Home');
     } catch (err) {
-      alert("Erro ao deletar contratante, tente novamente.");
+      alert('Erro ao deletar contratante, tente novamente.');
     }
   }
 
   const createAlert = () =>
     Alert.alert(
-      "Excluir",
-      "Tem certeza que deseja excluir sua conta?",
+      'Excluir',
+      'Tem certeza que deseja excluir sua conta?',
       [
         {
-          text: "Cancelar",
+          text: 'Cancelar',
           onPress: () => console.log(),
         },
         {
-          text: "Excluir",
+          text: 'Excluir',
           onPress: () => {
             return handleDeleteAccount();
           },
         },
       ],
-      { cancelable: false }
+      { cancelable: false },
     );
 
   return (
@@ -93,8 +93,8 @@ const DadosPessoaiss = () => {
             style={[
               styles.description,
               {
-                textAlign: "center",
-                backgroundColor: "rgba(4, 38, 176, 0.3)",
+                textAlign: 'center',
+                backgroundColor: 'rgba(4, 38, 176, 0.3)',
                 marginBottom: 15,
                 // marginTop: 25,
                 marginLeft: 20,
@@ -158,46 +158,46 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   buttonIcon: {
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: 7,
   },
   prestadorImage: {
-    width: "100%",
+    width: '100%',
     height: 120,
-    resizeMode: "cover",
+    resizeMode: 'cover',
     borderRadius: 10,
     marginTop: 32,
   },
   header: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: 20,
     marginBottom: 15,
-    color: "#13131a",
-    fontWeight: "bold",
-    textAlign: "center",
+    color: '#13131a',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   data: {
     paddingHorizontal: 24,
     fontSize: 16,
-    color: "black",
-    fontWeight: "bold",
+    color: 'black',
+    fontWeight: 'bold',
   },
   dataValue: {
     paddingHorizontal: 24,
     fontSize: 16,
     marginBottom: 15,
-    color: "black",
+    color: 'black',
   },
   button: {
     // flex: 1,
 
     height: 50,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     fontSize: 15,
     marginTop: 15,
     paddingEnd: 20,
@@ -205,11 +205,11 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     width: 130,
-    backgroundColor: "#0426B0",
-    color: "#FFF",
+    backgroundColor: '#0426B0',
+    color: '#FFF',
     fontSize: 16,
     borderRadius: 5,
-    textAlign: "center",
+    textAlign: 'center',
     paddingTop: 12,
   },
 });

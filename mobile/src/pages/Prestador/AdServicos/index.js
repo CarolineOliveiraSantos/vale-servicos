@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { Feather as Icon, Entypo } from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import SvgUri from 'expo-svg-uri';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-} from "react-native";
-import { BaseButton, ScrollView } from "react-native-gesture-handler";
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { Feather as Icon } from "@expo/vector-icons";
-import api from "../../../services/api";
-import SvgUri from "expo-svg-uri";
-import { Entypo } from "@expo/vector-icons";
+} from 'react-native';
+import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+
+import api from '../../../services/api';
 
 const AdServicos = () => {
   const navigation = useNavigation();
@@ -20,26 +20,26 @@ const AdServicos = () => {
   const prestador = route.params.prestador;
 
   function handleNavigateToListaServicos(prestador) {
-    navigation.navigate("ListaServicos", { prestador });
+    navigation.navigate('ListaServicos', { prestador });
   }
   function handleNavigateToPrincipal() {
-    navigation.navigate("Principal");
+    navigation.navigate('Principal');
   }
 
-  const [descricao, setDescricao] = useState("");
-  const [img_url, setImg_url] = useState("");
-  const [prestador_id, setPrestadorId] = useState("");
+  const [descricao, setDescricao] = useState('');
+  const [img_url, setImg_url] = useState('');
+  const [prestador_id, setPrestadorId] = useState('');
 
   const [servicos, setServicos] = useState([]);
 
   useEffect(() => {
-    api.get("servicoslist").then((res) => {
+    api.get('servicoslist').then((res) => {
       setServicos(res.data);
       // console.log(res.data);
     });
   });
   const [selectedItems, setSelectedItems] = useState([]);
-  const [serv, setServicoId] = useState("");
+  const [serv, setServicoId] = useState('');
 
   function handleSelectedItem(id) {
     const alreadySelected = selectedItems.findIndex((item) => item === id);
@@ -67,7 +67,7 @@ const AdServicos = () => {
       const response = await api.post(`addservico/${prestadorIdd}`, data);
       return handleNavigateToListaServicos(prestador);
     } catch (err) {
-      alert("Erro ao adicionar serviço, tente novamente.");
+      alert('Erro ao adicionar serviço, tente novamente.');
       console.log(err);
     }
   }
@@ -91,8 +91,8 @@ const AdServicos = () => {
           style={[
             // styles.description,
             {
-              textAlign: "center",
-              backgroundColor: "rgba(4, 38, 176, 0.8)",
+              textAlign: 'center',
+              backgroundColor: 'rgba(4, 38, 176, 0.8)',
               marginBottom: 5,
               // marginTop: 5,
               marginLeft: 20,
@@ -117,7 +117,7 @@ const AdServicos = () => {
                 styles.item,
                 selectedItems.includes(item.id) ? styles.selectedItem : {},
               ]}
-              className={selectedItems.includes(item.id) ? "selected" : ""}
+              className={selectedItems.includes(item.id) ? 'selected' : ''}
               onPress={() => handleSelectedItem(item.id)}
               activeOpacity={0.5}
             >
@@ -137,8 +137,8 @@ const AdServicos = () => {
           style={[
             // styles.description,
             {
-              textAlign: "center",
-              backgroundColor: "rgba(4, 38, 176, 0.8)",
+              textAlign: 'center',
+              backgroundColor: 'rgba(4, 38, 176, 0.8)',
               marginBottom: 15,
               // marginTop: 5,
               marginLeft: 20,
@@ -175,19 +175,19 @@ const styles = StyleSheet.create({
   },
 
   buttonIcon1: {
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: 7,
-    textAlign: "center",
+    textAlign: 'center',
   },
   header: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   item: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     borderWidth: 2,
-    borderColor: "#eee",
+    borderColor: '#eee',
     height: 120,
     width: 120,
     borderRadius: 8,
@@ -196,42 +196,42 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     marginBottom: 10,
     marginRight: 8,
-    alignItems: "center",
-    justifyContent: "space-between",
+    alignItems: 'center',
+    justifyContent: 'space-between',
 
-    textAlign: "center",
+    textAlign: 'center',
   },
   data: {
     paddingHorizontal: 24,
     fontSize: 16,
-    color: "black",
-    fontWeight: "bold",
+    color: 'black',
+    fontWeight: 'bold',
   },
   selectedItem: {
-    borderColor: "#0426B0",
+    borderColor: '#0426B0',
     borderWidth: 2,
   },
 
   itemTitle: {
     // fontFamily: "Roboto_400Regular",
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 13,
   },
   text: {
-    textAlign: "center",
+    textAlign: 'center',
     marginBottom: 15,
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   buttonIcon: {
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: 7,
   },
   input: {
     marginStart: 20,
     marginEnd: 20,
     height: 60,
-    backgroundColor: "#FFF",
+    backgroundColor: '#FFF',
     borderRadius: 10,
     marginBottom: 8,
     paddingHorizontal: 24,
@@ -240,19 +240,19 @@ const styles = StyleSheet.create({
   button: {
     marginStart: 20,
     marginEnd: 20,
-    backgroundColor: "#0426B0",
+    backgroundColor: '#0426B0',
     height: 60,
-    flexDirection: "row",
+    flexDirection: 'row',
     borderRadius: 10,
-    overflow: "hidden",
-    alignItems: "center",
+    overflow: 'hidden',
+    alignItems: 'center',
     marginTop: 8,
   },
   buttonText: {
     flex: 1,
-    justifyContent: "center",
-    textAlign: "center",
-    color: "#FFF",
+    justifyContent: 'center',
+    textAlign: 'center',
+    color: '#FFF',
     fontSize: 16,
   },
 });
