@@ -14,7 +14,7 @@ export default function App() {
 
   if (!fontsLoaded) {
     return (
-      <View style={{flex:1, alignItems:"center", justifyContent: "center"}}>
+      <View style={{flex:1, alignItems:"center", justifyContent: "center"}} >
         <ActivityIndicator/>
       </View>
     )
