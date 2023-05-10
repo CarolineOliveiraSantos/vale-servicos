@@ -1,14 +1,15 @@
-const conn = require("../database/connecton");
-const { request } = require("express");
-const { index, show } = require("./PrestadoresController");
+const conn = require('../database/connecton');
+const { request } = require('express');
+const { index, show } = require('./PrestadoresController');
 
 module.exports = {
   // listar todos os dados de um prestador especifico
   async index(req, res) {
     const cpf = req.headers.authorization;
-    const dados = await conn("prestadores").select("*").where("prestadores.cpf",  cpf)
-    
-      
+    const dados = await conn('prestadores')
+      .select('*')
+      .where('prestadores.cpf', cpf);
+
     return res.json(dados);
   },
 
@@ -20,9 +21,9 @@ module.exports = {
     //     return res.status(401).json({error: "opercao nao permitida"})
     // }
 
-    const servicos = await conn("serv_prestado")
-      .where("prestador_id", prestador_id)
-      .select("*");
+    const servicos = await conn('serv_prestado')
+      .where('prestador_id', prestador_id)
+      .select('*');
     return res.json(servicos);
-  },
+  }
 };
