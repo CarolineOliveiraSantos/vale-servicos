@@ -1,18 +1,19 @@
 const express = require('express');
 const routes = express.Router();
 const multer = require('multer');
+
 const multerConfig = require('./config/multer');
 
 const uploads = multer(multerConfig);
-const PrestadorController = require('./Controllers/PrestadoresController');
-const ContratanteController = require('./Controllers/ContratantesController');
-const ServicosController = require('./Controllers/ServicosController');
-const Serv_prestadoController = require('./Controllers/Serv_prestadoController');
-const ProfileController = require('./Controllers/ProfileController');
-const ProfileCController = require('./Controllers/ProfileCController');
-const SessionCntroller = require('./Controllers/SessionController');
-const SessionCController = require('./Controllers/SessionCController');
 const AvaliacoesController = require('./Controllers/AvaliacoesController');
+const ContratanteController = require('./Controllers/ContratantesController');
+const PrestadorController = require('./Controllers/PrestadoresController');
+const ProfileCController = require('./Controllers/ProfileCController');
+const ProfileController = require('./Controllers/ProfileController');
+const Serv_prestadoController = require('./Controllers/Serv_prestadoController');
+const ServicosController = require('./Controllers/ServicosController');
+const SessionCController = require('./Controllers/SessionCController');
+const SessionCntroller = require('./Controllers/SessionController');
 
 //  PRESTADORES
 routes.post('/prestadores', uploads.single('img'), PrestadorController.create);

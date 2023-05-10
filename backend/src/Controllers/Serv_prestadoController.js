@@ -1,5 +1,7 @@
 const conn = require('../database/connecton');
+
 const { request } = require('express');
+
 const { index, show } = require('./PrestadoresController');
 const { servs } = require('./ProfileController');
 
@@ -12,8 +14,8 @@ module.exports = {
       descricao,
       img_url,
       prestador_id,
-      servico_id,
-    })
+      servico_id
+    });
 
     return res.json({ serv });
   },
@@ -26,7 +28,7 @@ module.exports = {
     await conn('serv_prestado')
       .update({
         descricao,
-        img_url,
+        img_url
       })
       .where('id', '=', id);
 
@@ -88,7 +90,7 @@ module.exports = {
         'serv_prestado',
         'prestadores.id',
         '=',
-        'serv_prestado.prestador_id',
+        'serv_prestado.prestador_id'
       )
       .where('serv_prestado.servico_id', id)
       .count();
@@ -98,7 +100,7 @@ module.exports = {
         'serv_prestado',
         'prestadores.id',
         '=',
-        'serv_prestado.prestador_id',
+        'serv_prestado.prestador_id'
       )
       // .limit(100)
       // .offset((page - 1) * 5)
@@ -114,8 +116,8 @@ module.exports = {
       return {
         nome: prestador.nome,
         telefone: prestador.telefone,
-        sobre: prestador.sobre,
-      }
+        sobre: prestador.sobre
+      };
     });
     res.header('X-Total-Count', count['count(*)']);
 

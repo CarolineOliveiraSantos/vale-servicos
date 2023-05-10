@@ -12,9 +12,9 @@ exports.up = function (knex) {
     table.foreign('prestador_id').references('id').inTable('prestadores');
     table.foreign('contratante_id').references('id').inTable('contratantes');
     table.foreign('servprestado_id').references('id').inTable('serv_prestado');
-  })
-}
+  });
+};
 
 exports.down = function (knex) {
   return knex.schema.dropTable('avaliacoes');
-}
+};

@@ -1,6 +1,7 @@
 {
   "singleQuote": true,
-  "trailingComma": "all",
+  "trailingComma": "none",
   "arrowParens": "always",
-  "semi": true
+  "semi": true,
+  "editorconfig": true
 }

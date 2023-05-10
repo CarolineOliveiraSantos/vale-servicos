@@ -20,9 +20,9 @@ exports.up = function (knex) {
     table.decimal('longitude').notNullable();
     table.string('city').notNullable();
     table.string('uf', 2).notNullable();
-  })
-}
+  });
+};
 
 exports.down = function (knex) {
   return knex.schema.dropTable('contratos');
-}
+};

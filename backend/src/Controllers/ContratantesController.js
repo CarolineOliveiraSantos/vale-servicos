@@ -12,8 +12,8 @@ module.exports = {
       senha,
       telefone,
       city,
-      uf: 'MS',
-    })
+      uf: 'MS'
+    });
 
     return res.json(req.body);
   },
@@ -41,7 +41,7 @@ module.exports = {
         senha,
         telefone,
         city,
-        uf,
+        uf
       })
       .where('id', '=', id);
 

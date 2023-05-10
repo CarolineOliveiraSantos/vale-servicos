@@ -6,8 +6,8 @@ module.exports = {
     await conn('servicos').insert({
       name,
       info,
-      img,
-    })
+      img
+    });
 
     return res.json(req.body);
   },
@@ -18,8 +18,8 @@ module.exports = {
     const serializedServicos = servicos.map((servico) => {
       return {
         ...servico,
-        image_url: `http://192.168.1.8:3333/uploadsServs/${servico.img}`,
-      }
+        image_url: `http://192.168.1.8:3333/uploadsServs/${servico.img}`
+      };
     });
     return res.json(serializedServicos);
   },
@@ -29,9 +29,9 @@ module.exports = {
     const servicos = await conn('servicos').select('*').where('id', '=', id);
     const serializedServicos = servicos.map((servico) => {
       return {
-        ...servico,
+        ...servico
         // image_url: `http://192.168.1.8:3333/uploadsServs/${servico.img}`,
-      }
+      };
     });
     return res.json(serializedServicos);
   },
@@ -45,7 +45,7 @@ module.exports = {
       .update({
         name,
         info,
-        img,
+        img
       })
       .where('id', '=', id);
 

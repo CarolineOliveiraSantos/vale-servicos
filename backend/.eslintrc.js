@@ -1,22 +1,31 @@
 module.exports = {
   env: {
     es2021: true,
-    node: true,
+    node: true
   },
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier',
-    'standard',
+    'standard'
   ],
   overrides: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
+    sourceType: 'module'
   },
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: ['@typescript-eslint', 'import-helpers', 'prettier'],
   rules: {
+    semi: ['error', 'always'],
+    'space-before-function-paren': [
+      'error',
+      {
+        anonymous: 'always',
+        named: 'never',
+        asyncArrow: 'always'
+      }
+    ],
     'import-helpers/order-imports': [
       'warn',
       {
@@ -24,18 +33,19 @@ module.exports = {
         groups: ['module', '/^@shared/', ['parent', 'sibling', 'index']],
         alphabetize: {
           order: 'asc',
-          ignoreCase: true,
+          ignoreCase: true
         }
-      },
+      }
     ],
     'prettier/prettier': [
       'error',
       {
         singleQuote: true,
-        trailingComma: 'all',
+        trailingComma: 'none',
         arrowParens: 'always',
         semi: true,
+        editorconfig: true
       }
-    ],
+    ]
   }
 };

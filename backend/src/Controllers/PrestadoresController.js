@@ -1,4 +1,5 @@
 const conn = require('../database/connecton');
+
 const { request } = require('express');
 const crypto = require('crypto');
 
@@ -15,7 +16,7 @@ module.exports = {
       sobre,
       referencia,
       city,
-      uf,
+      uf
     } = req.body;
 
     await conn('prestadores').insert({
@@ -30,8 +31,8 @@ module.exports = {
       sobre,
       referencia,
       city,
-      uf,
-    })
+      uf
+    });
 
     return res.json(req.body);
   },
@@ -49,8 +50,8 @@ module.exports = {
     const serializesPrests = user.map((user) => {
       return {
         ...user,
-        image_url: `http://192.168.42.110:3333/uploads/${user.img}`,
-      }
+        image_url: `http://192.168.42.110:3333/uploads/${user.img}`
+      };
     });
     return res.json(serializesPrests);
   },
@@ -71,7 +72,7 @@ module.exports = {
         sobre,
         referencia,
         city,
-        uf,
+        uf
       })
       .where('cpf', '=', cpf);
 
@@ -109,7 +110,7 @@ module.exports = {
         'serv_prestado',
         'prestadores.id',
         '=',
-        'serv_prestado.prestador_id',
+        'serv_prestado.prestador_id'
       )
       // .limit(5)
       // .offset((page - 1) * 5)
@@ -122,15 +123,15 @@ module.exports = {
     const serializedServico = serv.map((servico) => {
       return {
         name: serv.name,
-        info: serv.info,
-      }
+        info: serv.info
+      };
     });
 
     const serializedServPrest = seervP.map((serviPrestado) => {
       return {
         descricao: serviPrestado.descricao,
-        img_url: serviPrestado.img_url,
-      }
+        img_url: serviPrestado.img_url
+      };
     });
     res.header('X-Total-Count', count['count(*)']);
 

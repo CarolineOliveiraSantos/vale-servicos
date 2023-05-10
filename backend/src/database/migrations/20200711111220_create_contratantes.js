@@ -8,9 +8,9 @@ exports.up = function (knex) {
     table.string('telefone').notNullable();
     table.string('city').notNullable();
     table.string('uf', 2).notNullable();
-  })
-}
+  });
+};
 
 exports.down = function (knex) {
   return knex.schema.createTable('contratantes');
-}
+};

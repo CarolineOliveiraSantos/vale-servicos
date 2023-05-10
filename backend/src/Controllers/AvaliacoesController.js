@@ -12,8 +12,8 @@ module.exports = {
       comentario,
       prestador_id,
       contratante_id,
-      servprestado_id,
-    })
+      servprestado_id
+    });
 
     return res.json({ avaliacao });
   },
@@ -50,7 +50,7 @@ module.exports = {
     await conn('avaliacoes')
       .update({
         nota,
-        comentario,
+        comentario
       })
       .where('id', '=', id);
 
