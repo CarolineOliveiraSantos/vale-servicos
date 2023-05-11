@@ -1,6 +1,5 @@
 import { Feather as Icon, Entypo } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import SvgUri from 'expo-svg-uri';
 import React, { useState, useEffect } from 'react';
 import {
   View,
@@ -61,7 +60,7 @@ const Principalll = () => {
             onPress={() => handleNavigateToPrestadores(servico)}
             activeOpacity={0.8}
           >
-            <SvgUri
+            {/* <SvgUri
               width="100"
               height="100"
               //   style={styles.icon}
@@ -70,7 +69,7 @@ const Principalll = () => {
                 // uri: servico.image_url,
               }}
               //   source={require({servico.image_url})}
-            />
+            /> */}
 
             {/* <Text style={[{ marginStart: 8, marginTop: 5 }]}>
                             <Entypo name="home" size={100} color="black" />

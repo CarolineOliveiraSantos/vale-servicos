@@ -14,7 +14,7 @@ import homeContratante from './pages/Contratante/Home';
 import loginContratante from './pages/Contratante/Login';
 import Prestadoress from './pages/Contratante/Prestadores';
 import RecuperarAcessoo from './pages/Contratante/RecuperarAcesso';
-import Home from './pages/Home';
+import Home from './pages/Dashboard';
 // PRESTADOR
 import AdServicos from './pages/Prestador/AdServicos';
 import AlterarDados from './pages/Prestador/AlterarDados';

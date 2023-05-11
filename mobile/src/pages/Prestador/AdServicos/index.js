@@ -1,7 +1,6 @@
 import { Feather as Icon, Entypo } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import SvgUri from 'expo-svg-uri';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   View,
   StyleSheet,
@@ -121,14 +120,14 @@ const AdServicos = () => {
               onPress={() => handleSelectedItem(item.id)}
               activeOpacity={0.5}
             >
-              <SvgUri
+              {/* <SvgUri
                 width={42}
                 height={42}
                 source={{
                   uri: `http://192.168.42.110:3333/uploadsServs/${item.img}`,
                   // uri: item.image_url,
                 }}
-              />
+              /> */}
               <Text style={styles.itemTitle}>{item.name}</Text>
             </TouchableOpacity>
           ))}
