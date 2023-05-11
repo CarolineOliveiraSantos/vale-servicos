@@ -1,9 +1,11 @@
 /* eslint-disable camelcase */
+import { StatusBar } from '@/components/StatusBar';
 import { Roboto_400Regular, Roboto_500Medium } from '@expo-google-fonts/roboto';
 import { Ubuntu_700Bold, useFonts } from '@expo-google-fonts/ubuntu';
-import { StatusBar, ActivityIndicator, View } from 'react-native';
 
-import Routes from './src/routes';
+import { Loading } from './src/components/Loading';
+import { ThemeProvider } from './src/contexts/ThemeContext';
+import { Routes } from './src/routes/routes';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -12,18 +14,10 @@ export default function App() {
     Ubuntu_700Bold,
   });
 
-  if (!fontsLoaded) {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <ActivityIndicator />
-      </View>
-    );
-  }
-
   return (
-    <>
-      <StatusBar barStyle="dark-content" backgroundColor="transparent" />
-      <Routes />
-    </>
+    <ThemeProvider>
+      <StatusBar />
+      {fontsLoaded ? <Routes /> : <Loading />}
+    </ThemeProvider>
   );
 }
