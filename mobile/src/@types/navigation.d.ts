@@ -4,6 +4,7 @@ export declare global {
       Login: undefined;
       Principalll: undefined;
       loginContratante: undefined;
+      Prestadores: { id: string };
     }
   }
 }

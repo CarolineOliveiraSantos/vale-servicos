@@ -4,9 +4,11 @@ import { Replace } from '../helpers/Replace';
 
 export interface AddressProps {
   id: string;
+  street: string;
+  neighborhood: string;
   cep: string;
   city: string;
-  uf: string;
+  state: string;
 }
 export class Address {
   private props: AddressProps;
@@ -29,12 +31,28 @@ export class Address {
     this.props.city = city;
   }
 
-  public get uf() {
-    return this.props.uf;
+  public get state() {
+    return this.props.state;
   }
 
-  public set uf(uf: string) {
-    this.props.uf = uf;
+  public set state(state: string) {
+    this.props.state = state;
+  }
+
+  public get street() {
+    return this.props.street;
+  }
+
+  public set street(street: string) {
+    this.props.street = street;
+  }
+
+  public get neighborhood() {
+    return this.props.neighborhood;
+  }
+
+  public set neighborhood(neighborhood: string) {
+    this.props.neighborhood = neighborhood;
   }
 
   public get cep() {

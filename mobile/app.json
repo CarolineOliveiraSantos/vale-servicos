@@ -2,22 +2,33 @@
   "expo": {
     "name": "Vale Serviços",
     "slug": "valeservicos",
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "version": "1.0.0",
-    "orientation": "portrait",
     "jsEngine": "hermes",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ECF0FF"
+      "backgroundColor": "#fff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.gabriel85.valeservicos",
+      "adaptiveIcon": {
+        "backgroundColor": "#fff",
+        "backgroundImage": "./assets/adaptive-icon.png"
+      }
     }
   }
 }

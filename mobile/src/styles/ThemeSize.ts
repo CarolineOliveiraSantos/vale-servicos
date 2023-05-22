@@ -2,6 +2,7 @@ import { PixelRatio } from 'react-native';
 const { getPixelSizeForLayoutSize } = PixelRatio;
 export const ThemeSize = {
   full: '100%',
+  auto: 'auto',
   1: getPixelSizeForLayoutSize(1),
   2: getPixelSizeForLayoutSize(2),
   3: getPixelSizeForLayoutSize(3),

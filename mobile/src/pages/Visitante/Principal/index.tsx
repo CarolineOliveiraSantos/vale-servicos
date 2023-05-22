@@ -1,15 +1,17 @@
-import { Feather as Icon, Entypo } from '@expo/vector-icons';
+import api from '@/services/api';
+import { Feather as Icon } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  FlatList,
 } from 'react-native';
 
-import api from '../../../services/api';
+import { Service, ServicoModel } from './components/Service';
 
 const Principalll = () => {
   const navigation = useNavigation();
@@ -17,17 +19,16 @@ const Principalll = () => {
   function handleNavigateToBack() {
     navigation.goBack();
   }
-  function handleNavigateToPrestadores(servico) {
-    navigation.navigate('Prestadores', { servico });
-  }
 
-  const [servicos, setServicos] = useState([]);
+  const [servicos, setServicos] = useState<ServicoModel[]>([]);
 
   useEffect(() => {
-    api.get('servicoslist').then((res) => {
-      setServicos(res.data);
-    });
-  });
+    const fetchServicesList = async () => {
+      const { data } = await api.get<ServicoModel[]>('servicoslist');
+      setServicos(data);
+    };
+    fetchServicesList();
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -52,35 +53,11 @@ const Principalll = () => {
           </Text>
         </View>
       </View>
-      <ScrollView showsVerticalScrollIndicator={false} horizontal={false}>
-        {servicos.map((servico) => (
-          <TouchableOpacity
-            keyExtractor={(servico) => String(servico.id)}
-            style={[styles.descriptionContainer, { marginTop: 15 }]}
-            onPress={() => handleNavigateToPrestadores(servico)}
-            activeOpacity={0.8}
-          >
-            {/* <SvgUri
-              width="100"
-              height="100"
-              //   style={styles.icon}
-              source={{
-                uri: `http://192.168.42.110:3333/uploadsServs/${servico.img}`,
-                // uri: servico.image_url,
-              }}
-              //   source={require({servico.image_url})}
-            /> */}
-
-            {/* <Text style={[{ marginStart: 8, marginTop: 5 }]}>
-                            <Entypo name="home" size={100} color="black" />
-                        </Text> */}
-            <View style={styles.text}>
-              <Text style={styles.description}>{servico.name}</Text>
-              <Text style={styles.dataValue}>{servico.info}</Text>
-            </View>
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
+      <FlatList
+        data={servicos}
+        keyExtractor={({ id }) => String(id)}
+        renderItem={({ item }) => <Service servico={item} />}
+      />
     </View>
   );
 };

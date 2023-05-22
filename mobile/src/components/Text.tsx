@@ -9,26 +9,27 @@ import { ThemeColors } from '../styles/ThemeColors';
 import { FontFamily } from '../styles/ThemeFonts';
 import { TextSize } from '../styles/ThemeFontSize';
 export interface TextProps extends ReactNativeTextProps {
-  font?: keyof typeof FontFamily;
-  size?: keyof typeof TextSize;
+  fontFamily?: keyof typeof FontFamily;
+  fontSize?: keyof typeof TextSize;
   color?: keyof (typeof ThemeColors)['text'];
 }
 export const Text: FC<TextProps> = ({
-  font = 'Roboto.400',
-  size = 'md',
+  fontFamily = 'Roboto.400',
+  fontSize = 'md',
   color = 'primary',
+
   style,
   ...props
 }) => {
-  const { textSize, fontFamily, colors } = useTheme();
+  const { textSize, fontFamily: font, colors } = useTheme();
   return (
     <ReactNativeText
       style={[
         {
           color: colors.text[color],
-          fontSize: textSize[size].size,
-          fontFamily: fontFamily[font],
-          lineHeight: textSize[size].lineHeight,
+          fontSize: textSize[fontSize].fontSize,
+          fontFamily: font[fontFamily],
+          lineHeight: textSize[fontSize].lineHeight,
         },
         style,
       ]}

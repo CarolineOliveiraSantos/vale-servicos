@@ -1,23 +1,24 @@
 /* eslint-disable camelcase */
+import { Loading } from '@/components/Loading';
 import { StatusBar } from '@/components/StatusBar';
+import { ThemeProvider } from '@/contexts/ThemeContext';
+import { Routes } from '@/routes/routes';
+import { Inter_500Medium } from '@expo-google-fonts/inter';
 import { Roboto_400Regular, Roboto_500Medium } from '@expo-google-fonts/roboto';
 import { Ubuntu_700Bold, useFonts } from '@expo-google-fonts/ubuntu';
 
-import { Loading } from './src/components/Loading';
-import { ThemeProvider } from './src/contexts/ThemeContext';
-import { Routes } from './src/routes/routes';
-
 export default function App() {
-  const [fontsLoaded] = useFonts({
+  const [isFontsLoaded] = useFonts({
     Roboto_400Regular,
     Roboto_500Medium,
     Ubuntu_700Bold,
+    Inter_500Medium,
   });
 
   return (
     <ThemeProvider>
       <StatusBar />
-      {fontsLoaded ? <Routes /> : <Loading />}
+      {isFontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   );
 }

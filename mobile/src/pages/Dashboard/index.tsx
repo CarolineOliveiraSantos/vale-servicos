@@ -1,54 +1,59 @@
-import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
+import ServiceProviders from '@/assets/animations/serviceProviders.json';
+import { HStack } from '@/components/HStack';
+import { Icons } from '@/components/Icons/Icons';
+import { Text } from '@/components/Text';
+import { VStack } from '@/components/VStack';
+import { useTheme } from '@/hooks/useTheme';
 import { useNavigation } from '@react-navigation/native';
-import { View, Image } from 'react-native';
+import LottieView from 'lottie-react-native';
+import { TouchableOpacity } from 'react-native';
 
-import { Text } from '../../components/Text';
-import { useTheme } from '../../hooks/useTheme';
-import Logo from './../../assets/logo.png';
 import { Button } from './components/Button';
 export const Dashboard = () => {
   const { navigate } = useNavigation();
-  const { colors } = useTheme();
+  const { colors, size } = useTheme();
   return (
-    <View style={{ flex: 1, backgroundColor: colors.bg.primary, padding: 32 }}>
-      <View style={{ flex: 1, justifyContent: 'center' }}>
-        <Image source={Logo} />
-        <Text
-          font="Roboto.400"
-          size="md"
-          color="dashboard"
-          style={{
-            marginTop: 25,
-            maxWidth: '70%',
-          }}
-        >
-          Bem vindo ao lugar ideal para encontrar prestadores de serviços
-          domésticos.
-        </Text>
-      </View>
+    <VStack
+      flex={1}
+      backgroundColor="primary"
+      padding={8}
+      justifyContent="flex-end"
+      style={{ gap: size[6] }}
+    >
+      <LottieView
+        source={ServiceProviders}
+        autoPlay
+        loop
+        resizeMode="contain"
+        style={{ position: 'relative' }}
+      />
+
+      <Text
+        fontFamily="Inter.500"
+        fontSize="md"
+        color="primary"
+        style={{ textAlign: 'center' }}
+      >
+        Bem vindo ao lugar ideal para encontrar prestadores de serviços
+      </Text>
 
       <Button
-        type="SECONDARY"
-        icon={
-          <MaterialCommunityIcons
-            name="badge-account-horizontal-outline"
-            size={24}
-            color="#FFF"
-          />
-        }
-        title="Visitante"
+        icon={<Icons.google color={colors.icons.secondary} />}
+        title="Continuar com Google"
         onPress={() => navigate('Principalll')}
       />
-      <Button
-        icon={<Feather name="arrow-right" color="#FFF" size={24} />}
-        title="Entrar como Contratante"
-        onPress={() => navigate('loginContratante')}
-      />
-      <Button
-        icon={<Feather name="arrow-right" color="#FFF" size={24} />}
-        title="Entrar como Prestador"
-        onPress={() => navigate('Login')}
-      />
-    </View>
+      <TouchableOpacity>
+        <HStack
+          height={20}
+          alignItems="center"
+          justifyContent="center"
+          borderRadius={3}
+          backgroundColor="primary"
+          style={{ borderColor: '#ccc', borderWidth: 1 }}
+        >
+          <Text fontSize="sm">Outras opções</Text>
+        </HStack>
+      </TouchableOpacity>
+    </VStack>
   );
 };
