@@ -9,6 +9,7 @@ import { Routes } from '@/routes/routes'
 import { Inter_500Medium } from '@expo-google-fonts/inter'
 import { Roboto_400Regular, Roboto_500Medium } from '@expo-google-fonts/roboto'
 import { Ubuntu_700Bold, useFonts } from '@expo-google-fonts/ubuntu'
+import Toast from 'react-native-toast-message'
 
 export default function App() {
   const [isFontsLoaded] = useFonts({
@@ -24,6 +25,7 @@ export default function App() {
           <ThemeProvider>
             <StatusBar />
             {isFontsLoaded ? <Routes /> : <Loading />}
+            <Toast />
           </ThemeProvider>
         </AuthProvider>
       </StorageProvider>

@@ -3,24 +3,34 @@ import { Icons } from '@/components/Icons/Icons'
 import { Text } from '@/components/primitives/Text'
 import { View } from '@/components/primitives/View'
 import { useAuth } from '@/hooks/useAuth'
-import { useStorage } from '@/hooks/useStorage'
 import { useTheme } from '@/hooks/useTheme'
+import {
+  BottomSheetModal,
+  BottomSheetModalProvider,
+} from '@gorhom/bottom-sheet'
 import { useNavigation } from '@react-navigation/native'
 import LottieView from 'lottie-react-native'
+import { useRef } from 'react'
 import { TouchableOpacity } from 'react-native'
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
 
 import { Button } from './components/Button'
-export const Dashboard = () => {
+import { Modal } from './components/Modal'
+const DashboardBase = () => {
   const { navigate } = useNavigation()
-  const { colors, size, fonts } = useTheme()
-  const { promptAppleSingIn, promptFacebookSingIn, promptGoogleSingIn } =
+  const { colors, fonts } = useTheme()
+  const { promptFacebookSingIn, promptGoogleSingIn, promptAppleSingIn } =
     useAuth()
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null)
+  const handleOpenModal = () => {
+    bottomSheetModalRef.current?.present()
+  }
   return (
     <View
       style={{
-        gap: size[6],
+        gap: 15,
         flex: 1,
-        padding: size[8],
+        padding: 20,
         justifyContent: 'flex-end',
       }}
     >
@@ -53,30 +63,21 @@ export const Dashboard = () => {
       <Button
         icon={<Icons.apple color={colors.icons.secondary} />}
         title="Continuar com Apple"
-        onPress={() => navigate('Principalll')}
+        onPress={promptAppleSingIn}
       />
       <Button
         icon={<Icons.facebook color={colors.icons.secondary} />}
         title="Continuar com Facebook"
-        onPress={() => navigate('Principalll')}
+        onPress={promptFacebookSingIn}
       />
 
-      <TouchableOpacity>
-        <View
-          style={{
-            borderRadius: size[3],
-            justifyContent: 'center',
-            borderColor: colors.button.dashboard.border,
-            borderWidth: 1,
-            height: size[20],
-            alignItems: 'center',
-          }}
-        >
-          <Text size="sm" color="primary">
-            Outras opções
-          </Text>
-        </View>
-      </TouchableOpacity>
+      <Button title="Outras opções" onPress={handleOpenModal} />
+      <Modal ref={bottomSheetModalRef} />
     </View>
   )
 }
+export const Dashboard = gestureHandlerRootHOC(() => (
+  <BottomSheetModalProvider>
+    <DashboardBase />
+  </BottomSheetModalProvider>
+))

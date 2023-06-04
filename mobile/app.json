@@ -2,6 +2,7 @@
   "expo": {
     "name": "Vale Serviços",
     "slug": "valeservicos",
+    "scheme":["valeservicos","fb219837340908523"],
     "platforms": [
       "ios",
       "android"
@@ -32,12 +33,13 @@
     "android": {
       "googleServicesFile": "./google-services.json",
       "package": "com.gabriel85.valeservicos",
+
       "adaptiveIcon": {
         "backgroundColor": "#fff",
         "backgroundImage": "./assets/adaptive-icon.png"
       }
     },
-    "plugins": ["@react-native-google-signin/google-signin"],
+    "plugins": ["@react-native-google-signin/google-signin","expo-apple-authentication"],
     "extra": {
       "eas": {
         "projectId": "2d7278b4-8a96-4732-954e-c30c25b6d731"

@@ -26,6 +26,8 @@
         <action android:name="android.intent.action.VIEW"/>
         <category android:name="android.intent.category.DEFAULT"/>
         <category android:name="android.intent.category.BROWSABLE"/>
+        <data android:scheme="valeservicos"/>
+        <data android:scheme="fb219837340908523"/>
         <data android:scheme="com.gabriel85.valeservicos"/>
         <data android:scheme="exp+valeservicos"/>
       </intent-filter>
