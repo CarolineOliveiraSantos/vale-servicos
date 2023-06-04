@@ -1,27 +1,27 @@
-import { Feather as Icon, FontAwesome5 } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, Alert, Image } from 'react-native';
-import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+import { Feather as Icon, FontAwesome5 } from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import React, { useState, useEffect } from 'react'
+import { View, StyleSheet, Text, Alert, Image } from 'react-native'
+import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const DadosPessoaiss = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
+  const navigation = useNavigation()
+  const route = useRoute()
 
-  const contratanteCpf = route.params.contratante.cpf;
+  const contratanteCpf = route.params.contratante.cpf
 
-  const [contratantes, setContratantes] = useState([]);
+  const [contratantes, setContratantes] = useState([])
 
   function handleNavigateToPrincipal() {
-    navigation.goBack();
+    navigation.goBack()
   }
   function handleNavigateToHome() {
-    navigation.navigate('Home');
+    navigation.navigate('Home')
   }
   function handleNavigateToAlterarDados(contratante) {
-    navigation.navigate('AlterarDadoss', { contratante });
+    navigation.navigate('AlterarDadoss', { contratante })
   }
 
   useEffect(() => {
@@ -32,20 +32,20 @@ const DadosPessoaiss = () => {
         },
       })
       .then((response) => {
-        setContratantes(response.data);
-      });
-  }, [contratantes]);
+        setContratantes(response.data)
+      })
+  }, [contratantes])
 
-  const id = route.params.contratante.id;
+  const id = route.params.contratante.id
   async function handleDeleteAccount() {
     try {
-      await api.delete(`contratanteApagar/${id}`);
+      await api.delete(`contratanteApagar/${id}`)
       setContratantes(
         contratantes.filter((contratante) => contratante.id !== id),
-      );
-      return navigation.navigate('Home');
+      )
+      return navigation.navigate('Home')
     } catch (err) {
-      alert('Erro ao deletar contratante, tente novamente.');
+      alert('Erro ao deletar contratante, tente novamente.')
     }
   }
 
@@ -61,12 +61,12 @@ const DadosPessoaiss = () => {
         {
           text: 'Excluir',
           onPress: () => {
-            return handleDeleteAccount();
+            return handleDeleteAccount()
           },
         },
       ],
       { cancelable: false },
-    );
+    )
 
   return (
     <>
@@ -151,8 +151,8 @@ const DadosPessoaiss = () => {
         </View>
       </ScrollView>
     </>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -212,5 +212,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingTop: 12,
   },
-});
-export default DadosPessoaiss;
+})
+export default DadosPessoaiss

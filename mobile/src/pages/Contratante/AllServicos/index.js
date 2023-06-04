@@ -1,20 +1,20 @@
-import { Feather as Icon } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import React, { useState } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { Feather as Icon } from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import React, { useState } from 'react'
+import { View, StyleSheet, Text } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const AllServicoss = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
-  const prestadorId = route.params.prestador.prestador_id;
-  const prestadorNome = route.params.prestador.nome;
-  const [prestadores, setPrestadores] = useState([]);
+  const navigation = useNavigation()
+  const route = useRoute()
+  const prestadorId = route.params.prestador.prestador_id
+  const prestadorNome = route.params.prestador.nome
+  const [prestadores, setPrestadores] = useState([])
 
   function handleNavigateToBack() {
-    navigation.goBack();
+    navigation.goBack()
   }
 
   api
@@ -24,8 +24,8 @@ const AllServicoss = () => {
       },
     })
     .then((response) => {
-      setPrestadores(response.data);
-    });
+      setPrestadores(response.data)
+    })
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} horizontal={false}>
@@ -72,8 +72,8 @@ const AllServicoss = () => {
         ))}
       </View>
     </ScrollView>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -109,5 +109,5 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     color: 'black',
   },
-});
-export default AllServicoss;
+})
+export default AllServicoss

@@ -1,0 +1,13 @@
+import { AuthContext } from '@/contexts/AuthContext'
+import { useContext } from 'react'
+
+import { WithoutProviderError } from '../errors/WithoutProviderError'
+export const useAuth = () => {
+  const value = useContext(AuthContext)
+  if (Object.keys(value).length === 0) {
+    throw new WithoutProviderError(
+      'useAuth must be used within an AuthProvider',
+    )
+  }
+  return value
+}

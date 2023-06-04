@@ -1,53 +1,53 @@
-import { Feather as Icon, Entypo } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import { useState, useEffect } from 'react';
+import { Feather as Icon, Entypo } from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import { useState, useEffect } from 'react'
 import {
   View,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-} from 'react-native';
-import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+} from 'react-native'
+import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const AdServicos = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
-  const prestadorIdd = route.params.prestador.id;
-  const prestador = route.params.prestador;
+  const navigation = useNavigation()
+  const route = useRoute()
+  const prestadorIdd = route.params.prestador.id
+  const prestador = route.params.prestador
 
   function handleNavigateToListaServicos(prestador) {
-    navigation.navigate('ListaServicos', { prestador });
+    navigation.navigate('ListaServicos', { prestador })
   }
   function handleNavigateToPrincipal() {
-    navigation.navigate('Principal');
+    navigation.navigate('Principal')
   }
 
-  const [descricao, setDescricao] = useState('');
-  const [img_url, setImg_url] = useState('');
-  const [prestador_id, setPrestadorId] = useState('');
+  const [descricao, setDescricao] = useState('')
+  const [img_url, setImg_url] = useState('')
+  const [prestador_id, setPrestadorId] = useState('')
 
-  const [servicos, setServicos] = useState([]);
+  const [servicos, setServicos] = useState([])
 
   useEffect(() => {
     api.get('servicoslist').then((res) => {
-      setServicos(res.data);
+      setServicos(res.data)
       // console.log(res.data);
-    });
-  });
-  const [selectedItems, setSelectedItems] = useState([]);
-  const [serv, setServicoId] = useState('');
+    })
+  })
+  const [selectedItems, setSelectedItems] = useState([])
+  const [serv, setServicoId] = useState('')
 
   function handleSelectedItem(id) {
-    const alreadySelected = selectedItems.findIndex((item) => item === id);
+    const alreadySelected = selectedItems.findIndex((item) => item === id)
     if (alreadySelected >= 0) {
-      const filterredItems = selectedItems.filter((item) => item !== id);
-      setSelectedItems(filterredItems);
+      const filterredItems = selectedItems.filter((item) => item !== id)
+      setSelectedItems(filterredItems)
     } else {
-      setSelectedItems([id]);
-      setServicoId(id);
+      setSelectedItems([id])
+      setServicoId(id)
       // console.log(serv);
       // console.log("teste", serv);
     }
@@ -61,13 +61,13 @@ const AdServicos = () => {
       servico_id: serv,
       descricao,
       prestador_id: prestadorIdd,
-    };
+    }
     try {
-      const response = await api.post(`addservico/${prestadorIdd}`, data);
-      return handleNavigateToListaServicos(prestador);
+      const response = await api.post(`addservico/${prestadorIdd}`, data)
+      return handleNavigateToListaServicos(prestador)
     } catch (err) {
-      alert('Erro ao adicionar serviço, tente novamente.');
-      console.log(err);
+      alert('Erro ao adicionar serviço, tente novamente.')
+      console.log(err)
     }
   }
 
@@ -165,8 +165,8 @@ const AdServicos = () => {
         </BaseButton>
       </ScrollView>
     </View>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -254,5 +254,5 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 16,
   },
-});
-export default AdServicos;
+})
+export default AdServicos

@@ -1,34 +1,34 @@
-import { FontAwesome5, Feather as Icon } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, TextInput, Alert } from 'react-native';
-import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+import { FontAwesome5, Feather as Icon } from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import React, { useState, useEffect } from 'react'
+import { View, StyleSheet, Text, TextInput, Alert } from 'react-native'
+import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const AlterarDados = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
+  const navigation = useNavigation()
+  const route = useRoute()
 
-  const [prestadores, setPrestadores] = useState([]);
+  const [prestadores, setPrestadores] = useState([])
   // console.log(prestadores);
-  const prestador = route.params.prestador;
+  const prestador = route.params.prestador
   // console.log(route.params.prestador);
 
   function handleNavigateToDadosPessoais() {
-    navigation.navigate('DadosPessoais');
+    navigation.navigate('DadosPessoais')
   }
 
-  const [nome, setNome] = useState(prestador.nome);
-  const [email, setEmail] = useState(prestador.email);
-  const [cpf, setCpf] = useState(prestador.cpf);
-  const [senha, setSenha] = useState(prestador.senha);
-  const [telefone, setTelefone] = useState(prestador.telefone);
-  const [city, setCity] = useState(prestador.city);
-  const [referencia, setReferencia] = useState(prestador.referencia);
-  const [sobre, setSobre] = useState(prestador.sobre);
+  const [nome, setNome] = useState(prestador.nome)
+  const [email, setEmail] = useState(prestador.email)
+  const [cpf, setCpf] = useState(prestador.cpf)
+  const [senha, setSenha] = useState(prestador.senha)
+  const [telefone, setTelefone] = useState(prestador.telefone)
+  const [city, setCity] = useState(prestador.city)
+  const [referencia, setReferencia] = useState(prestador.referencia)
+  const [sobre, setSobre] = useState(prestador.sobre)
 
-  const prestadorCpf = route.params.prestador.cpf;
+  const prestadorCpf = route.params.prestador.cpf
   // console.log(prestadorCpf);
 
   useEffect(() => {
@@ -39,9 +39,9 @@ const AlterarDados = () => {
         },
       })
       .then((response) => {
-        setPrestadores(response.data);
-      });
-  }, [prestadores]);
+        setPrestadores(response.data)
+      })
+  }, [prestadores])
 
   async function handleAlterar() {
     try {
@@ -54,11 +54,11 @@ const AlterarDados = () => {
         referencia,
         sobre,
         img: 'fé pra todo lado',
-      };
-      const response = await api.put(`editarprestador/${prestadorCpf}`, data);
-      return handleNavigateToDadosPessoais();
+      }
+      const response = await api.put(`editarprestador/${prestadorCpf}`, data)
+      return handleNavigateToDadosPessoais()
     } catch (err) {
-      Alert(erroAlterar());
+      Alert(erroAlterar())
     }
   }
   const erroAlterar = () =>
@@ -67,7 +67,7 @@ const AlterarDados = () => {
         text: 'Ok',
         onPress: () => console.log('Erro'),
       },
-    ]);
+    ])
 
   return (
     <View style={styles.container}>
@@ -178,8 +178,8 @@ const AlterarDados = () => {
         </BaseButton>
       </ScrollView>
     </View>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -233,5 +233,5 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 16,
   },
-});
-export default AlterarDados;
+})
+export default AlterarDados

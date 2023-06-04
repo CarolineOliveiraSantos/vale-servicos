@@ -1,6 +1,6 @@
-import { FontAwesome5, Feather as Icon } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react';
+import { FontAwesome5, Feather as Icon } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native'
+import React, { useState } from 'react'
 import {
   View,
   StyleSheet,
@@ -8,46 +8,46 @@ import {
   TextInput,
   Alert,
   AsyncStorage,
-} from 'react-native';
-import { BaseButton } from 'react-native-gesture-handler';
+} from 'react-native'
+import { BaseButton } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const loginContratante = () => {
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
 
-  const navigation = useNavigation();
+  const navigation = useNavigation()
 
   function handleNavigateToHomeContratante(contratante) {
-    navigation.navigate('homeContratante', { contratante });
+    navigation.navigate('homeContratante', { contratante })
   }
   function handleNavigateToHome() {
-    navigation.goBack('Home');
+    navigation.goBack('Home')
   }
   function handleNavigateToCadastroContratante() {
-    navigation.navigate('cadastroContratante');
+    navigation.navigate('cadastroContratante')
   }
   function handleNavigateToRecuperarAcesso() {
-    navigation.navigate('RecuperarAcessoo');
+    navigation.navigate('RecuperarAcessoo')
   }
 
   async function handleLogin() {
     try {
-      const response = await api.post('sessioncontratante', { email, senha });
+      const response = await api.post('sessioncontratante', { email, senha })
       if (!response.data.email & !response.data.senha) {
-        return erroLogin();
+        return erroLogin()
       } else {
-        AsyncStorage.setItem('email', email);
-        AsyncStorage.setItem('senha', senha);
-        AsyncStorage.setItem('nome', response.data.nome);
-        AsyncStorage.setItem('contratante', response.data);
-        const contratante = response.data;
+        AsyncStorage.setItem('email', email)
+        AsyncStorage.setItem('senha', senha)
+        AsyncStorage.setItem('nome', response.data.nome)
+        AsyncStorage.setItem('contratante', response.data)
+        const contratante = response.data
         // console.log(email, response.data);
-        return handleNavigateToHomeContratante(contratante);
+        return handleNavigateToHomeContratante(contratante)
       }
     } catch (err) {
-      return erroLogin();
+      return erroLogin()
     }
   }
 
@@ -57,7 +57,7 @@ const loginContratante = () => {
         text: 'Ok',
         onPress: () => console.log('Erro Login'),
       },
-    ]);
+    ])
 
   return (
     <View style={[styles.container]}>
@@ -124,8 +124,8 @@ const loginContratante = () => {
         </View>
       </View>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -178,5 +178,5 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 16,
   },
-});
-export default loginContratante;
+})
+export default loginContratante

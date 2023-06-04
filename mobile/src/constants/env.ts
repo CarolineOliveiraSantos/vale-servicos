@@ -1,0 +1,7 @@
+import { BASE_URL, GOOGLE_CLIENT_ID_ANDROID, GOOGLE_CLIENT_ID_IOS } from '@env'
+
+export const env = {
+  BASE_URL: BASE_URL as string,
+  GOOGLE_CLIENT_ID_ANDROID: GOOGLE_CLIENT_ID_ANDROID as string,
+  GOOGLE_CLIENT_ID_IOS: GOOGLE_CLIENT_ID_IOS as string,
+}

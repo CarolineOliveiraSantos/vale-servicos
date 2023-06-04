@@ -1,39 +1,39 @@
-import { Entypo, Feather as Icon, AntDesign } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { Entypo, Feather as Icon, AntDesign } from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import React, { useState, useEffect } from 'react'
+import { View, Text, StyleSheet, TextInput } from 'react-native'
 import {
   RectButton,
   ScrollView,
   TouchableOpacity,
-} from 'react-native-gesture-handler';
-import { Rating, AirbnbRating } from 'react-native-ratings';
-import { color } from 'react-native-reanimated';
+} from 'react-native-gesture-handler'
+import { Rating, AirbnbRating } from 'react-native-ratings'
+import { color } from 'react-native-reanimated'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 // import { Feather } from "@expo/vector-icons";
 
 const Avaliar = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
+  const navigation = useNavigation()
+  const route = useRoute()
 
-  const servicoId = route.params.prestador.id;
-  const prestadorId = route.params.prestador.prestador_id;
-  const prestadores = route.params.prestadores;
-  const contratanteId = route.params.contratante.id;
-  const [start, setStart] = useState('');
+  const servicoId = route.params.prestador.id
+  const prestadorId = route.params.prestador.prestador_id
+  const prestadores = route.params.prestadores
+  const contratanteId = route.params.contratante.id
+  const [start, setStart] = useState('')
 
   function ratingCompleted(rating) {
     // console.log("Rating is: " + rating);
-    setStart(rating);
+    setStart(rating)
     // console.log(start);
   }
   // console.log(prestadores);
-  const [nota, setNota] = useState('');
-  const [comentario, setComentario] = useState('');
+  const [nota, setNota] = useState('')
+  const [comentario, setComentario] = useState('')
 
   function handleNavigateToBack() {
-    navigation.goBack();
+    navigation.goBack()
   }
 
   async function handleAvaliar() {
@@ -43,14 +43,14 @@ const Avaliar = () => {
       contratante_id: contratanteId,
       prestador_id: prestadorId,
       servprestado_id: servicoId,
-    };
+    }
 
     try {
-      const response = await api.post(`avaliacao/${contratanteId}`, data);
+      const response = await api.post(`avaliacao/${contratanteId}`, data)
       // console.log(response);
-      return navigation.navigate('Detalhess');
+      return navigation.navigate('Detalhess')
     } catch (err) {
-      alert('Erro ao avaliar serviço, tente novamente.');
+      alert('Erro ao avaliar serviço, tente novamente.')
     }
   }
 
@@ -122,8 +122,8 @@ const Avaliar = () => {
         </RectButton>
       </ScrollView>
     </View>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -191,5 +191,5 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto_500Medium',
     fontSize: 16,
   },
-});
-export default Avaliar;
+})
+export default Avaliar

@@ -1,10 +1,10 @@
-import { ActivityIndicator } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { ActivityIndicator } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
-import { useTheme } from '../hooks/useTheme';
+import { useTheme } from '../hooks/useTheme'
 
 export const Loading = () => {
-  const { colors } = useTheme();
+  const { colors } = useTheme()
   return (
     <SafeAreaView
       style={{
@@ -16,5 +16,5 @@ export const Loading = () => {
     >
       <ActivityIndicator size="large" color={colors.spinner.primary} />
     </SafeAreaView>
-  );
-};
+  )
+}

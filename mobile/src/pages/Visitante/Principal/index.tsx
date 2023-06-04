@@ -1,7 +1,7 @@
-import api from '@/services/api';
-import { Feather as Icon } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import { useState, useEffect } from 'react';
+import api from '@/services/api'
+import { Feather as Icon } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native'
+import { useState, useEffect } from 'react'
 import {
   View,
   Text,
@@ -9,26 +9,26 @@ import {
   ScrollView,
   TouchableOpacity,
   FlatList,
-} from 'react-native';
+} from 'react-native'
 
-import { Service, ServicoModel } from './components/Service';
+import { Service, ServicoModel } from './components/Service'
 
 const Principalll = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation()
 
   function handleNavigateToBack() {
-    navigation.goBack();
+    navigation.goBack()
   }
 
-  const [servicos, setServicos] = useState<ServicoModel[]>([]);
+  const [servicos, setServicos] = useState<ServicoModel[]>([])
 
   useEffect(() => {
     const fetchServicesList = async () => {
-      const { data } = await api.get<ServicoModel[]>('servicoslist');
-      setServicos(data);
-    };
-    fetchServicesList();
-  }, []);
+      const { data } = await api.get<ServicoModel[]>('servicoslist')
+      setServicos(data)
+    }
+    fetchServicesList()
+  }, [])
 
   return (
     <View style={styles.container}>
@@ -59,8 +59,8 @@ const Principalll = () => {
         renderItem={({ item }) => <Service servico={item} />}
       />
     </View>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -125,5 +125,5 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   text: {},
-});
-export default Principalll;
+})
+export default Principalll

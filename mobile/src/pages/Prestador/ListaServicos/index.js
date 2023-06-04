@@ -1,26 +1,26 @@
-import { Feather as Icon, AntDesign, MaterialIcons } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+import { Feather as Icon, AntDesign, MaterialIcons } from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import React, { useState, useEffect } from 'react'
+import { View, StyleSheet, Text } from 'react-native'
+import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const ListaServicos = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
+  const navigation = useNavigation()
+  const route = useRoute()
 
-  const prestadorId = route.params.prestador.id;
-  const prestador = route.params.prestador;
+  const prestadorId = route.params.prestador.id
+  const prestador = route.params.prestador
 
-  const [servicos, setServicos] = useState([]);
+  const [servicos, setServicos] = useState([])
   // console.log(servicos)
 
   function handleNavigateToPrincipal() {
-    navigation.navigate('Principal');
+    navigation.navigate('Principal')
   }
   function handleNavigateToVerServicos(servico, prestador) {
-    navigation.navigate('VerServicos', { servico, prestador });
+    navigation.navigate('VerServicos', { servico, prestador })
   }
 
   useEffect(() => {
@@ -31,9 +31,9 @@ const ListaServicos = () => {
         },
       })
       .then((response) => {
-        setServicos(response.data);
-      });
-  }, [servicos]);
+        setServicos(response.data)
+      })
+  }, [servicos])
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} horizontal={false}>
@@ -106,8 +106,8 @@ const ListaServicos = () => {
         ))}
       </View>
     </ScrollView>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -174,5 +174,5 @@ const styles = StyleSheet.create({
     marginBottom: 7,
     textAlign: 'center',
   },
-});
-export default ListaServicos;
+})
+export default ListaServicos

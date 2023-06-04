@@ -1,34 +1,34 @@
-import { FontAwesome5, Feather as Icon } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, TextInput, Alert } from 'react-native';
-import { BaseButton } from 'react-native-gesture-handler';
+import { FontAwesome5, Feather as Icon } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native'
+import React, { useState, useEffect } from 'react'
+import { View, StyleSheet, Text, TextInput, Alert } from 'react-native'
+import { BaseButton } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const RecuperarAcesso = () => {
-  const navigation = useNavigation();
-  const [cpf, setCpf] = useState('');
-  const [senha, setSenha] = useState('');
+  const navigation = useNavigation()
+  const [cpf, setCpf] = useState('')
+  const [senha, setSenha] = useState('')
 
   function handleNavigateToHome() {
-    navigation.navigate('Home');
+    navigation.navigate('Home')
   }
   function handleNavigateToBack() {
-    navigation.goBack();
+    navigation.goBack()
   }
 
   async function handleRecuperar() {
-    const response = await api.post('sessions', { cpf });
+    const response = await api.post('sessions', { cpf })
     if (!response.data.cpf) {
-      Alert(erroRecuperar());
+      Alert(erroRecuperar())
     } else {
-      const data = { senha };
+      const data = { senha }
       try {
-        const response = await api.put(`editarprestador/${cpf}`, data);
-        navigation.navigate('Login');
+        const response = await api.put(`editarprestador/${cpf}`, data)
+        navigation.navigate('Login')
       } catch (err) {
-        alert('Erro ao recuperar acesso, tente novamente.');
+        alert('Erro ao recuperar acesso, tente novamente.')
       }
     }
   }
@@ -42,7 +42,7 @@ const RecuperarAcesso = () => {
           onPress: () => console.log(),
         },
       ],
-    );
+    )
 
   return (
     <View style={styles.container}>
@@ -98,8 +98,8 @@ const RecuperarAcesso = () => {
         <Text style={styles.buttonText}>Cancelar</Text>
       </BaseButton>
     </View>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -138,5 +138,5 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 16,
   },
-});
-export default RecuperarAcesso;
+})
+export default RecuperarAcesso

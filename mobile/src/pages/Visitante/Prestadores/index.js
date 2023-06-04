@@ -1,49 +1,49 @@
-import { Feather as Icon, Feather } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+import { Feather as Icon, Feather } from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import React, { useState, useEffect } from 'react'
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const Prestadores = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
+  const navigation = useNavigation()
+  const route = useRoute()
 
   function handleNavigateToPrincipall() {
-    navigation.navigate('Principalll');
+    navigation.navigate('Principalll')
   }
   function handleNavigateToDetalhes(prestador) {
-    navigation.navigate('Detalhes', { prestador, serv });
+    navigation.navigate('Detalhes', { prestador, serv })
   }
 
-  const [prestadores, setPrestadores] = useState([]);
-  const [total, setTotal] = useState(0);
-  const [loading, setLoading] = useState(false);
+  const [prestadores, setPrestadores] = useState([])
+  const [total, setTotal] = useState(0)
+  const [loading, setLoading] = useState(false)
 
   async function loadPrestadores() {
     if (loading) {
-      return;
+      return
     }
     if (total > 0 && prestadores.length == total) {
-      return;
+      return
     }
-    setLoading(true);
+    setLoading(true)
 
-    const response = await api.get(`servicosPrestadores/${serv.id}`);
+    const response = await api.get(`servicosPrestadores/${serv.id}`)
 
-    setTotal(response.headers['x-total-count']);
+    setTotal(response.headers['x-total-count'])
   }
   useEffect(() => {
-    loadPrestadores();
-  }, []);
+    loadPrestadores()
+  }, [])
 
-  const serv = route.params.servico;
+  const serv = route.params.servico
   // console.log(route.params.servico);
 
   api.get(`servicosPrestadores/${serv.id}`).then((response) => {
-    setPrestadores(response.data);
-  });
+    setPrestadores(response.data)
+  })
 
   return (
     <View style={styles.container}>
@@ -105,8 +105,8 @@ const Prestadores = () => {
         ))}
       </ScrollView>
     </View>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -169,5 +169,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     color: '#0426B0',
   },
-});
-export default Prestadores;
+})
+export default Prestadores

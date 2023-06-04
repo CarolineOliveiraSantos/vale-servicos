@@ -1,19 +1,19 @@
-import { Feather as Icon, Feather } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+import { Feather as Icon, Feather } from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import React, { useState, useEffect } from 'react'
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const Avaliacaoo = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
-  const servicoId = route.params.prestador.id;
-  const [avaliacoes, setAvaliacoes] = useState([]);
+  const navigation = useNavigation()
+  const route = useRoute()
+  const servicoId = route.params.prestador.id
+  const [avaliacoes, setAvaliacoes] = useState([])
 
   function handleNavigateToBack() {
-    navigation.goBack();
+    navigation.goBack()
   }
 
   api
@@ -23,8 +23,8 @@ const Avaliacaoo = () => {
       },
     })
     .then((response) => {
-      setAvaliacoes(response.data);
-    });
+      setAvaliacoes(response.data)
+    })
 
   return (
     <View style={styles.container}>
@@ -61,8 +61,8 @@ const Avaliacaoo = () => {
         ))}
       </ScrollView>
     </View>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -103,5 +103,5 @@ const styles = StyleSheet.create({
     paddingEnd: 20,
     paddingStart: 20,
   },
-});
-export default Avaliacaoo;
+})
+export default Avaliacaoo

@@ -1,18 +1,18 @@
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack'
 
-import AllServicoss from './../pages/Contratante/AllServicos';
-import AlterarDadoss from './../pages/Contratante/AlterarDados';
-import Avaliacaoo from './../pages/Contratante/Avaliacao';
-import Avaliar from './../pages/Contratante/Avaliar';
-import cadastroContratante from './../pages/Contratante/Cadastro';
-import DadosPessoaiss from './../pages/Contratante/DadosPessoais';
-import Detalhess from './../pages/Contratante/Detalhe';
-import homeContratante from './../pages/Contratante/Home';
-import loginContratante from './../pages/Contratante/Login';
-import Prestadoress from './../pages/Contratante/Prestadores';
-import RecuperarAcessoo from './../pages/Contratante/RecuperarAcesso';
+import AllServicoss from './../pages/Contratante/AllServicos'
+import AlterarDadoss from './../pages/Contratante/AlterarDados'
+import Avaliacaoo from './../pages/Contratante/Avaliacao'
+import Avaliar from './../pages/Contratante/Avaliar'
+import cadastroContratante from './../pages/Contratante/Cadastro'
+import DadosPessoaiss from './../pages/Contratante/DadosPessoais'
+import Detalhess from './../pages/Contratante/Detalhe'
+import homeContratante from './../pages/Contratante/Home'
+import loginContratante from './../pages/Contratante/Login'
+import Prestadoress from './../pages/Contratante/Prestadores'
+import RecuperarAcessoo from './../pages/Contratante/RecuperarAcesso'
 
-const { Navigator, Screen } = createStackNavigator();
+const { Navigator, Screen } = createStackNavigator()
 export const EmployerRoutes = () => {
   return (
     <Navigator screenOptions={{ headerShown: false }}>
@@ -28,5 +28,5 @@ export const EmployerRoutes = () => {
       <Screen name="Avaliacaoo" component={Avaliacaoo} />
       <Screen name="AllServicoss" component={AllServicoss} />
     </Navigator>
-  );
-};
+  )
+}

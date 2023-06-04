@@ -1,6 +1,6 @@
-import { FontAwesome5, Feather as Icon } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react';
+import { FontAwesome5, Feather as Icon } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native'
+import React, { useState } from 'react'
 import {
   View,
   StyleSheet,
@@ -8,46 +8,46 @@ import {
   TextInput,
   Alert,
   AsyncStorage,
-} from 'react-native';
-import { BaseButton } from 'react-native-gesture-handler';
+} from 'react-native'
+import { BaseButton } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
 
-  const navigation = useNavigation();
+  const navigation = useNavigation()
 
   function handleNavigateToPrincipal(prestador) {
-    navigation.navigate('Principal', { prestador });
+    navigation.navigate('Principal', { prestador })
   }
   function handleNavigateToHome() {
-    navigation.goBack('Home');
+    navigation.goBack('Home')
   }
   function handleNavigateToCadastro() {
-    navigation.navigate('Cadastro');
+    navigation.navigate('Cadastro')
   }
   function handleNavigateToRecuperarAcesso() {
-    navigation.navigate('RecuperarAcesso');
+    navigation.navigate('RecuperarAcesso')
   }
 
   async function handleLogin() {
     try {
-      const response = await api.post('sessions', { email, senha });
+      const response = await api.post('sessions', { email, senha })
       if (!response.data.email & !response.data.senha) {
-        return erroLogin();
+        return erroLogin()
       } else {
-        AsyncStorage.setItem('email', email);
-        AsyncStorage.setItem('senha', senha);
-        AsyncStorage.setItem('nome', response.data.nome);
-        AsyncStorage.setItem('prestador', response.data);
-        const prestador = response.data;
+        AsyncStorage.setItem('email', email)
+        AsyncStorage.setItem('senha', senha)
+        AsyncStorage.setItem('nome', response.data.nome)
+        AsyncStorage.setItem('prestador', response.data)
+        const prestador = response.data
         // console.log(email, response.data);
-        return handleNavigateToPrincipal(prestador);
+        return handleNavigateToPrincipal(prestador)
       }
     } catch (err) {
-      Alert(erroLogin());
+      Alert(erroLogin())
     }
   }
 
@@ -57,7 +57,7 @@ const Login = () => {
         text: 'Ok',
         onPress: () => console.log(),
       },
-    ]);
+    ])
 
   return (
     <View style={[styles.container]}>
@@ -120,8 +120,8 @@ const Login = () => {
         </Text>
       </View>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -168,5 +168,5 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 16,
   },
-});
-export default Login;
+})
+export default Login

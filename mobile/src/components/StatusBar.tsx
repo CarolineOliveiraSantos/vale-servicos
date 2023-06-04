@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import { FC } from 'react'
 import {
   StatusBar as ReactNativeStatusBar,
   StatusBarProps as ReactNativeStatusBarProps,
-} from 'react-native';
+} from 'react-native'
 export const StatusBar: FC<ReactNativeStatusBarProps> = (props) => {
   return (
     <ReactNativeStatusBar
@@ -11,5 +11,5 @@ export const StatusBar: FC<ReactNativeStatusBarProps> = (props) => {
       barStyle="dark-content"
       {...props}
     />
-  );
-};
+  )
+}

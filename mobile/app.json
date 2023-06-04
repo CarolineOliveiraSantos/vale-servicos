@@ -8,6 +8,7 @@
     ],
     "version": "1.0.0",
     "jsEngine": "hermes",
+    "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
@@ -21,13 +22,25 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier":  "com.gabriel85.valeservicos",
+      "supportsTablet": true,
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "config": {
+        "usesNonExemptEncryption": false
+      }
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
       "package": "com.gabriel85.valeservicos",
       "adaptiveIcon": {
         "backgroundColor": "#fff",
         "backgroundImage": "./assets/adaptive-icon.png"
+      }
+    },
+    "plugins": ["@react-native-google-signin/google-signin"],
+    "extra": {
+      "eas": {
+        "projectId": "2d7278b4-8a96-4732-954e-c30c25b6d731"
       }
     }
   }

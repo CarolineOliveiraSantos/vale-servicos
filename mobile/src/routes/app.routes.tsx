@@ -1,12 +1,12 @@
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack'
 
-import { Dashboard } from '../pages/Dashboard';
-import AllServicos from './../pages/Visitante/AllServicos/index';
-import Avaliacoes from './../pages/Visitante/Avaliacao/index';
-import Detalhes from './../pages/Visitante/Detalhes/index';
-import Prestadores from './../pages/Visitante/Prestadores/index';
-import Principalll from './../pages/Visitante/Principal';
-const { Navigator, Screen } = createStackNavigator();
+import { Dashboard } from '../pages/Dashboard'
+import AllServicos from './../pages/Visitante/AllServicos/index'
+import Avaliacoes from './../pages/Visitante/Avaliacao/index'
+import Detalhes from './../pages/Visitante/Detalhes/index'
+import Prestadores from './../pages/Visitante/Prestadores/index'
+import Principalll from './../pages/Visitante/Principal'
+const { Navigator, Screen } = createStackNavigator()
 export const AppRoutes = () => {
   return (
     <Navigator
@@ -20,5 +20,5 @@ export const AppRoutes = () => {
       <Screen name="AllServicos" component={AllServicos} />
       <Screen name="Avaliacoes" component={Avaliacoes} />
     </Navigator>
-  );
-};
+  )
+}

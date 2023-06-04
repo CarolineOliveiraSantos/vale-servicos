@@ -1,30 +1,30 @@
-import { Feather as Icon, Feather, FontAwesome } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import * as MailComposer from 'expo-mail-composer';
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, Linking } from 'react-native';
+import { Feather as Icon, Feather, FontAwesome } from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import * as MailComposer from 'expo-mail-composer'
+import React, { useState, useEffect } from 'react'
+import { View, StyleSheet, Text, Linking } from 'react-native'
 import {
   BaseButton,
   ScrollView,
   TouchableOpacity,
-} from 'react-native-gesture-handler';
+} from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const Detalhes = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
-  const prestador = route.params.prestador;
-  const servicoId = route.params.prestador.id;
-  const servicoIdd = route.params.serv.name;
+  const navigation = useNavigation()
+  const route = useRoute()
+  const prestador = route.params.prestador
+  const servicoId = route.params.prestador.id
+  const servicoIdd = route.params.serv.name
   function handleNavigateToPrestadores() {
-    navigation.goBack();
+    navigation.goBack()
   }
   function handleNavigateToAllServicos(prestador) {
-    navigation.navigate('AllServicos', { prestador, servicoIdd });
+    navigation.navigate('AllServicos', { prestador, servicoIdd })
   }
   function handleNavigateToAvaliacoes(prestador) {
-    navigation.navigate('Avaliacoes', { prestador });
+    navigation.navigate('Avaliacoes', { prestador })
   }
 
   api
@@ -34,23 +34,23 @@ const Detalhes = () => {
       },
     })
     .then((response) => {
-      setAvaliacoes(response.data);
-    });
+      setAvaliacoes(response.data)
+    })
 
-  const message = `Olá ${prestador.nome}, estou interessado em seus serviços. Vim do Vale Serviços. Podemos conversar?`;
+  const message = `Olá ${prestador.nome}, estou interessado em seus serviços. Vim do Vale Serviços. Podemos conversar?`
 
   function sendMail() {
     MailComposer.composeAsync({
       subject: `Vale Serviços - Contato`,
       recipients: [prestador.email],
       body: message,
-    });
+    })
   }
 
   function sendWhatsapp() {
     Linking.openURL(
       `whatsapp://send?phone=+55${prestador.telefone}&text=${message}`,
-    );
+    )
   }
 
   return (
@@ -207,8 +207,8 @@ const Detalhes = () => {
         </View>
       </View>
     </ScrollView>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -355,5 +355,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     color: '#0426B0',
   },
-});
-export default Detalhes;
+})
+export default Detalhes

@@ -1,34 +1,34 @@
-import { FontAwesome5, Feather as Icon } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, TextInput, Alert } from 'react-native';
-import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+import { FontAwesome5, Feather as Icon } from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import React, { useState, useEffect } from 'react'
+import { View, StyleSheet, Text, TextInput, Alert } from 'react-native'
+import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const AlterarDadoss = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
+  const navigation = useNavigation()
+  const route = useRoute()
 
-  const [contratantes, setContratantes] = useState([]);
+  const [contratantes, setContratantes] = useState([])
   // console.log(contratantes);
-  const contratante = route.params.contratante;
+  const contratante = route.params.contratante
   // console.log(route.params.contratante);
-  const contratanteCpf = route.params.contratante.cpf;
+  const contratanteCpf = route.params.contratante.cpf
   // console.log(contratanteCpf);
-  const contratanteId = route.params.contratante.id;
+  const contratanteId = route.params.contratante.id
   // console.log(contratanteId);
 
   function handleNavigateToDadosPessoais() {
-    navigation.navigate('DadosPessoaiss');
+    navigation.navigate('DadosPessoaiss')
   }
 
-  const [nome, setNome] = useState(contratante.nome);
-  const [email, setEmail] = useState(contratante.email);
-  const [cpf, setCpf] = useState(contratante.cpf);
-  const [senha, setSenha] = useState(contratante.senha);
-  const [telefone, setTelefone] = useState(contratante.telefone);
-  const [city, setCity] = useState(contratante.city);
+  const [nome, setNome] = useState(contratante.nome)
+  const [email, setEmail] = useState(contratante.email)
+  const [cpf, setCpf] = useState(contratante.cpf)
+  const [senha, setSenha] = useState(contratante.senha)
+  const [telefone, setTelefone] = useState(contratante.telefone)
+  const [city, setCity] = useState(contratante.city)
 
   useEffect(() => {
     api
@@ -38,9 +38,9 @@ const AlterarDadoss = () => {
         },
       })
       .then((response) => {
-        setContratantes(response.data);
-      });
-  }, [contratantes]);
+        setContratantes(response.data)
+      })
+  }, [contratantes])
 
   async function handleAlterar() {
     try {
@@ -50,14 +50,14 @@ const AlterarDadoss = () => {
         telefone,
         senha,
         city,
-      };
+      }
       const response = await api.put(
         `editarcontratantes/${contratanteId}`,
         data,
-      );
-      return handleNavigateToDadosPessoais();
+      )
+      return handleNavigateToDadosPessoais()
     } catch (err) {
-      Alert(erroAlterar());
+      Alert(erroAlterar())
     }
   }
   const erroAlterar = () =>
@@ -66,7 +66,7 @@ const AlterarDadoss = () => {
         text: 'Ok',
         onPress: () => console.log(),
       },
-    ]);
+    ])
 
   return (
     <View style={styles.container}>
@@ -161,8 +161,8 @@ const AlterarDadoss = () => {
         </BaseButton>
       </ScrollView>
     </View>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -216,5 +216,5 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 16,
   },
-});
-export default AlterarDadoss;
+})
+export default AlterarDadoss

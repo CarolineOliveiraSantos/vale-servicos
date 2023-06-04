@@ -1,20 +1,21 @@
-import { Text } from '@/components/Text';
-import { useNavigation } from '@react-navigation/native';
-import { FC } from 'react';
-import { TouchableOpacity, View, StyleSheet } from 'react-native';
+import { useTheme } from '@/hooks/useTheme'
+import { useNavigation } from '@react-navigation/native'
+import { FC } from 'react'
+import { TouchableOpacity, View, StyleSheet, Text } from 'react-native'
 export interface ServicoModel {
-  id: string;
-  name: string;
-  info: string;
+  id: string
+  name: string
+  info: string
 }
 export interface ServiceProps {
-  servico: ServicoModel;
+  servico: ServicoModel
 }
 
 export const Service: FC<ServiceProps> = ({ servico }) => {
-  const { navigate } = useNavigation();
+  const { navigate } = useNavigation()
+  const { colors, fontFamily, fontSize, fonts, size, textSize } = useTheme()
   function handleNavigateToPrestadores() {
-    navigate('Prestadores', { id: servico.id });
+    navigate('Prestadores', { id: servico.id })
   }
   return (
     <TouchableOpacity
@@ -23,16 +24,35 @@ export const Service: FC<ServiceProps> = ({ servico }) => {
       activeOpacity={0.8}
     >
       <View>
-        <Text color="primary" style={styles.description}>
+        <Text
+          style={[
+            styles.description,
+            {
+              fontSize: textSize.md.fontSize,
+              lineHeight: textSize.md.fontSize,
+              color: colors.text.primary,
+            },
+          ]}
+        >
           {servico.name}
         </Text>
-        <Text color="primary" fontFamily="Roboto.500" style={styles.dataValue}>
+        <Text
+          style={[
+            styles.dataValue,
+            {
+              fontSize: textSize.md.fontSize,
+              lineHeight: textSize.md.fontSize,
+              color: colors.text.primary,
+              fontFamily: fonts.Roboto[500],
+            },
+          ]}
+        >
           {servico.info}
         </Text>
       </View>
     </TouchableOpacity>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   descriptionContainer: {
@@ -64,4 +84,4 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     color: 'black',
   },
-});
+})

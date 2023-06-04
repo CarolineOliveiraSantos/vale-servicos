@@ -1,7 +1,7 @@
-import { Feather as Icon, Feather, FontAwesome } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import * as MailComposer from 'expo-mail-composer';
-import React, { useEffect, useState } from 'react';
+import { Feather as Icon, Feather, FontAwesome } from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import * as MailComposer from 'expo-mail-composer'
+import React, { useEffect, useState } from 'react'
 import {
   View,
   StyleSheet,
@@ -9,33 +9,33 @@ import {
   Linking,
   TouchableOpacity,
   DevSettings,
-} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+} from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const Detalhess = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
-  const prestador = route.params.prestador;
-  const contratante = route.params.contratante;
-  const servicoId = route.params.prestador.id;
-  const prestadorCpf = route.params.prestador.cpf;
-  const [prestadores, setPrestadores] = useState([]);
-  const [avaliacoes, setAvaliacoes] = useState([]);
+  const navigation = useNavigation()
+  const route = useRoute()
+  const prestador = route.params.prestador
+  const contratante = route.params.contratante
+  const servicoId = route.params.prestador.id
+  const prestadorCpf = route.params.prestador.cpf
+  const [prestadores, setPrestadores] = useState([])
+  const [avaliacoes, setAvaliacoes] = useState([])
 
   function handleNavigateToPrestadores() {
-    navigation.goBack();
+    navigation.goBack()
   }
 
   function handleNavigateToAllServicos(prestador) {
-    navigation.navigate('AllServicoss', { prestador });
+    navigation.navigate('AllServicoss', { prestador })
   }
   function handleNavigateToAvaliacoes(prestador) {
-    navigation.navigate('Avaliacaoo', { prestador });
+    navigation.navigate('Avaliacaoo', { prestador })
   }
   function handleNavigateToAvaliar(prestador, contratante, prestadores) {
-    navigation.navigate('Avaliar', { prestador, contratante, prestadores });
+    navigation.navigate('Avaliar', { prestador, contratante, prestadores })
   }
 
   useEffect(() => {
@@ -46,9 +46,9 @@ const Detalhess = () => {
         },
       })
       .then((response) => {
-        setAvaliacoes(response.data);
-      });
-  }, [avaliacoes]);
+        setAvaliacoes(response.data)
+      })
+  }, [avaliacoes])
 
   useEffect(() => {
     api
@@ -58,24 +58,24 @@ const Detalhess = () => {
         },
       })
       .then((response) => {
-        setPrestadores(response.data);
-      });
-  }, [prestadores]);
+        setPrestadores(response.data)
+      })
+  }, [prestadores])
 
-  const message = `Olá ${prestador.nome}, estou interessado em seus serviços. Vim do Vale Serviços. Podemos conversar?`;
+  const message = `Olá ${prestador.nome}, estou interessado em seus serviços. Vim do Vale Serviços. Podemos conversar?`
 
   function sendMail() {
     MailComposer.composeAsync({
       subject: `Vale Serviços - Contato`,
       recipients: [prestador.email],
       body: message,
-    });
+    })
   }
 
   function sendWhatsapp() {
     Linking.openURL(
       `whatsapp://send?phone=+55${prestador.telefone}&text=${message}`,
-    );
+    )
   }
 
   return (
@@ -262,8 +262,8 @@ const Detalhess = () => {
         </TouchableOpacity>
       </View>
     </View>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -410,5 +410,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     color: '#0426B0',
   },
-});
-export default Detalhess;
+})
+export default Detalhess

@@ -1,6 +1,6 @@
-import { Feather as Icon, Entypo, AntDesign } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import { useState, useEffect } from 'react';
+import { Feather as Icon, Entypo, AntDesign } from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import { useState, useEffect } from 'react'
 import {
   View,
   Text,
@@ -8,26 +8,26 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-} from 'react-native';
+} from 'react-native'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const homeContratante = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
-  const contratante = route.params.contratante;
+  const navigation = useNavigation()
+  const route = useRoute()
+  const contratante = route.params.contratante
 
   function handleNavigateToBack() {
-    navigation.goBack();
+    navigation.goBack()
   }
   function handleNavigateToPrestadores(servico, contratante) {
-    navigation.navigate('Prestadoress', { servico, contratante });
+    navigation.navigate('Prestadoress', { servico, contratante })
   }
   function handleNavigateToDadosPessoais(contratante) {
-    navigation.navigate('DadosPessoaiss', { contratante });
+    navigation.navigate('DadosPessoaiss', { contratante })
   }
   function handleNavigateToHome() {
-    navigation.navigate('Home');
+    navigation.navigate('Home')
   }
   const createAlert = () =>
     Alert.alert(
@@ -41,20 +41,20 @@ const homeContratante = () => {
         {
           text: 'Sair',
           onPress: () => {
-            return handleNavigateToHome();
+            return handleNavigateToHome()
           },
         },
       ],
       { cancelable: false },
-    );
+    )
 
-  const [servicos, setServicos] = useState([]);
+  const [servicos, setServicos] = useState([])
 
   useEffect(() => {
     api.get('servicoslist').then((res) => {
-      setServicos(res.data);
-    });
-  });
+      setServicos(res.data)
+    })
+  })
 
   return (
     <View style={styles.container}>
@@ -110,8 +110,8 @@ const homeContratante = () => {
         ))}
       </ScrollView>
     </View>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -172,5 +172,5 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   text: {},
-});
-export default homeContratante;
+})
+export default homeContratante

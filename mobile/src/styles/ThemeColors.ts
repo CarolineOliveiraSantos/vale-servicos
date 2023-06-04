@@ -8,6 +8,10 @@ export const ThemeColors = {
       bg: 'rgba(0, 0, 0, 0.8)',
       bgIcon: 'rgba(0, 0, 0, 0.1)',
     },
+    dashboard: {
+      bg: 'transparent',
+      border: '#ccc',
+    },
   },
   icons: {
     primary: '#000',
@@ -25,4 +29,4 @@ export const ThemeColors = {
     secondary: '#fff',
     dashboard: '#6C6C80',
   },
-};
+}

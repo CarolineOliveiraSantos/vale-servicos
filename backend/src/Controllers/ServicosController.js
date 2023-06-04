@@ -1,54 +1,54 @@
-const conn = require('../database/connecton');
+const conn = require('../database/connecton')
 
 module.exports = {
   async create(req, res) {
-    const { name, info, img } = req.body;
+    const { name, info, img } = req.body
     await conn('servicos').insert({
       name,
       info,
-      img
-    });
+      img,
+    })
 
-    return res.json(req.body);
+    return res.json(req.body)
   },
 
   // listar SERVICOS
   async index(req, res) {
-    const servicos = await conn('servicos').select('*');
+    const servicos = await conn('servicos').select('*')
     const serializedServicos = servicos.map((servico) => {
       return {
         ...servico,
-        image_url: `http://192.168.1.8:3333/uploadsServs/${servico.img}`
-      };
-    });
-    return res.json(serializedServicos);
+        image_url: `http://192.168.1.8:3333/uploadsServs/${servico.img}`,
+      }
+    })
+    return res.json(serializedServicos)
   },
   async indexId(req, res) {
-    const { id } = req.params;
+    const { id } = req.params
 
-    const servicos = await conn('servicos').select('*').where('id', '=', id);
+    const servicos = await conn('servicos').select('*').where('id', '=', id)
     const serializedServicos = servicos.map((servico) => {
       return {
-        ...servico
+        ...servico,
         // image_url: `http://192.168.1.8:3333/uploadsServs/${servico.img}`,
-      };
-    });
-    return res.json(serializedServicos);
+      }
+    })
+    return res.json(serializedServicos)
   },
 
   // editar
   async update(req, res) {
-    const { id } = req.params;
+    const { id } = req.params
 
-    const { name, info, img } = req.body;
+    const { name, info, img } = req.body
     await conn('servicos')
       .update({
         name,
         info,
-        img
+        img,
       })
-      .where('id', '=', id);
+      .where('id', '=', id)
 
-    return res.json(req.body);
-  }
-};
+    return res.json(req.body)
+  },
+}

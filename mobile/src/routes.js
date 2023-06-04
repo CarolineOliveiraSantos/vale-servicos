@@ -1,40 +1,40 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import React from 'react';
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import React from 'react'
 
 // TODOS
-import AllServicoss from './pages/Contratante/AllServicos';
-import AlterarDadoss from './pages/Contratante/AlterarDados';
-import Avaliacaoo from './pages/Contratante/Avaliacao';
-import Avaliar from './pages/Contratante/Avaliar';
-import cadastroContratante from './pages/Contratante/Cadastro';
-import DadosPessoaiss from './pages/Contratante/DadosPessoais';
-import Detalhess from './pages/Contratante/Detalhe';
-import homeContratante from './pages/Contratante/Home';
-import loginContratante from './pages/Contratante/Login';
-import Prestadoress from './pages/Contratante/Prestadores';
-import RecuperarAcessoo from './pages/Contratante/RecuperarAcesso';
-import Home from './pages/Dashboard';
+import AllServicoss from './pages/Contratante/AllServicos'
+import AlterarDadoss from './pages/Contratante/AlterarDados'
+import Avaliacaoo from './pages/Contratante/Avaliacao'
+import Avaliar from './pages/Contratante/Avaliar'
+import cadastroContratante from './pages/Contratante/Cadastro'
+import DadosPessoaiss from './pages/Contratante/DadosPessoais'
+import Detalhess from './pages/Contratante/Detalhe'
+import homeContratante from './pages/Contratante/Home'
+import loginContratante from './pages/Contratante/Login'
+import Prestadoress from './pages/Contratante/Prestadores'
+import RecuperarAcessoo from './pages/Contratante/RecuperarAcesso'
+import Home from './pages/Dashboard'
 // PRESTADOR
-import AdServicos from './pages/Prestador/AdServicos';
-import AlterarDados from './pages/Prestador/AlterarDados';
-import AlterarServicos from './pages/Prestador/AlterarServicos';
-import Cadastro from './pages/Prestador/Cadastro';
-import DadosPessoais from './pages/Prestador/DadosPessoais';
-import ListaServicos from './pages/Prestador/ListaServicos';
-import Login from './pages/Prestador/Login';
-import Principal from './pages/Prestador/Principal';
-import RecuperarAcesso from './pages/Prestador/RecuperarAcesso';
-import VerServicos from './pages/Prestador/VerServicos';
+import AdServicos from './pages/Prestador/AdServicos'
+import AlterarDados from './pages/Prestador/AlterarDados'
+import AlterarServicos from './pages/Prestador/AlterarServicos'
+import Cadastro from './pages/Prestador/Cadastro'
+import DadosPessoais from './pages/Prestador/DadosPessoais'
+import ListaServicos from './pages/Prestador/ListaServicos'
+import Login from './pages/Prestador/Login'
+import Principal from './pages/Prestador/Principal'
+import RecuperarAcesso from './pages/Prestador/RecuperarAcesso'
+import VerServicos from './pages/Prestador/VerServicos'
 // CONTRATANTE
 // VISITANTE
-import AllServicos from './pages/Visitante/AllServicos/index';
-import Avaliacoes from './pages/Visitante/Avaliacao/index';
-import Detalhes from './pages/Visitante/Detalhes/index';
-import Prestadores from './pages/Visitante/Prestadores/index';
-import Principalll from './pages/Visitante/Principal';
+import AllServicos from './pages/Visitante/AllServicos/index'
+import Avaliacoes from './pages/Visitante/Avaliacao/index'
+import Detalhes from './pages/Visitante/Detalhes/index'
+import Prestadores from './pages/Visitante/Prestadores/index'
+import Principalll from './pages/Visitante/Principal'
 
-const AppStack = createStackNavigator();
+const AppStack = createStackNavigator()
 
 export default function Routes() {
   return (
@@ -76,5 +76,5 @@ export default function Routes() {
         <AppStack.Screen name="Avaliacoes" component={Avaliacoes} />
       </AppStack.Navigator>
     </NavigationContainer>
-  );
+  )
 }

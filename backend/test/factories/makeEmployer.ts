@@ -1,5 +1,5 @@
-import { Employer, EmployerProps } from '../../src/domain/entities/Employer';
-import { makeAddress } from './makeAddress';
+import { Employer, EmployerProps } from '../../src/domain/entities/Employer'
+import { makeAddress } from './makeAddress'
 
 export const makeEmployer = (employer: Partial<EmployerProps> = {}) => {
   return new Employer({
@@ -9,6 +9,6 @@ export const makeEmployer = (employer: Partial<EmployerProps> = {}) => {
     lastName: 'any_lastName',
     password: 'any_password',
     telephone: 'any_telephone',
-    ...employer
-  });
-};
+    ...employer,
+  })
+}

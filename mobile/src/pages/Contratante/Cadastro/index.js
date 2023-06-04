@@ -1,19 +1,19 @@
-import { FontAwesome5, Feather as Icon } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react';
-import { View, StyleSheet, Text, TextInput } from 'react-native';
-import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+import { FontAwesome5, Feather as Icon } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native'
+import React, { useState } from 'react'
+import { View, StyleSheet, Text, TextInput } from 'react-native'
+import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const cadastroContratante = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation()
 
   function handleNavigateToLoginContratante() {
-    navigation.navigate('loginContratante');
+    navigation.navigate('loginContratante')
   }
   function handleNavigateToHome() {
-    navigation.navigate('Home');
+    navigation.navigate('Home')
   }
 
   async function handleRegister() {
@@ -25,23 +25,23 @@ const cadastroContratante = () => {
       telefone,
       city,
       uf,
-    };
+    }
 
     try {
-      const response = await api.post('contratantes', data);
-      navigation.navigate('loginContratante');
+      const response = await api.post('contratantes', data)
+      navigation.navigate('loginContratante')
     } catch (err) {
-      alert('Erro no cadastro, tente novamente.');
+      alert('Erro no cadastro, tente novamente.')
     }
   }
 
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [cpf, setCpf] = useState('');
-  const [senha, setSenha] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [city, setCity] = useState('');
-  const [uf, setUf] = useState('');
+  const [nome, setNome] = useState('')
+  const [email, setEmail] = useState('')
+  const [cpf, setCpf] = useState('')
+  const [senha, setSenha] = useState('')
+  const [telefone, setTelefone] = useState('')
+  const [city, setCity] = useState('')
+  const [uf, setUf] = useState('')
 
   return (
     <View style={styles.container}>
@@ -123,8 +123,8 @@ const cadastroContratante = () => {
         </BaseButton>
       </ScrollView>
     </View>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -163,5 +163,5 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 16,
   },
-});
-export default cadastroContratante;
+})
+export default cadastroContratante

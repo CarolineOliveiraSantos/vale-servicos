@@ -1,13 +1,13 @@
-import { ThemeSize } from '@/styles/ThemeSize';
-import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
+import { ThemeSize } from '@/styles/ThemeSize'
+import { Feather, MaterialCommunityIcons } from '@expo/vector-icons'
 
-import { AppleIcon } from './AppleIcon';
-import { FacebookIcon } from './FacebookIcon';
-import { GoogleIcon } from './GoogleIcon';
+import { AppleIcon } from './AppleIcon'
+import { FacebookIcon } from './FacebookIcon'
+import { GoogleIcon } from './GoogleIcon'
 
 export interface IconProps {
-  size?: number;
-  color: string;
+  size?: number
+  color: string
 }
 export const Icons = {
   arrowRight: ({ color, size = ThemeSize[10] }: IconProps) => (
@@ -32,4 +32,4 @@ export const Icons = {
   apple: ({ color, size = ThemeSize[10] }: IconProps) => (
     <AppleIcon height={size} width={size} fill={color} />
   ),
-};
+}

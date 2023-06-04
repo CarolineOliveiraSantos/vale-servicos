@@ -1,32 +1,32 @@
-import { Feather as Icon, AntDesign } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, TextInput } from 'react-native';
-import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+import { Feather as Icon, AntDesign } from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import React, { useState, useEffect } from 'react'
+import { View, StyleSheet, Text, TextInput } from 'react-native'
+import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const AlterarServicos = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
+  const navigation = useNavigation()
+  const route = useRoute()
 
-  const servico = route.params.servico;
-  const prestadorId = route.params.prestador;
-  const [servicos] = useState([route.params.servico]);
-  const [prestador, setPrestador] = useState([]);
-  const servicoId = route.params.servico.id;
+  const servico = route.params.servico
+  const prestadorId = route.params.prestador
+  const [servicos] = useState([route.params.servico])
+  const [prestador, setPrestador] = useState([])
+  const servicoId = route.params.servico.id
   // console.log(servico)
 
   function handleNavigateToBack() {
-    navigation.goBack();
+    navigation.goBack()
   }
   function handleNavigateToListaServicos() {
-    navigation.navigate('ListaServicos');
+    navigation.navigate('ListaServicos')
   }
 
-  const [tipodeservico, setTipodeservico] = useState('');
-  const [descricao, setDescricao] = useState(servico.descricao);
-  const [img_url, setImg_url] = useState(servico.img_url);
+  const [tipodeservico, setTipodeservico] = useState('')
+  const [descricao, setDescricao] = useState(servico.descricao)
+  const [img_url, setImg_url] = useState(servico.img_url)
 
   useEffect(() => {
     api
@@ -36,20 +36,20 @@ const AlterarServicos = () => {
         },
       })
       .then((response) => {
-        setPrestador(response.data);
-      });
-  }, [prestador]);
+        setPrestador(response.data)
+      })
+  }, [prestador])
 
   async function handleAlterar() {
     try {
       const data = {
         img_url,
         descricao,
-      };
-      const response = await api.put(`alterarservico/${servicoId}`, data);
-      return handleNavigateToListaServicos();
+      }
+      const response = await api.put(`alterarservico/${servicoId}`, data)
+      return handleNavigateToListaServicos()
     } catch (err) {
-      Alert(erroAlterar());
+      Alert(erroAlterar())
     }
   }
   const erroAlterar = () =>
@@ -58,7 +58,7 @@ const AlterarServicos = () => {
         text: 'Ok',
         onPress: () => console.log('Erro alterar'),
       },
-    ]);
+    ])
 
   return (
     <View style={styles.container}>
@@ -110,8 +110,8 @@ const AlterarServicos = () => {
         </BaseButton>
       </ScrollView>
     </View>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -173,5 +173,5 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 16,
   },
-});
-export default AlterarServicos;
+})
+export default AlterarServicos

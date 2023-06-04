@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import Svg, { G, Path, SvgProps } from 'react-native-svg';
+import { FC } from 'react'
+import Svg, { G, Path, SvgProps } from 'react-native-svg'
 export const GoogleIcon: FC<SvgProps> = (props) => (
   <Svg viewBox="-0.5 0 48 48" {...props}>
     <G fill="none" fillRule="evenodd">
@@ -21,4 +21,4 @@ export const GoogleIcon: FC<SvgProps> = (props) => (
       />
     </G>
   </Svg>
-);
+)

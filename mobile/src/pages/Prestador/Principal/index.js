@@ -3,28 +3,28 @@ import {
   FontAwesome5,
   Entypo,
   Feather,
-} from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import React from 'react';
-import { View, StyleSheet, Text, Image, Alert } from 'react-native';
+} from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import React from 'react'
+import { View, StyleSheet, Text, Image, Alert } from 'react-native'
 
 const Principal = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
-  const prestador = route.params.prestador;
+  const navigation = useNavigation()
+  const route = useRoute()
+  const prestador = route.params.prestador
   // console.log(route.params.prestador);
 
   function handleNavigateToDadosPessoais(prestador) {
-    navigation.navigate('DadosPessoais', { prestador });
+    navigation.navigate('DadosPessoais', { prestador })
   }
   function handleNavigateToServicos(prestador) {
-    navigation.navigate('ListaServicos', { prestador });
+    navigation.navigate('ListaServicos', { prestador })
   }
   function handleNavigateToAdServicos(prestador) {
-    navigation.navigate('AdServicos', { prestador });
+    navigation.navigate('AdServicos', { prestador })
   }
   function handleNavigateToHome() {
-    navigation.navigate('Home');
+    navigation.navigate('Home')
   }
   const createAlert = () =>
     Alert.alert(
@@ -38,12 +38,12 @@ const Principal = () => {
         {
           text: 'Sair',
           onPress: () => {
-            return handleNavigateToHome();
+            return handleNavigateToHome()
           },
         },
       ],
       { cancelable: false },
-    );
+    )
 
   return (
     <View style={styles.container}>
@@ -80,8 +80,8 @@ const Principal = () => {
         </Text>
       </View>
     </View>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -111,5 +111,5 @@ const styles = StyleSheet.create({
     // fontWeight: "bold",
     textAlign: 'center',
   },
-});
-export default Principal;
+})
+export default Principal

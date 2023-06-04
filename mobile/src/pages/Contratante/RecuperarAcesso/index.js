@@ -1,6 +1,6 @@
-import { FontAwesome5, Feather as Icon } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react';
+import { FontAwesome5, Feather as Icon } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native'
+import React, { useState } from 'react'
 import {
   View,
   StyleSheet,
@@ -8,34 +8,34 @@ import {
   TextInput,
   AsyncStorage,
   Alert,
-} from 'react-native';
-import { BaseButton } from 'react-native-gesture-handler';
+} from 'react-native'
+import { BaseButton } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const RecuperarAcessoo = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation()
 
   function handleNavigateToHome() {
-    navigation.navigate('Home');
+    navigation.navigate('Home')
   }
   function handleNavigateToBack() {
-    navigation.goBack();
+    navigation.goBack()
   }
-  const [cpf, setCpf] = useState('');
-  const [senha, setSenha] = useState('');
+  const [cpf, setCpf] = useState('')
+  const [senha, setSenha] = useState('')
 
   async function handleRecuperar() {
-    const response = await api.post('sessioncontratante', { cpf });
+    const response = await api.post('sessioncontratante', { cpf })
     if (!response.data.cpf) {
-      Alert(erroRecuperar());
+      Alert(erroRecuperar())
     } else {
-      const data = { senha };
+      const data = { senha }
       try {
-        const response = await api.put(`editarcontratantes/${cpf}`, data);
-        navigation.navigate('loginContratante');
+        const response = await api.put(`editarcontratantes/${cpf}`, data)
+        navigation.navigate('loginContratante')
       } catch (err) {
-        alert('Erro ao recuperar acesso, tente novamente.');
+        alert('Erro ao recuperar acesso, tente novamente.')
       }
     }
   }
@@ -49,7 +49,7 @@ const RecuperarAcessoo = () => {
           onPress: () => console.log('Erro recuperar acesso'),
         },
       ],
-    );
+    )
 
   return (
     <View style={styles.container}>
@@ -104,8 +104,8 @@ const RecuperarAcessoo = () => {
         <Text style={styles.buttonText}>Cancelar</Text>
       </BaseButton>
     </View>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -144,5 +144,5 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 16,
   },
-});
-export default RecuperarAcessoo;
+})
+export default RecuperarAcessoo

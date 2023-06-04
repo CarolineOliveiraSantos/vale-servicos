@@ -1,54 +1,54 @@
-import { Feather as Icon, FontAwesome5 } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, Alert } from 'react-native';
-import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+import { Feather as Icon, FontAwesome5 } from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import React, { useState, useEffect } from 'react'
+import { View, StyleSheet, Text, Alert } from 'react-native'
+import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const VerServicos = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
+  const navigation = useNavigation()
+  const route = useRoute()
 
-  const servico = route.params.servico;
-  const prestador = route.params.prestador;
-  const prestadorCpf = route.params.prestador.cpf;
-  const prestadorId = route.params.prestador.id;
+  const servico = route.params.servico
+  const prestador = route.params.prestador
+  const prestadorCpf = route.params.prestador.cpf
+  const prestadorId = route.params.prestador.id
   //   const [servicos] = useState([route.params.servico]);
-  const [prestadores, setPrestadores] = useState([]);
+  const [prestadores, setPrestadores] = useState([])
   //   const [idserv, setIdserv] = useState([]);
-  const [servData, setServData] = useState([]);
+  const [servData, setServData] = useState([])
 
   function handleNavigateToPrincipal() {
-    navigation.navigate('Principal');
+    navigation.navigate('Principal')
   }
   function handleNavigateToListaServicos() {
-    navigation.navigate('ListaServicos');
+    navigation.navigate('ListaServicos')
   }
   function handleNavigateToAlterarServicos(servico, prestador) {
-    navigation.navigate('AlterarServicos', { servico, prestador });
+    navigation.navigate('AlterarServicos', { servico, prestador })
   }
 
   useEffect(() => {
     api.get(`servicosId/${servico.servico_id}`).then((res) => {
-      setServData(res.data);
+      setServData(res.data)
       //   console.log(servData);
-    });
+    })
     // console.log(servicos);
-  }, [servData]);
+  }, [servData])
 
-  const id = route.params.servico.id;
+  const id = route.params.servico.id
   async function handleDeleteAccount() {
     try {
       await api.delete(`removeservico/${id}`, {
         headers: {
           Authorization: prestadorId,
         },
-      });
-      setPrestadores(prestadores.filter((prestador) => prestador.id !== id));
-      return handleNavigateToListaServicos();
+      })
+      setPrestadores(prestadores.filter((prestador) => prestador.id !== id))
+      return handleNavigateToListaServicos()
     } catch (err) {
-      alert('Erro ao excluir serviço, tente novamente.');
+      alert('Erro ao excluir serviço, tente novamente.')
     }
   }
 
@@ -64,12 +64,12 @@ const VerServicos = () => {
         {
           text: 'Excluir',
           onPress: () => {
-            return handleDeleteAccount();
+            return handleDeleteAccount()
           },
         },
       ],
       { cancelable: false },
-    );
+    )
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} horizontal={false}>
@@ -148,8 +148,8 @@ const VerServicos = () => {
         </BaseButton>
       </View>
     </ScrollView>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -215,5 +215,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingTop: 12,
   },
-});
-export default VerServicos;
+})
+export default VerServicos

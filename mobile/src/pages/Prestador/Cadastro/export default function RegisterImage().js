@@ -1,76 +1,76 @@
 export default function RegisterImage() {
-  const [preview, setPreview] = useState('');
-  const [types, setTypes] = useState(false);
-  const [upload, setUpload] = useState(null);
+  const [preview, setPreview] = useState('')
+  const [types, setTypes] = useState(false)
+  const [upload, setUpload] = useState(null)
   function handleSelectTypeImage() {
-    setTypes(true);
+    setTypes(true)
   }
 
   async function UploadImage() {
-    const formData = new FormData();
-    formData.append('image', upload);
-    console.log(formData);
+    const formData = new FormData()
+    formData.append('image', upload)
+    console.log(formData)
     const { data } = await api.post('/posts', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
-    });
+    })
 
     // console.log(data)
   }
 
   async function handleSelectCamera() {
-    setTypes(false);
+    setTypes(false)
     const result = await ImagePicker.launchCameraAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-    });
+    })
     if (result.error) {
-      console.log('Error');
+      console.log('Error')
     } else {
-      let prefix;
-      let ext;
+      let prefix
+      let ext
       if (result.fileName) {
-        [prefix, ext] = result.fileName;
-        ext = ext.toLowerCase() === 'heic' ? 'jpg' : ext;
+        ;[prefix, ext] = result.fileName
+        ext = ext.toLowerCase() === 'heic' ? 'jpg' : ext
       } else {
-        prefix = new Date().getTime();
-        ext = 'jpg';
+        prefix = new Date().getTime()
+        ext = 'jpg'
       }
       const imageUpload = {
         uri: result.uri,
         type: result.type,
         name: `${prefix}.${ext}`,
-      };
-      setUpload(imageUpload);
-      setPreview(result.uri);
+      }
+      setUpload(imageUpload)
+      setPreview(result.uri)
     }
   }
   async function handleSelectGalery() {
-    setTypes(false);
+    setTypes(false)
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-    });
+    })
     if (result.error) {
-      console.log('Error');
+      console.log('Error')
     } else {
-      let prefix;
-      let ext;
+      let prefix
+      let ext
       if (result.fileName) {
-        [prefix, ext] = result.fileName;
-        ext = ext.toLowerCase() === 'heic' ? 'jpg' : ext;
+        ;[prefix, ext] = result.fileName
+        ext = ext.toLowerCase() === 'heic' ? 'jpg' : ext
       } else {
-        prefix = new Date().getTime();
-        ext = 'jpg';
+        prefix = new Date().getTime()
+        ext = 'jpg'
       }
       const imageUpload = {
         uri: result.uri,
         type: result.type,
         name: `${prefix}.${ext}`,
-      };
-      setUpload(imageUpload);
-      setPreview(result.uri);
+      }
+      setUpload(imageUpload)
+      setPreview(result.uri)
     }
   }
 
@@ -124,5 +124,5 @@ export default function RegisterImage() {
         </TouchableOpacity>
       </ImageBackground>
     </SafeAreaView>
-  );
+  )
 }

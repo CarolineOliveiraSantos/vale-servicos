@@ -1,28 +1,28 @@
-import { Feather as Icon, FontAwesome5 } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, Alert, Image } from 'react-native';
-import { BaseButton, ScrollView } from 'react-native-gesture-handler';
+import { Feather as Icon, FontAwesome5 } from '@expo/vector-icons'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import React, { useState, useEffect } from 'react'
+import { View, StyleSheet, Text, Alert, Image } from 'react-native'
+import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
-import api from '../../../services/api';
+import api from '../../../services/api'
 
 const DadosPessoais = () => {
-  const navigation = useNavigation();
-  const route = useRoute();
+  const navigation = useNavigation()
+  const route = useRoute()
 
-  const prestadorCpf = route.params.prestador.cpf;
+  const prestadorCpf = route.params.prestador.cpf
 
-  const [prestadores, setPrestadores] = useState([]);
+  const [prestadores, setPrestadores] = useState([])
   // console.log(prestadsores)
 
   function handleNavigateToPrincipal() {
-    navigation.goBack();
+    navigation.goBack()
   }
   function handleNavigateToHome() {
-    navigation.navigate('Home');
+    navigation.navigate('Home')
   }
   function handleNavigateToAlterarDados(prestador) {
-    navigation.navigate('AlterarDados', { prestador });
+    navigation.navigate('AlterarDados', { prestador })
   }
 
   useEffect(() => {
@@ -33,18 +33,18 @@ const DadosPessoais = () => {
         },
       })
       .then((response) => {
-        setPrestadores(response.data);
-      });
-  }, [prestadores]);
+        setPrestadores(response.data)
+      })
+  }, [prestadores])
 
-  const id = route.params.prestador.id;
+  const id = route.params.prestador.id
   async function handleDeleteAccount() {
     try {
-      await api.delete(`prestadorApagar/${id}`);
-      setPrestadores(prestadores.filter((prestador) => prestador.id !== id));
-      return navigation.navigate('Home');
+      await api.delete(`prestadorApagar/${id}`)
+      setPrestadores(prestadores.filter((prestador) => prestador.id !== id))
+      return navigation.navigate('Home')
     } catch (err) {
-      alert('Erro ao deletar prestador, tente novamente.');
+      alert('Erro ao deletar prestador, tente novamente.')
     }
   }
 
@@ -60,12 +60,12 @@ const DadosPessoais = () => {
         {
           text: 'Excluir',
           onPress: () => {
-            return handleDeleteAccount();
+            return handleDeleteAccount()
           },
         },
       ],
       { cancelable: false },
-    );
+    )
 
   return (
     <>
@@ -184,8 +184,8 @@ const DadosPessoais = () => {
         </View>
       </ScrollView>
     </>
-  );
-};
+  )
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -244,5 +244,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingTop: 12,
   },
-});
-export default DadosPessoais;
+})
+export default DadosPessoais
