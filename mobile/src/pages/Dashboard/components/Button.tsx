@@ -24,6 +24,7 @@ export const Button: FC<ButtonProps> = ({
   const { colors } = useTheme()
   return (
     <TouchableOpacity
+      testID="button"
       style={[{ width: '100%' }, style]}
       onPress={onPress}
       {...props}

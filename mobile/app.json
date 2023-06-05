@@ -2,11 +2,8 @@
   "expo": {
     "name": "Vale Serviços",
     "slug": "valeservicos",
-    "scheme":["valeservicos","fb219837340908523"],
-    "platforms": [
-      "ios",
-      "android"
-    ],
+    "scheme": ["valeservicos", "fb219837340908523"],
+    "platforms": ["ios", "android"],
     "version": "1.0.0",
     "jsEngine": "hermes",
     "orientation": "portrait",
@@ -19,11 +16,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "bundleIdentifier":  "com.gabriel85.valeservicos",
+      "bundleIdentifier": "com.gabriel85.valeservicos",
       "supportsTablet": true,
       "googleServicesFile": "./GoogleService-Info.plist",
       "config": {
@@ -39,7 +34,7 @@
         "backgroundImage": "./assets/adaptive-icon.png"
       }
     },
-    "plugins": ["@react-native-google-signin/google-signin","expo-apple-authentication"],
+    "plugins": ["@react-native-google-signin/google-signin"],
     "extra": {
       "eas": {
         "projectId": "2d7278b4-8a96-4732-954e-c30c25b6d731"

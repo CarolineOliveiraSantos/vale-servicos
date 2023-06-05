@@ -8,17 +8,14 @@ import {
   BottomSheetModal,
   BottomSheetModalProvider,
 } from '@gorhom/bottom-sheet'
-import { useNavigation } from '@react-navigation/native'
 import LottieView from 'lottie-react-native'
 import { useRef } from 'react'
-import { TouchableOpacity } from 'react-native'
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
 
 import { Button } from './components/Button'
 import { Modal } from './components/Modal'
 const DashboardBase = () => {
-  const { navigate } = useNavigation()
-  const { colors, fonts } = useTheme()
+  const { fonts } = useTheme()
   const { promptFacebookSingIn, promptGoogleSingIn, promptAppleSingIn } =
     useAuth()
   const bottomSheetModalRef = useRef<BottomSheetModal>(null)
@@ -54,19 +51,19 @@ const DashboardBase = () => {
       </Text>
 
       <Button
-        icon={<Icons.google color={colors.icons.secondary} />}
+        icon={<Icons.google />}
         title="Continuar com Google"
         onPress={async () => {
           await promptGoogleSingIn()
         }}
       />
       <Button
-        icon={<Icons.apple color={colors.icons.secondary} />}
+        icon={<Icons.apple />}
         title="Continuar com Apple"
         onPress={promptAppleSingIn}
       />
       <Button
-        icon={<Icons.facebook color={colors.icons.secondary} />}
+        icon={<Icons.facebook />}
         title="Continuar com Facebook"
         onPress={promptFacebookSingIn}
       />

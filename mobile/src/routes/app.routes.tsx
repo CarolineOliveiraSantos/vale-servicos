@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack'
 
-import { Dashboard } from '../pages/Dashboard'
+import { Dashboard } from '../pages/Dashboard/Dashboard'
 import AllServicos from './../pages/Visitante/AllServicos/index'
 import Avaliacoes from './../pages/Visitante/Avaliacao/index'
 import Detalhes from './../pages/Visitante/Detalhes/index'
