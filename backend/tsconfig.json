@@ -12,6 +12,17 @@
     "strict": true,
     "noImplicitAny": true,
     "alwaysStrict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/config/*": ["./src/config/*"],
+      "@/Controllers/*": ["./src/Controllers/*"],
+      "@/database/*": ["./src/database/*"],
+      "@/app/*": ["src/app/*"],
+      "@/interfaces/*": ["./src/interfaces/*"],
+      "@/main/*": ["./src/main/*"],
+      "@/uploads/*": ["./src/uploads/*"],
+      "@/test/*": ["./test/*"]
+    }
   }
 }
