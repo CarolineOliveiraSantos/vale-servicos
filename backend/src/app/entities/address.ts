@@ -56,6 +56,14 @@ export class Address {
     this.props.neighborhood = neighborhood
   }
 
+  public get stateNumber() {
+    return this.props.stateNumber
+  }
+
+  public set stateNumber(stateNumber: string) {
+    this.props.stateNumber = stateNumber
+  }
+
   public get zipCode() {
     return this.props.zipCode
   }

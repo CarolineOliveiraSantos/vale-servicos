@@ -14,13 +14,18 @@
     "alwaysStrict": true,
     "skipLibCheck": true,
     "baseUrl": ".",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
     "paths": {
       "@/config/*": ["./src/config/*"],
       "@/Controllers/*": ["./src/Controllers/*"],
       "@/database/*": ["./src/database/*"],
+      "@/helpers/*": ["./src/helpers/*"],
       "@/app/*": ["src/app/*"],
       "@/interfaces/*": ["./src/interfaces/*"],
       "@/main/*": ["./src/main/*"],
+      "@/presentation/*": ["./src/presentation/*"],
       "@/uploads/*": ["./src/uploads/*"],
       "@/test/*": ["./test/*"]
     }

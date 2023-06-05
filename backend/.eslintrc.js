@@ -7,6 +7,7 @@ module.exports = {
   extends: ['@rocketseat/eslint-config/node'],
   plugins: ['import-helpers'],
   rules: {
+    'no-useless-constructor': 'off',
     'import-helpers/order-imports': [
       'warn',
       {

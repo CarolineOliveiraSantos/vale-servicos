@@ -21,6 +21,7 @@ module.exports = {
           '@/config': './src/config',
           '@/Controllers': './src/Controllers',
           '@/database': './src/database',
+          '@/helpers': './src/helpers',
           '@/domain': './src/domain',
           '@/interfaces': './src/interfaces',
           '@/main': './src/main',
