@@ -2,28 +2,31 @@ import { randomUUID } from 'node:crypto'
 
 import { Replace } from '../helpers/Replace'
 import { Address } from './Address'
-
-export interface EmployerProps {
+import { Image } from './Image'
+import { Phone } from './Phone'
+export interface ServiceProviderProps {
   id: string
-  cpf?: string
   firstName: string
   lastName: string
   email: string
-  password: string
-  telephone: string
-  address: Address
+  password?: string
+  phone: Phone
+  image?: Image
+  socialSecurityNumber?: string
+  bio?: string
+  address?: Address
   createdAt: Date
   updatedAt: Date
 }
-export class Employer {
-  private props: EmployerProps
+export class ServiceProvider {
+  private props: ServiceProviderProps
   constructor({
-    id,
     createdAt,
     updatedAt,
+    id,
     ...props
   }: Replace<
-    EmployerProps,
+    ServiceProviderProps,
     { id?: string; createdAt?: Date; updatedAt?: Date }
   >) {
     this.props = {
@@ -38,12 +41,12 @@ export class Employer {
     return this.props.id
   }
 
-  public get cpf() {
-    return this.props.cpf
+  public get socialSecurityNumber() {
+    return this.props.socialSecurityNumber
   }
 
-  public set cpf(cpf: string | undefined) {
-    this.props.cpf = cpf
+  public set socialSecurityNumber(socialSecurityNumber: string | undefined) {
+    this.props.socialSecurityNumber = socialSecurityNumber
   }
 
   public get firstName() {
@@ -74,24 +77,40 @@ export class Employer {
     return this.props.password
   }
 
-  public set password(password: string) {
+  public set password(password: string | undefined) {
     this.props.password = password
   }
 
-  public get telephone() {
-    return this.props.telephone
+  public get phone() {
+    return this.props.phone
   }
 
-  public set telephone(telephone: string) {
-    this.props.telephone = telephone
+  public set phone(phone: Phone) {
+    this.props.phone = phone
+  }
+
+  public get bio() {
+    return this.props.bio
+  }
+
+  public set bio(bio: string | undefined) {
+    this.props.bio = bio
   }
 
   public get address() {
     return this.props.address
   }
 
-  public set address(address: Address) {
+  public set address(address: Address | undefined) {
     this.props.address = address
+  }
+
+  public get image() {
+    return this.props.image
+  }
+
+  public set image(image: Image | undefined) {
+    this.props.image = image
   }
 
   public get createdAt() {

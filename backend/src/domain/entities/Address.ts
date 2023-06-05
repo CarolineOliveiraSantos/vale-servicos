@@ -6,9 +6,10 @@ export interface AddressProps {
   id: string
   street: string
   neighborhood: string
-  cep: string
+  zipCode: string
   city: string
   state: string
+  stateNumber: string
 }
 export class Address {
   private props: AddressProps
@@ -55,11 +56,11 @@ export class Address {
     this.props.neighborhood = neighborhood
   }
 
-  public get cep() {
-    return this.props.cep
+  public get zipCode() {
+    return this.props.zipCode
   }
 
-  public set cep(cep: string) {
-    this.props.cep = cep
+  public set zipCode(zipCode: string) {
+    this.props.zipCode = zipCode
   }
 }

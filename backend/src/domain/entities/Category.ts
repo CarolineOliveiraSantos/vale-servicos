@@ -3,17 +3,14 @@ import { randomUUID } from 'node:crypto'
 import { Replace } from '../helpers/Replace'
 import { Image } from './Image'
 
-export interface DomesticServiceProps {
+export interface CategoryProps {
   id: string
   name: string
   image: Image
 }
-export class DomesticService {
-  private props: DomesticServiceProps
-  constructor({
-    id,
-    ...props
-  }: Replace<DomesticServiceProps, { id?: string }>) {
+export class Category {
+  private props: CategoryProps
+  constructor({ id, ...props }: Replace<CategoryProps, { id?: string }>) {
     this.props = {
       id: id || randomUUID(),
       ...props,
@@ -30,14 +27,6 @@ export class DomesticService {
 
   public set name(name: string) {
     this.props.name = name
-  }
-
-  public get info() {
-    return this.props.info
-  }
-
-  public set info(info: string) {
-    this.props.info = info
   }
 
   public get image() {

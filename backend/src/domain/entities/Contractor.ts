@@ -2,30 +2,29 @@ import { randomUUID } from 'node:crypto'
 
 import { Replace } from '../helpers/Replace'
 import { Address } from './Address'
-import { Image } from './Image'
-export interface WorkerProps {
+import { Phone } from './Phone'
+
+export interface ContractorProps {
   id: string
   firstName: string
   lastName: string
-  email: string
-  password: string
-  telephone: string
-  image?: Image
-  cpf?: string
-  bio?: string
-  address?: Address
+  socialSecurityNumber?: string
+  email?: string
+  password?: string
+  phone?: Phone
+  address?: Address[]
   createdAt: Date
   updatedAt: Date
 }
-export class Worker {
-  private props: WorkerProps
+export class Contractor {
+  private props: ContractorProps
   constructor({
+    id,
     createdAt,
     updatedAt,
-    id,
     ...props
   }: Replace<
-    WorkerProps,
+    ContractorProps,
     { id?: string; createdAt?: Date; updatedAt?: Date }
   >) {
     this.props = {
@@ -40,12 +39,12 @@ export class Worker {
     return this.props.id
   }
 
-  public get cpf() {
-    return this.props.cpf
+  public get socialSecurityNumber() {
+    return this.props.socialSecurityNumber
   }
 
-  public set cpf(cpf: string | undefined) {
-    this.props.cpf = cpf
+  public set socialSecurityNumber(socialSecurityNumber: string | undefined) {
+    this.props.socialSecurityNumber = socialSecurityNumber
   }
 
   public get firstName() {
@@ -68,7 +67,7 @@ export class Worker {
     return this.props.email
   }
 
-  public set email(email: string) {
+  public set email(email: string | undefined) {
     this.props.email = email
   }
 
@@ -76,40 +75,24 @@ export class Worker {
     return this.props.password
   }
 
-  public set password(password: string) {
+  public set password(password: string | undefined) {
     this.props.password = password
   }
 
-  public get telephone() {
-    return this.props.telephone
+  public get phone() {
+    return this.props.phone
   }
 
-  public set telephone(telephone: string) {
-    this.props.telephone = telephone
-  }
-
-  public get bio() {
-    return this.props.bio
-  }
-
-  public set bio(bio: string | undefined) {
-    this.props.bio = bio
+  public set phone(phone: Phone | undefined) {
+    this.props.phone = phone
   }
 
   public get address() {
     return this.props.address
   }
 
-  public set address(address: Address | undefined) {
+  public set address(address: Address[] | undefined) {
     this.props.address = address
-  }
-
-  public get image() {
-    return this.props.image
-  }
-
-  public set image(image: Image | undefined) {
-    this.props.image = image
   }
 
   public get createdAt() {

@@ -1,12 +1,15 @@
+import { faker } from '@faker-js/faker'
+
 import { Address, AddressProps } from '../../src/domain/entities/Address'
 
 export const makeAddress = (address: Partial<AddressProps> = {}) => {
   return new Address({
-    cep: 'any_cep',
-    city: 'any_city',
+    zipCode: faker.location.zipCode(),
+    city: faker.location.city(),
     neighborhood: 'any_neighborhood',
-    state: 'any_state',
-    street: 'any_state',
+    state: faker.location.state(),
+    street: faker.location.street(),
+    stateNumber: faker.location.buildingNumber(),
     ...address,
   })
 }
