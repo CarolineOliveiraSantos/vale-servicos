@@ -7,7 +7,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier -w .",
-    "test": "jest",
+    "test": "jest --passWithNoTests --runInBand --verbose",
     "prepare": "husky install"
   },
   "dependencies": {
