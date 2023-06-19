@@ -2,9 +2,9 @@
 import { Loading } from '@/components/Loading'
 import { StatusBar } from '@/components/StatusBar'
 import { AuthProvider } from '@/contexts/AuthContext'
+import { ColorModeProvider } from '@/contexts/ColorModeContext'
 import { HttpServiceProvider } from '@/contexts/HttpServiceContext'
 import { StorageProvider } from '@/contexts/StorageContext'
-import { ThemeProvider } from '@/contexts/ThemeContext'
 import { Routes } from '@/routes/routes'
 import { Inter_500Medium } from '@expo-google-fonts/inter'
 import { Roboto_400Regular, Roboto_500Medium } from '@expo-google-fonts/roboto'
@@ -22,11 +22,11 @@ export default function App() {
     <HttpServiceProvider>
       <StorageProvider>
         <AuthProvider>
-          <ThemeProvider>
+          <ColorModeProvider>
             <StatusBar />
             {isFontsLoaded ? <Routes /> : <Loading />}
             <Toast />
-          </ThemeProvider>
+          </ColorModeProvider>
         </AuthProvider>
       </StorageProvider>
     </HttpServiceProvider>

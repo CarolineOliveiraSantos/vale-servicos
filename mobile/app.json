@@ -8,6 +8,7 @@
     "jsEngine": "hermes",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "plugins": ["@react-native-google-signin/google-signin"],
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -28,13 +29,11 @@
     "android": {
       "googleServicesFile": "./google-services.json",
       "package": "com.gabriel85.valeservicos",
-
       "adaptiveIcon": {
         "backgroundColor": "#fff",
         "backgroundImage": "./assets/adaptive-icon.png"
       }
     },
-    "plugins": ["@react-native-google-signin/google-signin"],
     "extra": {
       "eas": {
         "projectId": "2d7278b4-8a96-4732-954e-c30c25b6d731"

@@ -1,7 +1,6 @@
 import { Storage } from '@/interfaces/Storage'
 import { MMKV } from 'react-native-mmkv'
 const storage = new MMKV()
-
 export class StorageAdapter implements Storage {
   async getItem<T = any>(key: string): Promise<T | null> {
     const value = storage.getString(key)

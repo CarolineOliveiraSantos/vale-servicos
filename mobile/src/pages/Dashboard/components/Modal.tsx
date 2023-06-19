@@ -1,9 +1,10 @@
-import { Text } from '@/components/primitives/Text'
-import { View } from '@/components/primitives/View'
+import { Text } from '@/components/shared/Text'
+import { View } from '@/components/shared/View'
 import { BottomSheetModal } from '@gorhom/bottom-sheet'
 import { ForwardRefRenderFunction, memo, forwardRef } from 'react'
 
 import { Button } from './Button'
+import { ButtonSecondary } from './ButtonSecondary'
 export const ModalBase: ForwardRefRenderFunction<BottomSheetModal> = (
   _,
   ref,
@@ -11,22 +12,20 @@ export const ModalBase: ForwardRefRenderFunction<BottomSheetModal> = (
   return (
     <BottomSheetModal ref={ref} snapPoints={[300]}>
       <View
-        style={{
-          paddingHorizontal: 20,
-          paddingVertical: 30,
-          paddingBottom: 50,
-          justifyContent: 'space-between',
-          flex: 1,
-        }}
+        justifyContent="space-between"
+        flex={1}
+        paddingHorizontal="xl"
+        paddingVertical="4xl"
+        paddingBottom="9xl"
       >
-        <Text fontFamily="Inter.500" size="lg" style={{ textAlign: 'center' }}>
+        <Text variant="body" textAlign="center">
           Como deseja continuar ?
         </Text>
         <Button title="Visitante" onPress={() => {}} />
 
-        <View style={{ flexDirection: 'row', gap: 10, width: '100%' }}>
-          <Button title="Celular" style={{ flex: 1 }} onPress={() => {}} />
-          <Button title="Email" style={{ flex: 1 }} onPress={() => {}} />
+        <View flexDirection="row" width="100%" gap="md">
+          <ButtonSecondary title="Celular" onPress={() => {}} />
+          <ButtonSecondary title="Email" onPress={() => {}} />
         </View>
       </View>
     </BottomSheetModal>

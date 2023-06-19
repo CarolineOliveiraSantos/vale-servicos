@@ -14,32 +14,32 @@
       },
       "oauth_client": [
         {
-          "client_id": "1086184516727-fgq9e88p1cl496tr6pun8hb4gme7aoks.apps.googleusercontent.com",
+          "client_id": "1086184516727-id7t4jbbhfsitvdum0c3as8uj6d1i05n.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.gabriel85.valeservicos",
-            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+            "certificate_hash": "c3b7c6bec11b449cb648fe6e19f024a6b7e9c677"
           }
         },
         {
-          "client_id": "1086184516727-u6eqc9ip4ft0qmlqopkkfhbt1oc5v8df.apps.googleusercontent.com",
+          "client_id": "1086184516727-i1sl7n4h7lg0g7dhdveol0t7sh26j05k.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyADBuYsDpZECCcmXznGlR0wgWoC1_J4c5w"
+          "current_key": "AIzaSyBLS0Dbzj2FxmkCG5Ue32fIANgsXZwNHqA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1086184516727-u6eqc9ip4ft0qmlqopkkfhbt1oc5v8df.apps.googleusercontent.com",
+              "client_id": "1086184516727-i1sl7n4h7lg0g7dhdveol0t7sh26j05k.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "1086184516727-0ve52uaujfr7su143b51dl0mp5mrek6d.apps.googleusercontent.com",
+              "client_id": "1086184516727-58o42rie4bp70me0n4q4mivd39k4s9qo.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.gabriel85.valeservicos"

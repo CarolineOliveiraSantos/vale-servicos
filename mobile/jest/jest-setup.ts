@@ -4,12 +4,6 @@ jest.mock('react-native-reanimated', () => {
   Reanimated.default.call = () => {}
   return Reanimated
 })
-jest.mock('@invertase/react-native-apple-authentication', () => {
-  return {
-    appleAuth: jest.fn(),
-    appleAuthAndroid: jest.fn(),
-  }
-})
 
 jest.mock('expo-auth-session/providers/facebook', () => ({
   useAuthRequest: () => {

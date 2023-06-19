@@ -1,36 +1,29 @@
 import ServiceProviders from '@/assets/animations/serviceProviders.json'
 import { Icons } from '@/components/Icons/Icons'
-import { Text } from '@/components/primitives/Text'
-import { View } from '@/components/primitives/View'
+import { Text } from '@/components/shared/Text'
+import { View } from '@/components/shared/View'
 import { useAuth } from '@/hooks/useAuth'
-import { useTheme } from '@/hooks/useTheme'
 import {
   BottomSheetModal,
   BottomSheetModalProvider,
 } from '@gorhom/bottom-sheet'
 import LottieView from 'lottie-react-native'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
 
 import { Button } from './components/Button'
 import { Modal } from './components/Modal'
 const DashboardBase = () => {
-  const { fonts } = useTheme()
-  const { promptFacebookSingIn, promptGoogleSingIn, promptAppleSingIn } =
-    useAuth()
+  const { promptFacebookSingIn, promptGoogleSingIn } = useAuth()
   const bottomSheetModalRef = useRef<BottomSheetModal>(null)
   const handleOpenModal = () => {
     bottomSheetModalRef.current?.present()
   }
+  const [isLoadingGoogle, setIsLoadingGoogle] = useState<boolean>(false)
+  const [isLoadingFacebook, setIsLoadingFacebook] = useState<boolean>(false)
+
   return (
-    <View
-      style={{
-        gap: 15,
-        flex: 1,
-        padding: 20,
-        justifyContent: 'flex-end',
-      }}
-    >
+    <View gap="md" flex={1} padding="xl" justifyContent="flex-end">
       <LottieView
         source={ServiceProviders}
         autoPlay
@@ -39,33 +32,35 @@ const DashboardBase = () => {
         style={{ position: 'relative' }}
       />
 
-      <Text
-        size="lg"
-        fontFamily="Inter.500"
-        style={{
-          textAlign: 'center',
-          fontFamily: fonts.Inter[500],
-        }}
-      >
+      <Text variant="header" textAlign="center">
         Bem vindo ao lugar ideal para encontrar prestadores de serviços
       </Text>
 
       <Button
         icon={<Icons.google />}
         title="Continuar com Google"
+        isLoading={isLoadingGoogle}
         onPress={async () => {
-          await promptGoogleSingIn()
+          try {
+            setIsLoadingGoogle(true)
+            await promptGoogleSingIn()
+          } finally {
+            setIsLoadingGoogle(false)
+          }
         }}
-      />
-      <Button
-        icon={<Icons.apple />}
-        title="Continuar com Apple"
-        onPress={promptAppleSingIn}
       />
       <Button
         icon={<Icons.facebook />}
         title="Continuar com Facebook"
-        onPress={promptFacebookSingIn}
+        isLoading={isLoadingFacebook}
+        onPress={async () => {
+          try {
+            setIsLoadingFacebook(true)
+            await promptFacebookSingIn()
+          } finally {
+            setIsLoadingFacebook(false)
+          }
+        }}
       />
 
       <Button title="Outras opções" onPress={handleOpenModal} />

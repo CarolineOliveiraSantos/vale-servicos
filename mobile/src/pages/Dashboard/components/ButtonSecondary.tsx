@@ -3,18 +3,16 @@ import { TouchableOpacity } from '@/components/shared/TouchableOpacity'
 import { View } from '@/components/shared/View'
 import { Theme } from '@/styles/theme'
 import { useTheme } from '@shopify/restyle'
-import { FC, ReactNode } from 'react'
+import { FC } from 'react'
 import { AccessibilityProps, ActivityIndicator } from 'react-native'
 
-export type ButtonProps = AccessibilityProps & {
-  icon?: ReactNode
+export type ButtonSecondaryProps = AccessibilityProps & {
   title: string
   onPress: () => void
   isLoading?: boolean
 }
 
-export const Button: FC<ButtonProps> = ({
-  icon,
+export const ButtonSecondary: FC<ButtonSecondaryProps> = ({
   title,
   onPress,
   isLoading = false,
@@ -24,8 +22,9 @@ export const Button: FC<ButtonProps> = ({
   return (
     <TouchableOpacity
       disabled={isLoading}
-      testID="button"
+      testID="buttonSecondary"
       width="100%"
+      flex={1}
       onPress={onPress}
       {...props}
     >
@@ -46,14 +45,12 @@ export const Button: FC<ButtonProps> = ({
           height={52}
           borderWidth={1}
           alignItems="center"
+          justifyContent="center"
           flexDirection="row"
           borderRadius="rounded"
           paddingHorizontal="md"
         >
-          {icon}
-          <Text variant="button" textAlign="center" style={{ flex: 1 }}>
-            {title}
-          </Text>
+          <Text variant="button">{title}</Text>
         </View>
       )}
     </TouchableOpacity>

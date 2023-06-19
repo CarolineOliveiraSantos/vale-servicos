@@ -1,13 +1,3 @@
-import { useContext } from 'react'
-
-import { ThemeContext } from '../contexts/ThemeContext'
-import { WithoutProviderError } from '../errors/WithoutProviderError'
-export const useTheme = () => {
-  const value = useContext(ThemeContext)
-  if (Object.keys(value).length === 0) {
-    throw new WithoutProviderError(
-      'useTheme must be used within an ThemeProvider',
-    )
-  }
-  return value
-}
+import { Theme } from '@react-navigation/native'
+import { useTheme as useThemeRestyle } from '@shopify/restyle'
+export const useTheme = () => useThemeRestyle<Theme>()

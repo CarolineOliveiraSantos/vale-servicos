@@ -1,10 +1,149 @@
-import { ThemeColors } from './ThemeColors'
-import { FontFamily, ThemeFonts } from './ThemeFonts'
-import { TextSize } from './ThemeFontSize'
+import { createTheme } from '@shopify/restyle'
 
-export const Theme = {
-  colors: ThemeColors,
-  fonts: ThemeFonts,
-  textSize: TextSize,
-  fontFamily: FontFamily,
-}
+import { palette } from './palette'
+
+export const ThemeLight = createTheme({
+  colors: {
+    mainBackground: palette.green[50],
+    textPrimary: palette.black,
+    buttonBorder: palette.gray[500],
+  },
+  spacing: {
+    none: 0,
+    '2xs': 2,
+    xs: 4,
+    sm: 8,
+    md: 12,
+    lg: 16,
+    xl: 20,
+    '2xl': 24,
+    '3xl': 28,
+    '4xl': 32,
+    '5xl': 36,
+    '6xl': 40,
+    '7xl': 44,
+    '8xl': 48,
+    '9xl': 52,
+  },
+  textVariants: {
+    body: {
+      fontSize: 16,
+      lineHeight: 24,
+      fontWeight: 'normal',
+      fontFamily: 'Inter_500Medium',
+      color: 'textPrimary',
+    },
+    header: {
+      fontWeight: 'normal',
+      fontSize: 18,
+      lineHeight: 24,
+      fontFamily: 'Inter_500Medium',
+      color: 'textPrimary',
+    },
+    button: {
+      fontSize: 16,
+      lineHeight: 24,
+      fontWeight: 'normal',
+      fontFamily: 'Roboto_400Regular',
+      color: 'textPrimary',
+    },
+    defaults: {},
+  },
+  borderRadii: {
+    'rounded-none': 0,
+    'rounded-px': 1,
+    'rounded-sm': 2,
+    rounded: 4,
+    'rounded-md': 6,
+    'rounded-lg': 8,
+    'rounded-xl': 12,
+    'rounded-2xl': 16,
+    'rounded-3xl': 24,
+    'rounded-full': 9999,
+  },
+  breakpoints: {
+    phone: 0,
+    tablet: 768,
+  },
+  zIndices: {
+    '0': 0,
+    '10': 10,
+    '20': 20,
+    '30': 30,
+    '40': 40,
+    '50': 50,
+  },
+})
+export const ThemeDark = createTheme({
+  colors: {
+    mainBackground: palette.green[50],
+    textPrimary: palette.black,
+    buttonBorder: palette.gray[500],
+  },
+  spacing: {
+    none: 0,
+    '2xs': 2,
+    xs: 4,
+    sm: 8,
+    md: 12,
+    lg: 16,
+    xl: 20,
+    '2xl': 24,
+    '3xl': 28,
+    '4xl': 32,
+    '5xl': 36,
+    '6xl': 40,
+    '7xl': 44,
+    '8xl': 48,
+    '9xl': 52,
+  },
+  textVariants: {
+    header: {
+      fontWeight: 'normal',
+      fontSize: 18,
+      lineHeight: 24,
+      fontFamily: 'Inter_500Medium',
+      color: 'textPrimary',
+    },
+    button: {
+      fontSize: 16,
+      lineHeight: 24,
+      fontWeight: 'normal',
+      fontFamily: 'Roboto_400Regular',
+      color: 'textPrimary',
+    },
+    body: {
+      fontSize: 16,
+      lineHeight: 24,
+      fontWeight: 'normal',
+      fontFamily: 'Inter_500Medium',
+      color: 'textPrimary',
+    },
+    defaults: {},
+  },
+  borderRadii: {
+    'rounded-none': 0,
+    'rounded-px': 1,
+    'rounded-sm': 2,
+    rounded: 4,
+    'rounded-md': 6,
+    'rounded-lg': 8,
+    'rounded-xl': 12,
+    'rounded-2xl': 16,
+    'rounded-3xl': 24,
+    'rounded-full': 9999,
+  },
+  breakpoints: {
+    phone: 0,
+    tablet: 768,
+  },
+  zIndices: {
+    '0': 0,
+    '10': 10,
+    '20': 20,
+    '30': 30,
+    '40': 40,
+    '50': 50,
+  },
+})
+export type Theme = typeof ThemeLight
