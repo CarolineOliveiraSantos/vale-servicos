@@ -27,6 +27,7 @@
       "@/main/*": ["./src/main/*"],
       "@/presentation/*": ["./src/presentation/*"],
       "@/uploads/*": ["./src/uploads/*"],
+      "@/utils/*": ["./src/utils/*"],
       "@/test/*": ["./test/*"]
     }
   }

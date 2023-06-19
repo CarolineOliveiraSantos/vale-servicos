@@ -4,7 +4,8 @@ import { HttpResponse } from '@/interfaces/http/http-response'
 import { Controller } from '@/interfaces/presentation/controller/controller'
 import { CreateContractorWithEmailUseCase } from '@/interfaces/use-cases/contractor/create-contractor-with-email-use-case'
 import { CreateContractorWithEmailDto } from '@/presentation/dtos/create-contractor-with-email.dto'
-import { validate } from 'class-validator'
+import { ExceptionFilter } from '@/presentation/errors/exception-filter'
+import { ValidateDto } from '@/presentation/validator/ValidateDto'
 export interface CreateContractorWithEmailControllerRequest {
   firstName: string
   lastName: string
@@ -27,16 +28,13 @@ export class CreateContractorWithEmailController implements Controller {
         lastName: request.body.lastName,
         password: request.body.password,
       })
-      const hasErrors = await validate(createContractorWithEmail)
-      if (hasErrors.length === 0) {
-        return ResponseEntity.badRequest(hasErrors)
-      }
+      await ValidateDto.isValid(createContractorWithEmail)
       const contractor = await this.createContractorWithEmailUseCase.handle(
         createContractorWithEmail,
       )
       return ResponseEntity.ok(contractor)
     } catch (error) {
-      return ResponseEntity.serverError()
+      return ExceptionFilter.handle(error)
     }
   }
 }
