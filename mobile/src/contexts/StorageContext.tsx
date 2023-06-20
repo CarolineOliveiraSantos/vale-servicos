@@ -1,5 +1,5 @@
-import { SecureStorageAdapter } from '@/infra/SecureStorageAdapter'
-import { StorageAdapter } from '@/infra/StorageAdapter'
+import { SecureStorageAdapter } from '@/infra/storage/SecureStorageAdapter'
+import { StorageAdapter } from '@/infra/storage/StorageAdapter'
 import { SecureStorage } from '@/interfaces/SecureStorage'
 import { Storage } from '@/interfaces/Storage'
 import { FC, ReactNode, createContext } from 'react'

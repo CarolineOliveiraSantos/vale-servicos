@@ -1,9 +1,10 @@
 import { AuthProvider } from '@/contexts/AuthContext'
-import { ColorModeProvider } from '@/contexts/ColorModeContext'
 import { HttpServiceProvider } from '@/contexts/HttpServiceContext'
 import { StorageProvider } from '@/contexts/StorageContext'
 import { render, RenderOptions } from '@testing-library/react-native'
 import { ReactNode, FC, ReactElement } from 'react'
+
+import { ColorModeProviderMock } from './mocks/ColorModeProviderMock'
 export interface AllTheProvidersProps {
   children: ReactNode
 }
@@ -12,7 +13,7 @@ const AllTheProviders: FC<AllTheProvidersProps> = ({ children }) => {
     <HttpServiceProvider>
       <StorageProvider>
         <AuthProvider>
-          <ColorModeProvider>{children}</ColorModeProvider>
+          <ColorModeProviderMock>{children}</ColorModeProviderMock>
         </AuthProvider>
       </StorageProvider>
     </HttpServiceProvider>

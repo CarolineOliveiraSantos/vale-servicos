@@ -3,6 +3,7 @@
     "lint-staged": "^13.2.2",
     "husky": "^8.0.0"
   },
+  "license": "MIT",
   "scripts": {
     "prepare": "husky install"
   }

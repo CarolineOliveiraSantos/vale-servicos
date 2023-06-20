@@ -9,6 +9,7 @@ import { Routes } from '@/routes/routes'
 import { Inter_500Medium } from '@expo-google-fonts/inter'
 import { Roboto_400Regular, Roboto_500Medium } from '@expo-google-fonts/roboto'
 import { Ubuntu_700Bold, useFonts } from '@expo-google-fonts/ubuntu'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import Toast from 'react-native-toast-message'
 
 export default function App() {
@@ -24,7 +25,13 @@ export default function App() {
         <AuthProvider>
           <ColorModeProvider>
             <StatusBar />
-            {isFontsLoaded ? <Routes /> : <Loading />}
+            <SafeAreaView
+              style={{
+                flex: 1,
+              }}
+            >
+              {isFontsLoaded ? <Routes /> : <Loading />}
+            </SafeAreaView>
             <Toast />
           </ColorModeProvider>
         </AuthProvider>

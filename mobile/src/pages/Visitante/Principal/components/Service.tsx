@@ -13,7 +13,7 @@ export interface ServiceProps {
 
 export const Service: FC<ServiceProps> = ({ servico }) => {
   const { navigate } = useNavigation()
-  const { colors, fontFamily, fontSize, fonts, size, textSize } = useTheme()
+  const { colors } = useTheme()
   function handleNavigateToPrestadores() {
     navigate('Prestadores', { id: servico.id })
   }

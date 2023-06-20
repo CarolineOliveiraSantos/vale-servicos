@@ -1,8 +1,7 @@
 import { Text } from '@/components/shared/Text'
 import { TouchableOpacity } from '@/components/shared/TouchableOpacity'
 import { View } from '@/components/shared/View'
-import { Theme } from '@/styles/theme'
-import { useTheme } from '@shopify/restyle'
+import { useTheme } from '@/hooks/useTheme'
 import { FC } from 'react'
 import { AccessibilityProps, ActivityIndicator } from 'react-native'
 
@@ -18,7 +17,7 @@ export const ButtonSecondary: FC<ButtonSecondaryProps> = ({
   isLoading = false,
   ...props
 }) => {
-  const { colors } = useTheme<Theme>()
+  const { colors } = useTheme()
   return (
     <TouchableOpacity
       disabled={isLoading}
@@ -26,6 +25,8 @@ export const ButtonSecondary: FC<ButtonSecondaryProps> = ({
       width="100%"
       flex={1}
       onPress={onPress}
+      accessibilityRole="button"
+      role="button"
       {...props}
     >
       {isLoading ? (
@@ -33,12 +34,17 @@ export const ButtonSecondary: FC<ButtonSecondaryProps> = ({
           flexDirection="row"
           alignItems="center"
           justifyContent="center"
+          borderColor="buttonBorder"
           borderRadius="rounded"
           paddingHorizontal="md"
           borderWidth={1}
           height={52}
         >
-          <ActivityIndicator size="small" color={colors.textPrimary} />
+          <ActivityIndicator
+            testID="activity-indicator"
+            size="small"
+            color={colors.textPrimary}
+          />
         </View>
       ) : (
         <View
@@ -49,6 +55,7 @@ export const ButtonSecondary: FC<ButtonSecondaryProps> = ({
           flexDirection="row"
           borderRadius="rounded"
           paddingHorizontal="md"
+          borderColor="buttonBorder"
         >
           <Text variant="button">{title}</Text>
         </View>

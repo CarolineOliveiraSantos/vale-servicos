@@ -1,26 +1,18 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { keys } from '@/constants/keys'
+import {
+  ColorModeProviderProps,
+  ColorModeContext,
+  ColorModeType,
+  ThemeModeType,
+} from '@/contexts/ColorModeContext'
 import { useStorage } from '@/hooks/useStorage'
 import { ThemeDark, ThemeLight } from '@/styles/theme'
 import { ThemeProvider } from '@shopify/restyle'
-import { FC, ReactNode, createContext, useEffect, useState } from 'react'
-import { Appearance, useColorScheme } from 'react-native'
-export type ColorModeType = 'dark' | 'light' | 'system'
-export type ThemeModeType = 'dark' | 'light'
-export interface ColorModeProviderProps {
-  children: ReactNode
-}
-export interface ColorModeContextProps {
-  colorMode: ColorModeType
-  themeMode: ThemeModeType
-  changeToThemeDark(): Promise<void>
-  changeToThemeLight(): Promise<void>
-  changeToThemeSystem(): Promise<void>
-}
-export const ColorModeContext = createContext<ColorModeContextProps>(
-  {} as ColorModeContextProps,
-)
-export const ColorModeProvider: FC<ColorModeProviderProps> = ({ children }) => {
+import { FC, useState } from 'react'
+import { useColorScheme, Appearance } from 'react-native'
+export const ColorModeProviderMock: FC<ColorModeProviderProps> = ({
+  children,
+}) => {
   const [themeMode, setThemeMode] = useState<ThemeModeType>('dark')
   const [colorMode, setColorMode] = useState<ColorModeType>('dark')
   const { storage } = useStorage()
@@ -50,21 +42,6 @@ export const ColorModeProvider: FC<ColorModeProviderProps> = ({ children }) => {
     }
     await storage.setItem<ColorModeType>(keys.COLOR_MODE, 'light')
   }
-  useEffect(() => {
-    const loadColorModeInStorage = async () => {
-      const colorMode = await storage.getItem<ColorModeType>(keys.COLOR_MODE)
-      if (colorMode === 'dark') {
-        await changeToThemeDark()
-      } else if (colorMode === 'light') {
-        await changeToThemeLight()
-      } else if (colorMode === 'system') {
-        await changeToThemeSystem()
-      } else {
-        await changeToThemeSystem()
-      }
-    }
-    loadColorModeInStorage()
-  }, [])
 
   return (
     <ColorModeContext.Provider

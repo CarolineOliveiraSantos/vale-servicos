@@ -1,4 +1,4 @@
-import { HttpServiceAdapter } from '@/infra/HttpServiceAdapter'
+import { HttpServiceAdapter } from '@/infra/http/HttpServiceAdapter'
 import { HttpService } from '@/interfaces/HttpService'
 import { FC, ReactNode, createContext } from 'react'
 

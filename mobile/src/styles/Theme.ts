@@ -76,8 +76,8 @@ export const ThemeLight = createTheme({
 })
 export const ThemeDark = createTheme({
   colors: {
-    mainBackground: palette.green[50],
-    textPrimary: palette.black,
+    mainBackground: palette.black,
+    textPrimary: palette.white,
     buttonBorder: palette.gray[500],
   },
   spacing: {

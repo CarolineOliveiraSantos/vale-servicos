@@ -23,7 +23,13 @@ const DashboardBase = () => {
   const [isLoadingFacebook, setIsLoadingFacebook] = useState<boolean>(false)
 
   return (
-    <View gap="md" flex={1} padding="xl" justifyContent="flex-end">
+    <View
+      backgroundColor="mainBackground"
+      gap="md"
+      flex={1}
+      padding="xl"
+      justifyContent="flex-end"
+    >
       <LottieView
         source={ServiceProviders}
         autoPlay

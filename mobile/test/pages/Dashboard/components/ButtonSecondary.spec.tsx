@@ -1,41 +1,32 @@
 import { fireEvent, render } from '@/jest/test-utils'
-import { Button } from '@/pages/Dashboard/components/Button'
+import { ButtonSecondary } from '@/pages/Dashboard/components/ButtonSecondary'
 import { faker } from '@faker-js/faker'
-import { View } from 'react-native'
-
 let title = faker.lorem.text()
 let onPress = jest.fn()
-describe('<Button />', () => {
+
+describe('<ButtonSecondary />', () => {
   beforeEach(() => {
     title = faker.lorem.text()
     onPress = jest.fn()
   })
   it('should show correct title', async () => {
-    const { getByText } = render(<Button title={title} onPress={onPress} />)
+    const { getByText } = render(
+      <ButtonSecondary title={title} onPress={onPress} />,
+    )
     expect(getByText(title)).toBeTruthy()
   })
-  it('should show correct icon', async () => {
+
+  it('should run onPress on ButtonSecondary press', async () => {
     const { getByTestId } = render(
-      <Button
-        icon={<View testID="icon" />}
-        title="any_title"
-        onPress={onPress}
-      />,
+      <ButtonSecondary title="any_title" onPress={onPress} />,
     )
-    expect(getByTestId('icon')).toBeTruthy()
-  })
-  it('should run onPress on Button press', async () => {
-    const { findByTestId } = render(
-      <Button title="any_title" onPress={onPress} />,
-    )
-    const button = await findByTestId('button')
-    fireEvent.press(button)
+    fireEvent.press(getByTestId('buttonSecondary'))
     expect(onPress).toHaveBeenCalled()
   })
   it('should render with props', async () => {
     const accessibilityHint = faker.lorem.text()
     const { getAllByA11yHint } = render(
-      <Button
+      <ButtonSecondary
         onPress={onPress}
         title={title}
         accessibilityHint={accessibilityHint}
@@ -43,21 +34,23 @@ describe('<Button />', () => {
     )
     expect(getAllByA11yHint(accessibilityHint)).toBeTruthy()
   })
-  it('should disable button if isLoading', async () => {
+  it('should disable ButtonSecondary if isLoading', async () => {
     const { getByTestId } = render(
-      <Button title={title} onPress={onPress} isLoading={true} />,
+      <ButtonSecondary title={title} onPress={onPress} isLoading={true} />,
     )
-    expect(getByTestId('button')).toBeDisabled()
+    expect(getByTestId('buttonSecondary')).toBeDisabled()
   })
   it('should show ActivityIndicator if isLoading', async () => {
     const { getByTestId } = render(
-      <Button title={title} onPress={onPress} isLoading={true} />,
+      <ButtonSecondary title={title} onPress={onPress} isLoading={true} />,
     )
     expect(getByTestId('activity-indicator')).toBeTruthy()
   })
   describe('accessibility', () => {
-    it('should render with role button', () => {
-      const { getByRole } = render(<Button onPress={onPress} title={title} />)
+    it('should render with role ButtonSecondary', () => {
+      const { getByRole } = render(
+        <ButtonSecondary onPress={onPress} title={title} />,
+      )
       expect(getByRole('button')).toBeTruthy()
     })
   })
