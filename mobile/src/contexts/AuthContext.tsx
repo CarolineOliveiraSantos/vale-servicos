@@ -1,4 +1,5 @@
 import { env } from '@/constants/env'
+import { ContractorModel } from '@/models/ContractorModel'
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import * as Facebook from 'expo-auth-session/providers/facebook'
 import * as WebBrowser from 'expo-web-browser'
@@ -19,7 +20,7 @@ const GOOGLE_CLIENT_ID =
     ? env.GOOGLE_CLIENT_ID_IOS
     : env.GOOGLE_CLIENT_ID_ANDROID
 export const AuthProvider: FC<IAuthProvider> = ({ children }) => {
-  const [user, setUser] = useState<UserDto | null>(null)
+  const [Contractor, setContractor] = useState<ContractorModel | null>(null)
   const [facebookRequest, facebookResponse, facebookPromptAsync] =
     Facebook.useAuthRequest({
       clientId: env.FACEBOOK_CLIENT_ID,

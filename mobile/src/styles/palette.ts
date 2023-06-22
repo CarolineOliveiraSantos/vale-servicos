@@ -8,4 +8,6 @@ export const palette = {
   gray: { 500: '#CCCCCC' },
   white: '#fff',
   black: '#000',
+  primary: '#023047',
+  error: '#ef4444',
 }

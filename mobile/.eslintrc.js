@@ -8,6 +8,7 @@ module.exports = {
   overrides: [],
   plugins: ['import-helpers'],
   rules: {
+    'no-useless-constructor': 'off',
     'import-helpers/order-imports': [
       'warn',
       {

@@ -7,7 +7,7 @@ export const Loading = () => {
   const { colors } = useTheme()
   return (
     <View flex={1} alignItems="center" justifyContent="center">
-      <ActivityIndicator size="large" color={colors.textPrimary} />
+      <ActivityIndicator size="large" color={colors['text-primary']} />
     </View>
   )
 }

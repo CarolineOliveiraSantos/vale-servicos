@@ -1,3 +1,6 @@
+import { Routes } from '@/@types/navigation'
+import { SingUpWithEmail } from '@/pages/SingUpWithEmail/SingUpWithEmail'
+import { SingUpWithNumberPhone } from '@/pages/SingUpWithNumberPhone/SingUpWithNumberPhone'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import { Dashboard } from '../pages/Dashboard/Dashboard'
@@ -6,13 +9,15 @@ import Avaliacoes from './../pages/Visitante/Avaliacao/index'
 import Detalhes from './../pages/Visitante/Detalhes/index'
 import Prestadores from './../pages/Visitante/Prestadores/index'
 import Principalll from './../pages/Visitante/Principal'
-const { Navigator, Screen } = createStackNavigator()
+const { Navigator, Screen } = createStackNavigator<Routes>()
 export const AppRoutes = () => {
   return (
     <Navigator
       initialRouteName="Dashboard"
       screenOptions={{ headerShown: false }}
     >
+      <Screen name="SingUpWithNumberPhone" component={SingUpWithNumberPhone} />
+      <Screen name="SingUpWithEmail" component={SingUpWithEmail} />
       <Screen name="Dashboard" component={Dashboard} />
       <Screen name="Principalll" component={Principalll} />
       <Screen name="Prestadores" component={Prestadores} />

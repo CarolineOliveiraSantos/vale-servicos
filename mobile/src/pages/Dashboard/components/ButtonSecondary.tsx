@@ -34,7 +34,7 @@ export const ButtonSecondary: FC<ButtonSecondaryProps> = ({
           flexDirection="row"
           alignItems="center"
           justifyContent="center"
-          borderColor="buttonBorder"
+          borderColor="button-border"
           borderRadius="rounded"
           paddingHorizontal="md"
           borderWidth={1}
@@ -43,7 +43,7 @@ export const ButtonSecondary: FC<ButtonSecondaryProps> = ({
           <ActivityIndicator
             testID="activity-indicator"
             size="small"
-            color={colors.textPrimary}
+            color={colors['text-primary']}
           />
         </View>
       ) : (
@@ -55,7 +55,7 @@ export const ButtonSecondary: FC<ButtonSecondaryProps> = ({
           flexDirection="row"
           borderRadius="rounded"
           paddingHorizontal="md"
-          borderColor="buttonBorder"
+          borderColor="button-border"
         >
           <Text variant="button">{title}</Text>
         </View>

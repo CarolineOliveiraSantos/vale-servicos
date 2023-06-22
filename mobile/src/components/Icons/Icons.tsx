@@ -10,8 +10,23 @@ export interface IconProps {
   color: string
 }
 export const Icons = {
+  eyeOff: ({ color, size = 24 }: IconProps) => (
+    <Feather name="eye-off" size={size} color={color} />
+  ),
+  eye: ({ color, size = 24 }: IconProps) => (
+    <Feather name="eye" size={size} color={color} />
+  ),
+  lock: ({ color, size = 24 }: IconProps) => (
+    <Feather name="lock" size={size} color={color} />
+  ),
+  email: ({ color, size = 24 }: IconProps) => (
+    <Feather name="mail" size={size} color={color} />
+  ),
   arrowRight: ({ color, size = 24 }: IconProps) => (
     <Feather name="arrow-right" color={color} size={size} />
+  ),
+  arrowLeft: ({ color, size = 24 }: IconProps) => (
+    <Feather name="arrow-left" color={color} size={size} />
   ),
   badgeAccountHorizontalOutline: ({ color, size = 24 }: IconProps) => (
     <MaterialCommunityIcons

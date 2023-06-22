@@ -38,13 +38,13 @@ export const Button: FC<ButtonProps> = ({
           borderRadius="rounded"
           paddingHorizontal="md"
           borderWidth={1}
-          borderColor="buttonBorder"
+          borderColor="button-border"
           height={52}
         >
           <ActivityIndicator
             testID="activity-indicator"
             size="small"
-            color={colors.textPrimary}
+            color={colors['text-primary']}
           />
         </View>
       ) : (
@@ -55,7 +55,7 @@ export const Button: FC<ButtonProps> = ({
           flexDirection="row"
           borderRadius="rounded"
           paddingHorizontal="md"
-          borderColor="buttonBorder"
+          borderColor="button-border"
         >
           {icon}
           <Text variant="button" textAlign="center" style={{ flex: 1 }}>

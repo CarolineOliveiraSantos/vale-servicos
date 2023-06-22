@@ -23,6 +23,7 @@ export const ColorModeContext = createContext<ColorModeContextProps>(
 export const ColorModeProvider: FC<ColorModeProviderProps> = ({ children }) => {
   const [themeMode, setThemeMode] = useState<ThemeModeType>('dark')
   const [colorMode, setColorMode] = useState<ColorModeType>('dark')
+
   const { storage } = useStorage()
   const colorScheme = useColorScheme()
 
@@ -48,10 +49,11 @@ export const ColorModeProvider: FC<ColorModeProviderProps> = ({ children }) => {
     } else {
       setThemeMode('light')
     }
-    await storage.setItem<ColorModeType>(keys.COLOR_MODE, 'light')
+    await storage.setItem<ColorModeType>(keys.COLOR_MODE, 'system')
   }
   useEffect(() => {
     const loadColorModeInStorage = async () => {
+      await storage.deleteItem(keys.COLOR_MODE)
       const colorMode = await storage.getItem<ColorModeType>(keys.COLOR_MODE)
       if (colorMode === 'dark') {
         await changeToThemeDark()

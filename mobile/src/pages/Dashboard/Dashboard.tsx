@@ -24,7 +24,7 @@ const DashboardBase = () => {
 
   return (
     <View
-      backgroundColor="mainBackground"
+      backgroundColor="main-background"
       gap="md"
       flex={1}
       padding="xl"
