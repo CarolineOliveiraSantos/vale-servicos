@@ -1,5 +1,5 @@
 import { fireEvent, render } from '@/jest/test-utils'
-import { ButtonSecondary } from '@/pages/Dashboard/components/ButtonSecondary'
+import { ButtonSecondary } from '@/ui/pages/Dashboard/components/ButtonSecondary'
 import { faker } from '@faker-js/faker'
 let title = faker.lorem.text()
 let onPress = jest.fn()

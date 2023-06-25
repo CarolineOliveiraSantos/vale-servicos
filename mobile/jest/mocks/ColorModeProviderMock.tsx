@@ -6,7 +6,7 @@ import {
   ThemeModeType,
 } from '@/contexts/ColorModeContext'
 import { useStorage } from '@/hooks/useStorage'
-import { ThemeDark, ThemeLight } from '@/styles/theme'
+import { ThemeDark, ThemeLight } from '@/ui/styles/theme'
 import { ThemeProvider } from '@shopify/restyle'
 import { FC, useState } from 'react'
 import { useColorScheme, Appearance } from 'react-native'

@@ -1,17 +1,19 @@
-import { Text } from '@/components/shared/Text'
-import { TouchableOpacity } from '@/components/shared/TouchableOpacity'
-import { View } from '@/components/shared/View'
 import { useTheme } from '@/hooks/useTheme'
-import { FC } from 'react'
+import { Text } from '@/ui/components/shared/Text'
+import { TouchableOpacity } from '@/ui/components/shared/TouchableOpacity'
+import { View } from '@/ui/components/shared/View'
+import { FC, ReactNode } from 'react'
 import { AccessibilityProps, ActivityIndicator } from 'react-native'
 
-export type ButtonSecondaryProps = AccessibilityProps & {
+export type ButtonProps = AccessibilityProps & {
+  icon?: ReactNode
   title: string
   onPress: () => void
   isLoading?: boolean
 }
 
-export const ButtonSecondary: FC<ButtonSecondaryProps> = ({
+export const Button: FC<ButtonProps> = ({
+  icon,
   title,
   onPress,
   isLoading = false,
@@ -21,9 +23,8 @@ export const ButtonSecondary: FC<ButtonSecondaryProps> = ({
   return (
     <TouchableOpacity
       disabled={isLoading}
-      testID="buttonSecondary"
+      testID="button"
       width="100%"
-      flex={1}
       onPress={onPress}
       accessibilityRole="button"
       role="button"
@@ -34,10 +35,10 @@ export const ButtonSecondary: FC<ButtonSecondaryProps> = ({
           flexDirection="row"
           alignItems="center"
           justifyContent="center"
-          borderColor="button-border"
           borderRadius="rounded"
           paddingHorizontal="md"
           borderWidth={1}
+          borderColor="button-border"
           height={52}
         >
           <ActivityIndicator
@@ -51,13 +52,15 @@ export const ButtonSecondary: FC<ButtonSecondaryProps> = ({
           height={52}
           borderWidth={1}
           alignItems="center"
-          justifyContent="center"
           flexDirection="row"
           borderRadius="rounded"
           paddingHorizontal="md"
           borderColor="button-border"
         >
-          <Text variant="button">{title}</Text>
+          {icon}
+          <Text variant="button" textAlign="center" style={{ flex: 1 }}>
+            {title}
+          </Text>
         </View>
       )}
     </TouchableOpacity>

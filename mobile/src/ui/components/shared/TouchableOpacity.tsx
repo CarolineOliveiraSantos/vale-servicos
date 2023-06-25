@@ -1,4 +1,4 @@
-import { Theme } from '@/styles/theme'
+import { Theme } from 'src/ui/styles/theme'
 import {
   createRestyleComponent,
   ColorProps,

@@ -1,6 +1,6 @@
-import { Text } from '@/components/shared/Text'
-import { View } from '@/components/shared/View'
 import { useTheme } from '@/hooks/useTheme'
+import { Text } from '@/ui/components/shared/Text'
+import { View } from '@/ui/components/shared/View'
 import { BottomSheetModal } from '@gorhom/bottom-sheet'
 import { useNavigation } from '@react-navigation/native'
 import { ForwardRefRenderFunction, memo, forwardRef } from 'react'

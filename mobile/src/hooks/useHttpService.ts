@@ -1,7 +1,7 @@
 import { HttpServiceContext } from '@/contexts/HttpServiceContext'
 import { useContext } from 'react'
 
-import { WithoutProviderError } from '../errors/WithoutProviderError'
+import { WithoutProviderError } from '../domain/errors/WithoutProviderError'
 export const useHttpService = () => {
   const value = useContext(HttpServiceContext)
   if (Object.keys(value).length === 0) {

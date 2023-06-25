@@ -1,4 +1,3 @@
-import api from '@/services/api'
 import { Feather as Icon } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import { useState, useEffect } from 'react'
@@ -10,6 +9,7 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native'
+import api from 'src/services/api'
 
 import { Service, ServicoModel } from './components/Service'
 

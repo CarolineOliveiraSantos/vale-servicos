@@ -1,5 +1,5 @@
 import { env } from '@/constants/env'
-import { ContractorModel } from '@/models/ContractorModel'
+import { ContractorModel } from '@/domain/models/ContractorModel'
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import * as Facebook from 'expo-auth-session/providers/facebook'
 import * as WebBrowser from 'expo-web-browser'

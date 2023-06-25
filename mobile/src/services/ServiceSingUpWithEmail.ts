@@ -1,11 +1,11 @@
 import { env } from '@/constants/env'
-import { AuthDto } from '@/dtos/AuthDto'
-import { ContractorAlreadyExists } from '@/errors/ContractorAlreadyExists'
-import { UnexpectedError } from '@/errors/UnexpectedError'
 import { HttpService } from '@/interfaces/HttpService'
+import { AuthDto } from 'src/domain/dtos/AuthDto'
+import { ContractorAlreadyExists } from 'src/domain/errors/ContractorAlreadyExists'
+import { UnexpectedError } from 'src/domain/errors/UnexpectedError'
 
-import { HttpStatusCode } from '../helpers/http/HttpStatusCode'
-import { ContractorModel } from '../models/ContractorModel'
+import { HttpStatusCode } from '../domain/helpers/http/HttpStatusCode'
+import { ContractorModel } from '../domain/models/ContractorModel'
 export interface ServiceSingUpWithEmailBody {
   firstName: string
   lastName: string

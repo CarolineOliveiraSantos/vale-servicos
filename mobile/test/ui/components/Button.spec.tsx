@@ -1,5 +1,5 @@
-import { Button } from '@/components/Button'
 import { fireEvent, render } from '@/jest/test-utils'
+import { Button } from '@/ui/components/Button'
 import { faker } from '@faker-js/faker'
 
 let title = faker.lorem.text()
