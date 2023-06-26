@@ -1,3 +1,4 @@
+import api from '@/services/api'
 import { Feather as Icon, Entypo, AntDesign } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { useState, useEffect } from 'react'
@@ -9,8 +10,6 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native'
-
-import api from '../../../services/api'
 
 const homeContratante = () => {
   const navigation = useNavigation()

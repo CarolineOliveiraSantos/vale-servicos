@@ -1,5 +1,5 @@
 import { ColorModeContext } from '@/contexts/ColorModeContext'
-import { WithoutProviderError } from 'src/domain/errors/WithoutProviderError'
+import { WithoutProviderError } from '@/domain/errors/WithoutProviderError'
 import { useContext } from 'react'
 export const useColorMode = () => {
   const value = useContext(ColorModeContext)

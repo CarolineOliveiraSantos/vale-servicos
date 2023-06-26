@@ -1,3 +1,4 @@
+import api from '@/services/api'
 import { FontAwesome5, Feather as Icon } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
@@ -10,8 +11,6 @@ import {
   AsyncStorage,
 } from 'react-native'
 import { BaseButton } from 'react-native-gesture-handler'
-
-import api from '../../../services/api'
 
 const loginContratante = () => {
   const [email, setEmail] = useState('')

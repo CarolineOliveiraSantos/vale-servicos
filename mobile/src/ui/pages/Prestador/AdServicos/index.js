@@ -1,3 +1,4 @@
+import api from '@/services/api'
 import { Feather as Icon, Entypo } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { useState, useEffect } from 'react'
@@ -9,8 +10,6 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import { BaseButton, ScrollView } from 'react-native-gesture-handler'
-
-import api from '../../../services/api'
 
 const AdServicos = () => {
   const navigation = useNavigation()

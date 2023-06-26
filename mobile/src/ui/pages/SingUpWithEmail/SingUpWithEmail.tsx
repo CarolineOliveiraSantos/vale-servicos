@@ -1,18 +1,17 @@
-import { Button } from '@/components/Button'
-import { Icons } from '@/components/Icons/Icons'
-import { ControlledInput } from '@/components/Input/ControlledInput'
-import { Root } from '@/components/Input/Root'
-import { ScrollView } from '@/components/shared/ScrollView'
-import { Text } from '@/components/shared/Text'
-import { TouchableOpacity } from '@/components/shared/TouchableOpacity'
-import { View } from '@/components/shared/View'
-import { useHttpService } from '@/hooks/useHttpService'
 import { useNativeId } from '@/hooks/useNativeId'
 import { useTheme } from '@/hooks/useTheme'
+import { SingUpWithEmailUseCase } from '@/interfaces/use-cases/SingUpWithEmailUseCase'
+import { Button } from '@/ui/components/Button'
+import { Icons } from '@/ui/components/Icons/Icons'
+import { ControlledInput } from '@/ui/components/Input/ControlledInput'
+import { Root } from '@/ui/components/Input/Root'
+import { ScrollView } from '@/ui/components/shared/ScrollView'
+import { Text } from '@/ui/components/shared/Text'
+import { TouchableOpacity } from '@/ui/components/shared/TouchableOpacity'
+import { View } from '@/ui/components/shared/View'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { ServiceSingUpWithEmail } from 'src/services/ServiceSingUpWithEmail'
 import * as yup from 'yup'
 
 import { Header } from './components/Header'
@@ -35,7 +34,12 @@ const schema = yup.object({
     .min(3)
     .required('Por favor, informe um sobrenome'),
 })
-export const SingUpWithEmail = () => {
+export interface SingUpWithEmailProps {
+  singUpWithEmailUseCase: SingUpWithEmailUseCase
+}
+export const SingUpWithEmail: React.FC<SingUpWithEmailProps> = ({
+  singUpWithEmailUseCase,
+}) => {
   const {
     handleSubmit,
     control,
@@ -43,8 +47,6 @@ export const SingUpWithEmail = () => {
   } = useForm<SingUpWithEmailForm>({
     resolver: yupResolver(schema),
   })
-  const { httpService } = useHttpService()
-  const serviceSingUpWithEmail = new ServiceSingUpWithEmail(httpService)
   const { spacing, colors } = useTheme()
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [showPassword, setShowPassword] = useState<boolean>(false)
@@ -153,7 +155,7 @@ export const SingUpWithEmail = () => {
         onPress={handleSubmit(async (data) => {
           try {
             setIsLoading(true)
-            const response = await serviceSingUpWithEmail.singUp(data)
+            const response = await singUpWithEmailUseCase.singUp(data)
             console.log(typeof response.contractor.updatedAt)
           } catch (error) {
             if (error instanceof Error) {

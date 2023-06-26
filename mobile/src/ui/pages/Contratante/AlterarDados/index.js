@@ -1,10 +1,9 @@
+import api from '@/services/api'
 import { FontAwesome5, Feather as Icon } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, Text, TextInput, Alert } from 'react-native'
 import { BaseButton, ScrollView } from 'react-native-gesture-handler'
-
-import api from '../../../services/api'
 
 const AlterarDadoss = () => {
   const navigation = useNavigation()

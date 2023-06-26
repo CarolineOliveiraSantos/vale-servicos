@@ -5,12 +5,14 @@ import * as Facebook from 'expo-auth-session/providers/facebook'
 import * as WebBrowser from 'expo-web-browser'
 import { createContext, FC, ReactNode, useEffect, useState } from 'react'
 import { Platform } from 'react-native'
-export interface IAuthContext {
+export interface AuthContextProps {
   promptGoogleSingIn: () => Promise<void>
   promptFacebookSingIn: () => Promise<void>
 }
-export const AuthContext = createContext<IAuthContext>({} as IAuthContext)
-export interface IAuthProvider {
+export const AuthContext = createContext<AuthContextProps>(
+  {} as AuthContextProps,
+)
+export interface AuthProviderProps {
   children: ReactNode
 }
 WebBrowser.maybeCompleteAuthSession()
@@ -19,7 +21,7 @@ const GOOGLE_CLIENT_ID =
   Platform.OS === 'ios'
     ? env.GOOGLE_CLIENT_ID_IOS
     : env.GOOGLE_CLIENT_ID_ANDROID
-export const AuthProvider: FC<IAuthProvider> = ({ children }) => {
+export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
   const [Contractor, setContractor] = useState<ContractorModel | null>(null)
   const [facebookRequest, facebookResponse, facebookPromptAsync] =
     Facebook.useAuthRequest({

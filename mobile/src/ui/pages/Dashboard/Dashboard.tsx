@@ -1,8 +1,8 @@
-import ServiceProviders from '@/assets/animations/serviceProviders.json'
-import { Icons } from '@/components/Icons/Icons'
-import { Text } from '@/components/shared/Text'
-import { View } from '@/components/shared/View'
 import { useAuth } from '@/hooks/useAuth'
+import ServiceProviders from '@/ui/assets/animations/serviceProviders.json'
+import { Icons } from '@/ui/components/Icons/Icons'
+import { Text } from '@/ui/components/shared/Text'
+import { View } from '@/ui/components/shared/View'
 import {
   BottomSheetModal,
   BottomSheetModalProvider,

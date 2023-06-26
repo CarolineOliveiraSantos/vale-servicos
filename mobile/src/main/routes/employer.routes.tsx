@@ -1,16 +1,16 @@
 import { createStackNavigator } from '@react-navigation/stack'
 
-import AllServicoss from './../pages/Contratante/AllServicos'
-import AlterarDadoss from './../pages/Contratante/AlterarDados'
-import Avaliacaoo from './../pages/Contratante/Avaliacao'
-import Avaliar from './../pages/Contratante/Avaliar'
-import cadastroContratante from './../pages/Contratante/Cadastro'
-import DadosPessoaiss from './../pages/Contratante/DadosPessoais'
-import Detalhess from './../pages/Contratante/Detalhe'
-import homeContratante from './../pages/Contratante/Home'
-import loginContratante from './../pages/Contratante/Login'
-import Prestadoress from './../pages/Contratante/Prestadores'
-import RecuperarAcessoo from './../pages/Contratante/RecuperarAcesso'
+import AllServicoss from '../../ui/pages/Contratante/AllServicos'
+import AlterarDadoss from '../../ui/pages/Contratante/AlterarDados'
+import Avaliacaoo from '../../ui/pages/Contratante/Avaliacao'
+import Avaliar from '../../ui/pages/Contratante/Avaliar'
+import cadastroContratante from '../../ui/pages/Contratante/Cadastro'
+import DadosPessoaiss from '../../ui/pages/Contratante/DadosPessoais'
+import Detalhess from '../../ui/pages/Contratante/Detalhe'
+import homeContratante from '../../ui/pages/Contratante/Home'
+import loginContratante from '../../ui/pages/Contratante/Login'
+import Prestadoress from '../../ui/pages/Contratante/Prestadores'
+import RecuperarAcessoo from '../../ui/pages/Contratante/RecuperarAcesso'
 
 const { Navigator, Screen } = createStackNavigator()
 export const EmployerRoutes = () => {

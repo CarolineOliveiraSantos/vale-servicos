@@ -1,10 +1,9 @@
+import api from '@/services/api'
 import { Feather as Icon, AntDesign, MaterialIcons } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { BaseButton, ScrollView } from 'react-native-gesture-handler'
-
-import api from '../../../services/api'
 
 const ListaServicos = () => {
   const navigation = useNavigation()

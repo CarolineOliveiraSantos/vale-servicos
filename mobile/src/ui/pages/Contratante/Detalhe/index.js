@@ -1,3 +1,4 @@
+import api from '@/services/api'
 import { Feather as Icon, Feather, FontAwesome } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import * as MailComposer from 'expo-mail-composer'
@@ -11,8 +12,6 @@ import {
   DevSettings,
 } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
-
-import api from '../../../services/api'
 
 const Detalhess = () => {
   const navigation = useNavigation()

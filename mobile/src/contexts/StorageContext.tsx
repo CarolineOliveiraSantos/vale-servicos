@@ -1,7 +1,7 @@
+import { ReactNativeMMKVAdapter } from '@/infra/storage/ReactNativeMmkvAdapter'
 import { SecureStorageAdapter } from '@/infra/storage/SecureStorageAdapter'
-import { StorageAdapter } from '@/infra/storage/StorageAdapter'
-import { SecureStorage } from '@/interfaces/SecureStorage'
-import { Storage } from '@/interfaces/Storage'
+import { SecureStorage } from '@/interfaces/storage/SecureStorage'
+import { Storage } from '@/interfaces/storage/Storage'
 import { FC, ReactNode, createContext } from 'react'
 
 export type IStorageContext = {
@@ -16,13 +16,13 @@ export interface IStorageProvider {
 }
 export const StorageProvider: FC<IStorageProvider> = ({ children }) => {
   const secureStorageAdapter = new SecureStorageAdapter()
-  const storageAdapter = new StorageAdapter()
+  const reactNativeMMKVAdapter = new ReactNativeMMKVAdapter()
 
   return (
     <StorageContext.Provider
       value={{
         secureStorage: secureStorageAdapter,
-        storage: storageAdapter,
+        storage: reactNativeMMKVAdapter,
       }}
     >
       {children}

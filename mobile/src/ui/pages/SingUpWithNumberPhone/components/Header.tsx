@@ -1,8 +1,8 @@
-import { Icons } from '@/components/Icons/Icons'
-import { Text } from '@/components/shared/Text'
-import { TouchableOpacity } from '@/components/shared/TouchableOpacity'
-import { View } from '@/components/shared/View'
 import { useTheme } from '@/hooks/useTheme'
+import { Icons } from '@/ui/components/Icons/Icons'
+import { Text } from '@/ui/components/shared/Text'
+import { TouchableOpacity } from '@/ui/components/shared/TouchableOpacity'
+import { View } from '@/ui/components/shared/View'
 import { useNavigation } from '@react-navigation/native'
 import { memo } from 'react'
 const HeaderBase = () => {

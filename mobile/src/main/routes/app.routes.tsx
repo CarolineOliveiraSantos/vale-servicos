@@ -1,14 +1,14 @@
 import { Routes } from '@/@types/navigation'
-import { SingUpWithEmail } from '@/pages/SingUpWithEmail/SingUpWithEmail'
-import { SingUpWithNumberPhone } from '@/pages/SingUpWithNumberPhone/SingUpWithNumberPhone'
+import { SingUpWithEmail } from '@/ui/pages/SingUpWithEmail/SingUpWithEmail'
+import { SingUpWithNumberPhone } from '@/ui/pages/SingUpWithNumberPhone/SingUpWithNumberPhone'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import { Dashboard } from '../pages/Dashboard/Dashboard'
-import AllServicos from './../pages/Visitante/AllServicos/index'
-import Avaliacoes from './../pages/Visitante/Avaliacao/index'
-import Detalhes from './../pages/Visitante/Detalhes/index'
-import Prestadores from './../pages/Visitante/Prestadores/index'
-import Principalll from './../pages/Visitante/Principal'
+import { Dashboard } from '../../ui/pages/Dashboard/Dashboard'
+import AllServicos from '../../ui/pages/Visitante/AllServicos/index'
+import Avaliacoes from '../../ui/pages/Visitante/Avaliacao/index'
+import Detalhes from '../../ui/pages/Visitante/Detalhes/index'
+import Prestadores from '../../ui/pages/Visitante/Prestadores/index'
+import Principalll from '../../ui/pages/Visitante/Principal'
 const { Navigator, Screen } = createStackNavigator<Routes>()
 export const AppRoutes = () => {
   return (
