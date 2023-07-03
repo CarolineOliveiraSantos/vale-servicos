@@ -1,21 +1,10 @@
 {
   "devDependencies": {
-    "@commitlint/cli": "^17.6.6",
-    "@commitlint/config-conventional": "^17.6.6",
-    "cz-conventional-changelog": "^3.3.0",
     "husky": "^8.0.0",
-    "lint-staged": "^13.2.2",
-    "prettier": "^2.8.8"
+    "lint-staged": "^13.2.2"
   },
   "license": "MIT",
   "scripts": {
-    "prepare": "husky install",
-    "commit": "cz",
-    "format": "prettier -w ."
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "prepare": "husky install"
   }
 }
