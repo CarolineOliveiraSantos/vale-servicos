@@ -1,4 +1,4 @@
-import { Phone } from '@/app/entities/phone'
+import { Phone } from 'src/app/entities/phone'
 
 export class PhoneViewModel {
   static toHTTP(phone: Phone) {

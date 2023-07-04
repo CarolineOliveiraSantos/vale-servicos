@@ -1,6 +1,6 @@
-import { Contractor } from '@/app/entities/contractor'
-import { CreateContractorRepository } from '@/app/repositories/contractor/create-contractor-repository'
-import { LoadContractorByEmailRepository } from '@/app/repositories/contractor/load-contractor-by-email-repository'
+import { Contractor } from 'src/app/entities/contractor'
+import { CreateContractorRepository } from 'src/app/repositories/contractor/create-contractor-repository'
+import { LoadContractorByEmailRepository } from 'src/app/repositories/contractor/load-contractor-by-email-repository'
 import { Hash } from '@/interfaces/encrypt/hash'
 import {
   CreateContractorWithEmailUseCase,

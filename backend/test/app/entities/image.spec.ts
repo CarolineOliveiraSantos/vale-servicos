@@ -1,4 +1,4 @@
-import { Image } from '@/app/entities/image'
+import { Image } from 'src/app/entities/image'
 import { makeImage } from '@/test/factories/make-image'
 
 describe('Image', () => {

@@ -15,7 +15,7 @@ model Contractor {
   firstName            String
   lastName             String
   socialSecurityNumber String?
-  email                String?
+  email                String?              @unique
   password             String?
   phoneCountryCode     String?
   phoneRegionCode      String?

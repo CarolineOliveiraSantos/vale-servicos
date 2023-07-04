@@ -1,4 +1,4 @@
-import { Phone } from '@/app/entities/phone'
+import { Phone } from 'src/app/entities/phone'
 import { makePhone } from '@/test/factories/make-phone'
 
 describe('Phone', () => {

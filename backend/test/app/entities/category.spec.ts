@@ -1,4 +1,4 @@
-import { Category } from '@/app/entities/category'
+import { Category } from 'src/app/entities/category'
 import { makeCategory } from '@/test/factories/make-category'
 
 describe('Category', () => {

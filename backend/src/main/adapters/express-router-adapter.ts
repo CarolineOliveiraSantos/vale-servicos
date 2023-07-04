@@ -4,7 +4,7 @@ import { HttpRequest } from '../../interfaces/http/http-request'
 import { Controller } from '../../interfaces/presentation/controller/controller'
 
 export class ExpressRouterAdapter {
-  adapter(controller: Controller) {
+  static adapter(controller: Controller) {
     return async (request: Request, response: Response) => {
       const httpRequest: HttpRequest = {
         body: request.body,

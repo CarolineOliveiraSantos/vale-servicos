@@ -2,9 +2,8 @@
   "name": "joao",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "node ./dist/src/index.js",
+    "start": "node ./dist/main/server",
     "dev": "tsnd -r tsconfig-paths/register ./src/main/server",
     "build": "rimraf ./dist && babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "lint": "eslint .",
@@ -26,6 +25,7 @@
     "express": "^4.17.1",
     "knex": "^0.21.2",
     "mongoose": "^5.9.23",
+    "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "prisma": "^4.15.0",
     "sqlite3": "^5.0.0"
@@ -44,6 +44,7 @@
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.1",
+    "@types/morgan": "^1.9.4",
     "@types/multer": "^1.4.7",
     "@types/node": "^20.1.1",
     "babel-plugin-module-resolver": "^5.0.0",

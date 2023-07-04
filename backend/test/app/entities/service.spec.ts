@@ -1,4 +1,4 @@
-import { Service } from '@/app/entities/service'
+import { Service } from 'src/app/entities/service'
 import { makeService } from '@/test/factories/make-service'
 
 describe('Service', () => {

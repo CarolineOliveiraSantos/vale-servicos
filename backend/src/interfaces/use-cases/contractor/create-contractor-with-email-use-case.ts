@@ -1,4 +1,4 @@
-import { Contractor } from '@/app/entities/contractor'
+import { Contractor } from 'src/app/entities/contractor'
 export interface CreateContractorWithEmailUseCaseRequest {
   firstName: string
   lastName: string
