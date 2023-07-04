@@ -1,7 +1,7 @@
 import {
   SubCategory,
   SubCategoryProps,
-} from '../../src/app/entities/sub-category'
+} from '@/domain/entities/sub-category'
 import { makeCategory } from './make-category'
 import { makeImage } from './make-image'
 

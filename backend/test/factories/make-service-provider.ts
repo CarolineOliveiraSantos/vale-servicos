@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker'
 import {
   ServiceProviderProps,
   ServiceProvider,
-} from '../../src/app/entities/service-provider'
+} from '@/domain/entities/service-provider'
 import { makePhone } from './make-phone'
 
 export const makeServiceProvider = (

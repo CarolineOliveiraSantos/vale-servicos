@@ -1,5 +1,5 @@
 import { Express, Router } from 'express'
-import { readdirSync, stat } from 'fs'
+import { readdirSync } from 'fs'
 import { resolve } from 'path'
 
 export const setupRoutes = async (app: Express) => {

@@ -1,4 +1,4 @@
-import { ServiceProvider } from 'src/app/entities/service-provider'
+import { ServiceProvider } from '@/domain/entities/service-provider'
 import { makeServiceProvider } from '@/test/factories/make-service-provider'
 
 describe('ServiceProvider', () => {

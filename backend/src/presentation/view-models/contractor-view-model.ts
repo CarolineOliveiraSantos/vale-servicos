@@ -1,4 +1,4 @@
-import { Contractor } from 'src/app/entities/contractor'
+import { Contractor } from '@/domain/entities/contractor'
 
 import { AddressViewModel } from './address-view-model'
 import { PhoneViewModel } from './phone-view-model'

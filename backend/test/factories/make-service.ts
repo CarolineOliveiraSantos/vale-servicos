@@ -1,4 +1,4 @@
-import { ServiceProps, Service } from '../../src/app/entities/service'
+import { ServiceProps, Service } from '@/domain/entities/service'
 import { makeServiceProvider } from './make-service-provider'
 
 export const makeService = (service: Partial<ServiceProps> = {}) => {

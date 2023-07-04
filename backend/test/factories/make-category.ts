@@ -1,4 +1,4 @@
-import { Category, CategoryProps } from '../../src/app/entities/category'
+import { Category, CategoryProps } from '@/domain/entities/category'
 import { makeImage } from './make-image'
 
 export const makeCategory = (category: Partial<CategoryProps> = {}) => {

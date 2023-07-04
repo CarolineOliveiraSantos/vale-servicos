@@ -1,4 +1,4 @@
-import { Rating } from 'src/app/entities/rating'
+import { Rating } from '@/domain/entities/rating'
 import { makeRating } from '@/test/factories/make-rating'
 
 describe('Rating', () => {

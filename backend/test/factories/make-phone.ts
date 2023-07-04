@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 
-import { Phone, PhoneProps } from '../../src/app/entities/phone'
+import { Phone, PhoneProps } from '@/domain/entities/phone'
 
 export const makePhone = (phone: Partial<PhoneProps> = {}) => {
   return new Phone({

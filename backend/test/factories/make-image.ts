@@ -1,4 +1,4 @@
-import { Image, ImageProps } from '../../src/app/entities/image'
+import { Image, ImageProps } from '@/domain/entities/image'
 
 export const makeImage = (image: Partial<ImageProps> = {}) => {
   return new Image({

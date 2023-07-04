@@ -1,4 +1,4 @@
-import { ContractedService } from '../../src/app/entities/contracted-service'
+import { ContractedService } from '@/domain/entities/contracted-service'
 import { makeContractor } from './make-contractor'
 import { makeRating } from './make-rating'
 import { makeService } from './make-service'

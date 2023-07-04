@@ -1,4 +1,4 @@
-import { CreateContractorWithEmailUseCaseAdapter } from 'src/app/use-cases/contractor/create-contractor-with-email-use-case'
+import { CreateContractorWithEmailUseCaseAdapter } from '@/domain/use-cases/contractor/create-contractor-with-email-use-case'
 import { CreateContractorWithEmailController } from '@/presentation/controller/contractor/create-contractor-with-email-controller'
 import { PrismaCreateContractorRepository } from '@/infra/database/prisma/repositories/prisma-create-contractor-repository'
 import { BcryptAdapter } from '@/infra/encrypt/bcrypt-adapter'

@@ -1,4 +1,4 @@
-import { Rating, RatingProps } from '../../src/app/entities/rating'
+import { Rating, RatingProps } from '@/domain/entities/rating'
 
 export const makeRating = (rating: Partial<RatingProps> = {}) => {
   return new Rating({

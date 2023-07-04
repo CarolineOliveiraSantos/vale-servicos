@@ -1,4 +1,4 @@
-import { Address } from 'src/app/entities/address'
+import { Address } from '@/domain/entities/address'
 
 export class AddressViewModel {
   static toHTTP(address: Address) {

@@ -1,4 +1,4 @@
-import { SubCategory } from 'src/app/entities/sub-category'
+import { SubCategory } from '@/domain/entities/sub-category'
 import { makeSubCategory } from '@/test/factories/make-sub-category'
 
 describe('SubCategory', () => {

@@ -1,4 +1,4 @@
-import { ContractedService } from 'src/app/entities/contracted-service'
+import { ContractedService } from '@/domain/entities/contracted-service'
 import { makeContractedService } from '@/test/factories/make-contracted-service'
 
 describe('ContractedService', () => {
