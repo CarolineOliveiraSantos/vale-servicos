@@ -7,12 +7,12 @@ import {
   SingUpWithEmailUseCaseBody,
   SingUpWithEmailUseCaseResponse,
 } from '@/interfaces/use-cases/SingUpWithEmailUseCase'
-import { AuthDto } from 'src/domain/dtos/AuthDto'
-import { ContractorAlreadyExists } from 'src/domain/errors/ContractorAlreadyExists'
-import { UnexpectedError } from 'src/domain/errors/UnexpectedError'
+import { AuthDto } from '@/domain/dtos/AuthDto'
+import { ContractorAlreadyExists } from '@/domain/errors/ContractorAlreadyExists'
+import { UnexpectedError } from '@/domain/errors/UnexpectedError'
 
 export class SingUpWithEmailUseCaseImpl implements SingUpWithEmailUseCase {
-  constructor(private readonly httpService: HttpService) {}
+  constructor(private readonly httpService: HttpService) { }
 
   async singUp(
     body: SingUpWithEmailUseCaseBody,
@@ -21,6 +21,7 @@ export class SingUpWithEmailUseCaseImpl implements SingUpWithEmailUseCase {
       new URL('api/contractor/sing-up/email', env.BASE_URL).toString(),
       { body },
     )
+
     switch (statusCode) {
       case HttpStatusCode.CREATED:
         return {

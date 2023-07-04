@@ -41,8 +41,8 @@ export const Icons = {
   facebook: ({ size = 24 }: Pick<IconProps, 'size'>) => (
     <FacebookIcon height={size} width={size} />
   ),
-  apple: ({ size = 24 }: Pick<IconProps, 'size'>) => (
-    <AppleIcon height={size} width={size} />
+  apple: ({ size = 24,color }: IconProps) => (
+    <AppleIcon height={size} width={size} color={color} fill={color} />
   ),
   twitter: ({ size = 24 }: Pick<IconProps, 'size'>) => (
     <TwitterIcon height={size} width={size} />

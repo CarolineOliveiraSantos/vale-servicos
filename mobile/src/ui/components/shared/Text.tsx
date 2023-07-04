@@ -1,4 +1,4 @@
-import { Theme } from 'src/ui/styles/theme'
+import { Theme } from '@/ui/styles/theme'
 import { createText } from '@shopify/restyle'
 import React from 'react'
 export const Text = createText<Theme>()

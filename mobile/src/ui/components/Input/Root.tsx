@@ -19,7 +19,7 @@ export const RootBase: FC<RootProps> = ({
     <>
       <View
         paddingHorizontal="sm"
-        borderRadius="rounded-md"
+        borderRadius="rounded"
         borderWidth={1}
         height={52}
         borderColor={errorMessage ? 'error' : 'input-border'}

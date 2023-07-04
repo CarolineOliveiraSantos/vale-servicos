@@ -35,7 +35,7 @@ export const Button: FC<ButtonProps> = ({
           flexDirection="row"
           alignItems="center"
           justifyContent="center"
-          borderRadius="rounded"
+          borderRadius="rounded-lg"
           paddingHorizontal="md"
           borderWidth={1}
           borderColor="button-border"
@@ -53,7 +53,7 @@ export const Button: FC<ButtonProps> = ({
           borderWidth={1}
           alignItems="center"
           flexDirection="row"
-          borderRadius="rounded"
+          borderRadius="rounded-lg"
           paddingHorizontal="md"
           borderColor="button-border"
         >

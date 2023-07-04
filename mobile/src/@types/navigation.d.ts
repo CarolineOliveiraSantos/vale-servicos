@@ -7,7 +7,6 @@ export type Routes = {
   Prestadores: { id: string }
   SingUpWithEmail: undefined
   Dashboard: undefined
-  SingUpWithNumberPhone: undefined
   Detalhes: {
     prestador: any
     serv: any

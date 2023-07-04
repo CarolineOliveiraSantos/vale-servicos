@@ -6,7 +6,6 @@ import { useNavigation } from '@react-navigation/native'
 import { ForwardRefRenderFunction, memo, forwardRef } from 'react'
 
 import { Button } from './Button'
-import { ButtonSecondary } from './ButtonSecondary'
 export const ModalBase: ForwardRefRenderFunction<BottomSheetModal> = (
   _,
   ref,
@@ -32,17 +31,10 @@ export const ModalBase: ForwardRefRenderFunction<BottomSheetModal> = (
           Como deseja continuar ?
         </Text>
         <Button title="Visitante" onPress={() => {}} />
-
-        <View flexDirection="row" width="100%" gap="md">
-          <ButtonSecondary
-            title="Celular"
-            onPress={() => navigate('SingUpWithNumberPhone')}
-          />
-          <ButtonSecondary
-            title="Email"
-            onPress={() => navigate('SingUpWithEmail')}
-          />
-        </View>
+        <Button
+          title="Email"
+          onPress={() => navigate('SingUpWithEmail')}
+        />
       </View>
     </BottomSheetModal>
   )
