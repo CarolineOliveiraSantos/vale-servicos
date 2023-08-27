@@ -12,7 +12,7 @@ const { Navigator, Screen } = createStackNavigator<Routes>()
 export const AppRoutes = () => {
   return (
     <Navigator
-      initialRouteName="Principalll"
+      initialRouteName="Dashboard"
       screenOptions={{ headerShown: false }}
     >
       <Screen name="SingUpWithEmail" component={MakeSingUpWithEmail} />

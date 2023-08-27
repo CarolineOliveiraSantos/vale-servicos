@@ -1,6 +1,3 @@
-import { randomUUID } from 'node:crypto'
-
-import { Replace } from '../helpers/replace'
 
 export interface AddressProps {
   id: string
@@ -13,11 +10,8 @@ export interface AddressProps {
 }
 export class Address {
   private props: AddressProps
-  constructor({ id, ...props }: Replace<AddressProps, { id?: string }>) {
-    this.props = {
-      id: id || randomUUID(),
-      ...props,
-    }
+  constructor(props : AddressProps) {
+    this.props = props
   }
 
   public get id() {

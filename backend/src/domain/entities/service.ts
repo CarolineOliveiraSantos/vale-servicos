@@ -1,6 +1,3 @@
-import { randomUUID } from 'node:crypto'
-
-import { Replace } from '../helpers/replace'
 import { ServiceProvider } from './service-provider'
 import { SubCategory } from './sub-category'
 
@@ -12,13 +9,9 @@ export interface ServiceProps {
 }
 export class Service {
   private props: ServiceProps
-  constructor({ id, ...props }: Replace<ServiceProps, { id?: string }>) {
-    this.props = {
-      id: id || randomUUID(),
-      ...props,
-    }
+  constructor(props : ServiceProps) {
+    this.props = props
   }
-
   public get id() {
     return this.props.id
   }

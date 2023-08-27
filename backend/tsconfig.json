@@ -18,15 +18,17 @@
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
     "paths": {
-      "@/domain/*": ["src/domain/*"],
       "@/config/*": ["./src/config/*"],
       "@/Controllers/*": ["./src/Controllers/*"],
+      "@/data/*": ["./src/data/*"],
       "@/database/*": ["./src/database/*"],
+      "@/domain/*": ["src/domain/*"],
       "@/helpers/*": ["./src/helpers/*"],
       "@/infra/*": ["./src/infra/*"],
       "@/interfaces/*": ["./src/interfaces/*"],
       "@/main/*": ["./src/main/*"],
       "@/presentation/*": ["./src/presentation/*"],
+      "@/shared/*": ["./src/shared/*"],
       "@/uploads/*": ["./src/uploads/*"],
       "@/utils/*": ["./src/utils/*"],
       "@/test/*": ["./test/*"]

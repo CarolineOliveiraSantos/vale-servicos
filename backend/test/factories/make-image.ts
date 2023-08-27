@@ -1,9 +1,10 @@
 import { Image, ImageProps } from '@/domain/entities/image'
+import { faker } from '@faker-js/faker'
 
 export const makeImage = (image: Partial<ImageProps> = {}) => {
   return new Image({
+    id: faker.string.uuid(),
     key: 'any_key',
-    name: 'any_name',
     url: 'any_url',
     ...image,
   })

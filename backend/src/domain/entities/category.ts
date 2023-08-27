@@ -1,6 +1,4 @@
-import { randomUUID } from 'node:crypto'
 
-import { Replace } from '../helpers/replace'
 import { Image } from './image'
 
 export interface CategoryProps {
@@ -10,11 +8,8 @@ export interface CategoryProps {
 }
 export class Category {
   private props: CategoryProps
-  constructor({ id, ...props }: Replace<CategoryProps, { id?: string }>) {
-    this.props = {
-      id: id || randomUUID(),
-      ...props,
-    }
+  constructor(props : CategoryProps) {
+    this.props = props
   }
 
   public get id() {

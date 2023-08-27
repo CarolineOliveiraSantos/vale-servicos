@@ -1,6 +1,4 @@
-import { randomUUID } from 'node:crypto'
 
-import { Replace } from '../helpers/replace'
 import { Category } from './category'
 import { Image } from './image'
 
@@ -12,11 +10,9 @@ export interface SubCategoryProps {
 }
 export class SubCategory {
   private props: SubCategoryProps
-  constructor({ id, ...props }: Replace<SubCategoryProps, { id?: string }>) {
-    this.props = {
-      id: id || randomUUID(),
-      ...props,
-    }
+  constructor(props : SubCategoryProps) {
+    this.props = props
+
   }
 
   public get id() {

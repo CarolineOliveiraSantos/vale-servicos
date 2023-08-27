@@ -68,7 +68,6 @@ model ServiceProvider {
 
 model Image {
   id              String            @id
-  name            String
   url             String
   key             String
   ServiceProvider ServiceProvider[]

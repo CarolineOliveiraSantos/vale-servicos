@@ -4,6 +4,7 @@ import { Address, AddressProps } from '@/domain/entities/address'
 
 export const makeAddress = (address: Partial<AddressProps> = {}) => {
   return new Address({
+    id: faker.string.uuid(),
     zipCode: faker.location.zipCode(),
     city: faker.location.city(),
     neighborhood: 'any_neighborhood',

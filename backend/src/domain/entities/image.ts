@@ -1,20 +1,12 @@
-import { randomUUID } from 'node:crypto'
-
-import { Replace } from '../helpers/replace'
-
 export interface ImageProps {
   id: string
-  name: string
   url: string
   key: string
 }
 export class Image {
   private props: ImageProps
-  constructor({ id, ...props }: Replace<ImageProps, { id?: string }>) {
-    this.props = {
-      id: id || randomUUID(),
-      ...props,
-    }
+  constructor(props: ImageProps) {
+    this.props = props
   }
 
   public get id() {
@@ -27,9 +19,5 @@ export class Image {
 
   public get key() {
     return this.props.key
-  }
-
-  public get name() {
-    return this.props.name
   }
 }

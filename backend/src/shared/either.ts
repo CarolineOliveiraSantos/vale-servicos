@@ -1,5 +1,3 @@
-export type Either<L, R> = Left<L, R> | Right<L, R>
-
 export class Left<L, R> {
   readonly value: L
 
@@ -31,6 +29,8 @@ export class Right<L, R> {
     return true
   }
 }
+
+export type Either<L, R> = Left<L, R> | Right<L, R>
 
 export const left = <L, R>(l: L): Either<L, R> => {
   return new Left<L, R>(l)

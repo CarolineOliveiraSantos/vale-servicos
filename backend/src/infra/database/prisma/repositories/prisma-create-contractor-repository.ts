@@ -1,5 +1,5 @@
 import { Contractor } from '@/domain/entities/contractor'
-import { CreateContractorRepository } from '@/domain/repositories/contractor/create-contractor-repository'
+import { CreateContractorRepository } from '@/domain/gateways/repositories/contractor/create-contractor-repository'
 
 import { PrismaContractorMapper } from '../mappers/prisma-contractor-mapper'
 import { PrismaService } from '../prisma-service'

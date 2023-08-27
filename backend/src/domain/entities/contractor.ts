@@ -1,4 +1,3 @@
-import { randomUUID } from 'node:crypto'
 
 import { Replace } from '../helpers/replace'
 import { Address } from './address'
@@ -25,10 +24,10 @@ export class Contractor {
     ...props
   }: Replace<
     ContractorProps,
-    { id?: string; createdAt?: Date; updatedAt?: Date }
+    { createdAt?: Date; updatedAt?: Date }
   >) {
     this.props = {
-      id: id || randomUUID(),
+      id: id,
       createdAt: createdAt || new Date(),
       updatedAt: updatedAt || new Date(),
       ...props,
