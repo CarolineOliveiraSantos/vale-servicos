@@ -2,6 +2,7 @@ import { InputProvider } from '@/contexts/InputContext'
 import { useInput } from '@/hooks/useInput'
 import { FC } from 'react'
 
+import { Box } from '../shared/Box'
 import { Text } from '../shared/Text'
 import { View, ViewProps } from '../shared/View'
 export interface RootProps extends ViewProps {
@@ -17,10 +18,10 @@ export const RootBase: FC<RootProps> = ({
   const { isFocus } = useInput()
   return (
     <>
-      <View
+      <Box
+        backgroundColor="input-background"
         paddingHorizontal="sm"
-        borderRadius="rounded"
-        borderWidth={1}
+        borderRadius="rounded-lg"
         height={52}
         borderColor={errorMessage ? 'error' : 'input-border'}
         flexDirection="row"

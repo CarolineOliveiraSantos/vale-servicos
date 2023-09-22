@@ -4,6 +4,7 @@ import { palette } from './palette'
 
 export const ThemeLight = createTheme({
   colors: {
+    overlay: '#cccccc',
     'main-background': palette.white,
     'text-primary': palette.black,
     'text-secondary': palette.white,
@@ -11,10 +12,12 @@ export const ThemeLight = createTheme({
     primary: palette.primary,
     'input-border': palette.primary,
     'input-text': palette.black,
-    'input-placeholder': palette.gray[500],
+    'input-placeholder': 'rgba(0, 0, 0, 0.50)',
+    'input-background': 'rgba(196, 196, 196, 0.20)',
     error: palette.error,
     white: palette.white,
     black: palette.black,
+    'button-go-back': 'rgba(230, 230, 230, 1)',
   },
   spacing: {
     none: 0,
@@ -98,6 +101,7 @@ export const ThemeLight = createTheme({
 })
 export const ThemeDark = createTheme({
   colors: {
+    overlay: 'rgba(30, 30, 30, 1)',
     'main-background': palette.black,
     'text-primary': palette.white,
     'text-secondary': palette.black,
@@ -109,6 +113,8 @@ export const ThemeDark = createTheme({
     error: palette.error,
     white: palette.white,
     black: palette.black,
+    'button-go-back': 'rgba(30, 30, 30, 1)',
+    'input-background': 'rgba(196, 196, 196, 0.20)',
   },
   spacing: {
     none: 0,

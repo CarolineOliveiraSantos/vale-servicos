@@ -4,10 +4,11 @@ import { FC } from 'react'
 
 import { TextInput, TextInputProps } from '../shared/TextInput'
 
-export interface InputProps extends TextInputProps {}
+export type InputProps = TextInputProps
 export const Input: FC<InputProps> = ({ onFocus, onBlur, ...props }) => {
   const { changeToFocus, changeWithoutFocus } = useInput()
   const { colors } = useTheme()
+
   return (
     <TextInput
       color="text-primary"

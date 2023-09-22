@@ -1,10 +1,9 @@
 import { useTheme } from '@/hooks/useTheme'
 import { Icons } from '@/ui/components/Icons/Icons'
-import { Text } from '@/ui/components/shared/Text'
-import { TouchableOpacity } from '@/ui/components/shared/TouchableOpacity'
+import { RoundedIcon } from '@/ui/components/RoundedIcon'
 import { View } from '@/ui/components/shared/View'
 import { useNavigation } from '@react-navigation/native'
-import { memo } from 'react'
+import React, { memo } from 'react'
 
 const HeaderBase = () => {
   const { colors } = useTheme()
@@ -16,16 +15,13 @@ const HeaderBase = () => {
       justifyContent="flex-start"
       paddingVertical="sm"
     >
-      <TouchableOpacity
+      <RoundedIcon
         onPress={goBack}
         accessibilityLabel="Voltar"
         accessibilityHint="Navegar para a tela anterior"
       >
-        <View flexDirection="row" gap="xs">
-          <Icons.arrowLeft color={colors['text-primary']} />
-          <Text variant="body">Voltar</Text>
-        </View>
-      </TouchableOpacity>
+        <Icons.arrowLeft color={colors['text-primary']} />
+      </RoundedIcon>
     </View>
   )
 }

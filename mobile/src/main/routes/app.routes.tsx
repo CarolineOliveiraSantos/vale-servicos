@@ -1,7 +1,7 @@
 import { Routes } from '@/@types/navigation'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import { Dashboard } from '../../ui/pages/Dashboard/Dashboard'
+import { Dashboard } from '../../ui/pages/Authentication/pages/Dashboard/Dashboard'
 import AllServicos from '../../ui/pages/Visitante/AllServicos/index'
 import Avaliacoes from '../../ui/pages/Visitante/Avaliacao/index'
 import Detalhes from '../../ui/pages/Visitante/Detalhes/index'

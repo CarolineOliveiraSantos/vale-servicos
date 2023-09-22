@@ -4,7 +4,7 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: ['@rocketseat/eslint-config/react'],
+  extends: ['@rocketseat/eslint-config/react', 'plugin:react-native-a11y/all'],
   overrides: [],
   plugins: ['import-helpers'],
   rules: {

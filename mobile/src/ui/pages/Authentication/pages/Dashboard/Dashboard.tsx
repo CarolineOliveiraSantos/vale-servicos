@@ -1,4 +1,4 @@
-import { useAuth } from '@/hooks/useAuth'
+import { useTheme } from '@/hooks/useTheme'
 import ServiceProviders from '@/ui/assets/animations/serviceProviders.json'
 import { Icons } from '@/ui/components/Icons/Icons'
 import { Text } from '@/ui/components/shared/Text'
@@ -11,24 +11,24 @@ import LottieView from 'lottie-react-native'
 import { useRef, useState } from 'react'
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
 
+import { useAuthWithFacebook } from '../../hooks/useAuthWithFacebook'
+import { useAuthWithGoogle } from '../../hooks/useAuthWithGoogle'
 import { Button } from './components/Button'
 import { Modal } from './components/Modal'
-import { useTheme } from '@/hooks/useTheme'
 const DashboardBase = () => {
-  const { promptFacebookSingIn, promptGoogleSingIn } = useAuth()
   const bottomSheetModalRef = useRef<BottomSheetModal>(null)
-  const {colors} = useTheme()
+  const { colors } = useTheme()
   const handleOpenModal = () => {
+    setIsModalOpen(true)
     bottomSheetModalRef.current?.present()
-
   }
-  const [isLoadingGoogle, setIsLoadingGoogle] = useState<boolean>(false)
-  const [isLoadingFacebook, setIsLoadingFacebook] = useState<boolean>(false)
+  const authWithGoogle = useAuthWithGoogle()
+  const authWithFacebook = useAuthWithFacebook()
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   return (
     <View
-      backgroundColor="main-background"
+      backgroundColor={isModalOpen ? 'overlay' : 'main-background'}
       gap="md"
       flex={1}
       padding="xl"
@@ -49,45 +49,27 @@ const DashboardBase = () => {
       <Button
         icon={<Icons.google />}
         title="Continuar com Google"
-        isLoading={isLoadingGoogle}
-        onPress={async () => {
-          try {
-            setIsLoadingGoogle(true)
-            await promptGoogleSingIn()
-          } finally {
-            setIsLoadingGoogle(false)
-          }
-        }}
+        isLoading={authWithGoogle.isLoading}
+        onPress={authWithGoogle.execute}
       />
       <Button
         icon={<Icons.facebook />}
         title="Continuar com Facebook"
-        isLoading={isLoadingFacebook}
-        onPress={async () => {
-          try {
-            setIsLoadingFacebook(true)
-            await promptFacebookSingIn()
-          } finally {
-            setIsLoadingFacebook(false)
-          }
-        }}
+        isLoading={authWithFacebook.isLoading}
+        onPress={authWithFacebook.execute}
       />
-       <Button
+      <Button
         icon={<Icons.apple color={colors['text-primary']} />}
         title="Continuar com Apple"
-        isLoading={isLoadingFacebook}
-        onPress={async () => {
-          try {
-            setIsLoadingFacebook(true)
-            await promptFacebookSingIn()
-          } finally {
-            setIsLoadingFacebook(false)
-          }
-        }}
+        isLoading={authWithFacebook.isLoading}
+        onPress={authWithFacebook.execute}
       />
 
       <Button title="Outras opções" onPress={handleOpenModal} />
-      <Modal ref={bottomSheetModalRef} />
+      <Modal
+        ref={bottomSheetModalRef}
+        onDismiss={() => setIsModalOpen(false)}
+      />
     </View>
   )
 }
