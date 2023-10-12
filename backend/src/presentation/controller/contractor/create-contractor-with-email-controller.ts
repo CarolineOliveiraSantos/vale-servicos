@@ -1,8 +1,8 @@
+import { CreateContractorWithEmailUseCase } from '@/domain/use-cases/contractor/create-contractor-with-email-use-case'
 import { ResponseEntity } from '@/helpers/http/response-entity'
 import { HttpRequest } from '@/interfaces/http/http-request'
 import { HttpResponse } from '@/interfaces/http/http-response'
 import { Controller } from '@/interfaces/presentation/controller/controller'
-import { CreateContractorWithEmailUseCase } from '@/domain/use-cases/contractor/create-contractor-with-email-use-case'
 import { CreateContractorWithEmailDto } from '@/presentation/dtos/create-contractor-with-email.dto'
 import { ExceptionFilter } from '@/presentation/errors/exception-filter'
 import { ValidateDto } from '@/presentation/validator/ValidateDto'
@@ -29,7 +29,7 @@ export class CreateContractorWithEmailController implements Controller {
         password: request.body.password,
       })
       await ValidateDto.isValid(createContractorWithEmail)
-      const contractor = await this.createContractorWithEmailUseCase.handle(
+      const contractor = await this.createContractorWithEmailUseCase.execute(
         createContractorWithEmail,
       )
       return ResponseEntity.ok(contractor)

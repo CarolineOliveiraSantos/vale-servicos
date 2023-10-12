@@ -1,4 +1,4 @@
-import { CreateContractorWithEmailUseCaseAdapter } from '@/domain/use-cases/contractor/create-contractor-with-email-use-case'
+import { CreateContractorWithEmailUseCaseImpl } from '@/data/use-cases/contractor/create-contractor-with-email-use-case'
 import { PrismaService } from '@/infra/database/prisma/prisma-service'
 import { PrismaCreateContractorRepository } from '@/infra/database/prisma/repositories/prisma-create-contractor-repository'
 import { PrismaLoadContractorByEmailRepository } from '@/infra/database/prisma/repositories/prisma-load-contractor-by-email-repository'
@@ -13,7 +13,7 @@ export class CreateContractorComposer {
     const prismaLoadContractorByEmailRepository =
       new PrismaLoadContractorByEmailRepository(PrismaService.getInstance())
     const createContractorWithEmailUseCaseAdapter =
-      new CreateContractorWithEmailUseCaseAdapter(
+      new CreateContractorWithEmailUseCaseImpl(
         prismaCreateContractorRepository,
         prismaLoadContractorByEmailRepository,
         bcryptAdapter,
