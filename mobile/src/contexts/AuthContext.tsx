@@ -5,6 +5,7 @@ import * as Facebook from 'expo-auth-session/providers/facebook'
 import * as WebBrowser from 'expo-web-browser'
 import { createContext, FC, ReactNode, useEffect, useState } from 'react'
 import { Platform } from 'react-native'
+import {} from 'react-native-fbsdk-next'
 export interface AuthContextProps {
   promptGoogleSingIn: () => Promise<void>
   promptFacebookSingIn: () => Promise<void>

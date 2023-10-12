@@ -58,12 +58,6 @@ const DashboardBase = () => {
         isLoading={authWithFacebook.isLoading}
         onPress={authWithFacebook.execute}
       />
-      <Button
-        icon={<Icons.apple color={colors['text-primary']} />}
-        title="Continuar com Apple"
-        isLoading={authWithFacebook.isLoading}
-        onPress={authWithFacebook.execute}
-      />
 
       <Button title="Outras opções" onPress={handleOpenModal} />
       <Modal

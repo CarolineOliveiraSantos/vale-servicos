@@ -1,5 +1,5 @@
 import { UnexpectedError } from '@/domain/errors/UnexpectedError'
-import { HttpService, Options, Response } from '@/interfaces/HttpService'
+import { HttpService, Options, Response } from '@/interfaces/http/HttpService'
 import axios, { isAxiosError } from 'axios'
 
 export class AxiosAdapter implements HttpService {
