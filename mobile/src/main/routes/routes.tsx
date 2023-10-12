@@ -1,4 +1,4 @@
-import { useTheme } from '@/hooks/useTheme'
+import { useTheme } from '@/ui/hooks/use-theme'
 import { NavigationContainer } from '@react-navigation/native'
 
 import { AppRoutes } from './app.routes'

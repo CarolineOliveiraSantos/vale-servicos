@@ -10,11 +10,9 @@ module.exports = function (api) {
           alias: {
             '@/@types': './src/@types',
             '@/constants': './src/constants',
-            '@/contexts': './src/contexts',
+            '@/data': './src/data',
             '@/domain': './src/domain',
-            '@/hooks': './src/hooks',
             '@/infra': './src/infra',
-            '@/interfaces': './src/interfaces',
             '@/main': './src/main',
             '@/services': './src/services',
             '@/ui': './src/ui',

@@ -1,4 +1,4 @@
-import { useTheme } from '@/hooks/useTheme'
+import { useTheme } from '@/ui/hooks/use-theme'
 import { FC } from 'react'
 import { AccessibilityProps, ActivityIndicator } from 'react-native'
 

@@ -1,9 +1,9 @@
-import { SingUpWithEmailUseCaseImpl } from '@/domain/use-cases/SingUpWithEmailUseCaseImpl'
-import { useHttpService } from '@/hooks/useHttpService'
+import { SingUpWithEmailUseCaseImpl } from '@/data/use-cases/SingUpWithEmailUseCaseImpl'
+import { useHttpClient } from '@/ui/hooks/use-http-client'
 import { SingUpWithEmail } from '@/ui/pages/Authentication/pages/SingUpWithEmail/SingUpWithEmail'
 
 export const MakeSingUpWithEmail = () => {
-  const { httpService } = useHttpService()
-  const singUpWithEmailUseCaseImpl = new SingUpWithEmailUseCaseImpl(httpService)
+  const { httpClient } = useHttpClient()
+  const singUpWithEmailUseCaseImpl = new SingUpWithEmailUseCaseImpl(httpClient)
   return <SingUpWithEmail singUpWithEmailUseCase={singUpWithEmailUseCaseImpl} />
 }

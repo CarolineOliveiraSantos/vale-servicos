@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface Response<T> {
   statusCode: number
   data: T
@@ -5,7 +6,7 @@ export interface Response<T> {
 export interface Options {
   body: any
 }
-export interface HttpService {
+export interface HttpClient {
   get<T = any>(url: string): Promise<Response<T>>
   post<T = any>(url: string, options?: Options): Promise<Response<T>>
   put<T = any>(url: string, options?: Options): Promise<Response<T>>

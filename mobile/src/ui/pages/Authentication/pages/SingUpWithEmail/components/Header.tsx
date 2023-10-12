@@ -1,7 +1,7 @@
-import { useTheme } from '@/hooks/useTheme'
 import { Icons } from '@/ui/components/Icons/Icons'
 import { RoundedIcon } from '@/ui/components/RoundedIcon'
 import { View } from '@/ui/components/shared/View'
+import { useTheme } from '@/ui/hooks/use-theme'
 import { useNavigation } from '@react-navigation/native'
 import React, { memo } from 'react'
 

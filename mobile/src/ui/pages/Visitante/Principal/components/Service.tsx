@@ -1,4 +1,4 @@
-import { useTheme } from '@/hooks/useTheme'
+import { useTheme } from '@/ui/hooks/use-theme'
 import { useNavigation } from '@react-navigation/native'
 import { FC } from 'react'
 import { TouchableOpacity, View, StyleSheet, Text } from 'react-native'
@@ -19,6 +19,7 @@ export const Service: FC<ServiceProps> = ({ servico }) => {
   }
   return (
     <TouchableOpacity
+      accessibilityRole="button"
       style={[styles.descriptionContainer, { marginTop: 15 }]}
       onPress={handleNavigateToPrestadores}
       activeOpacity={0.8}

@@ -1,7 +1,7 @@
-import { ReactNativeMMKVAdapter } from '@/infra/storage/ReactNativeMmkvAdapter'
+import { SecureStorage } from '@/data/protocols/storage/secure-storage'
+import { Storage } from '@/data/protocols/storage/storage'
+import { ReactNativeMMKVAdapter } from '@/infra/storage/react-native-mmkv-adapter'
 import { SecureStorageAdapter } from '@/infra/storage/SecureStorageAdapter'
-import { SecureStorage } from '@/interfaces/storage/SecureStorage'
-import { Storage } from '@/interfaces/storage/Storage'
 import { FC, ReactNode, createContext } from 'react'
 
 export type IStorageContext = {

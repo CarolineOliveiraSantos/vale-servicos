@@ -1,8 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import {
+  HttpClient,
+  Options,
+  Response,
+} from '@/data/protocols/http/http-client'
 import { UnexpectedError } from '@/domain/errors/UnexpectedError'
-import { HttpService, Options, Response } from '@/interfaces/http/HttpService'
 import axios, { isAxiosError } from 'axios'
 
-export class AxiosAdapter implements HttpService {
+export class AxiosAdapter implements HttpClient {
   async get<T = any>(url: string): Promise<Response<T>> {
     try {
       const { data, status } = await axios.get(url)

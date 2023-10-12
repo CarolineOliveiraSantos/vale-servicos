@@ -1,7 +1,7 @@
-import { StorageContext } from '@/contexts/StorageContext'
+import { StorageContext } from '@/ui/contexts/storage-context'
 import { useContext } from 'react'
 
-import { WithoutProviderError } from '../domain/errors/WithoutProviderError'
+import { WithoutProviderError } from '../../domain/errors/WithoutProviderError'
 export const useStorage = () => {
   const value = useContext(StorageContext)
   if (Object.keys(value).length === 0) {

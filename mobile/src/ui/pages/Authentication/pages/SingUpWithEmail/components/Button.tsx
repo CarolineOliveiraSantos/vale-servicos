@@ -1,7 +1,7 @@
-import { useTheme } from '@/hooks/useTheme'
 import { Text } from '@/ui/components/shared/Text'
 import { TouchableOpacity } from '@/ui/components/shared/TouchableOpacity'
 import { View } from '@/ui/components/shared/View'
+import { useTheme } from '@/ui/hooks/use-theme'
 import { FC, ReactNode } from 'react'
 import { AccessibilityProps, ActivityIndicator } from 'react-native'
 

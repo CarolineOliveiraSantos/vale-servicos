@@ -1,7 +1,7 @@
-import { InputContext } from '@/contexts/InputContext'
+import { InputContext } from '@/ui/contexts/input-context'
 import { useContext } from 'react'
 
-import { WithoutProviderError } from '../domain/errors/WithoutProviderError'
+import { WithoutProviderError } from '../../domain/errors/WithoutProviderError'
 export const useInput = () => {
   const value = useContext(InputContext)
   if (Object.keys(value).length === 0) {

@@ -1,5 +1,5 @@
-import { useInput } from '@/hooks/useInput'
-import { useTheme } from '@/hooks/useTheme'
+import { useInput } from '@/ui/hooks/use-input'
+import { useTheme } from '@/ui/hooks/use-theme'
 import { FC } from 'react'
 
 import { TextInput, TextInputProps } from '../shared/TextInput'

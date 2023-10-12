@@ -1,4 +1,5 @@
-import { Storage } from '@/interfaces/Storage'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Storage } from '@/data/protocols/storage/storage'
 import { MMKV } from 'react-native-mmkv'
 const storage = new MMKV()
 export class ReactNativeMMKVAdapter implements Storage {
@@ -8,7 +9,7 @@ export class ReactNativeMMKVAdapter implements Storage {
     return JSON.parse(value)
   }
 
-  async setItem(key: string, value: any): Promise<void> {
+  async setItem<T = any>(key: string, value: T): Promise<void> {
     storage.set(key, JSON.stringify(value))
   }
 

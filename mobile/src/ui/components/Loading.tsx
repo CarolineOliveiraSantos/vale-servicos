@@ -1,4 +1,4 @@
-import { useTheme } from '@/hooks/useTheme'
+import { useTheme } from '@/ui/hooks/use-theme'
 import { ActivityIndicator } from 'react-native'
 
 import { View } from './shared/View'

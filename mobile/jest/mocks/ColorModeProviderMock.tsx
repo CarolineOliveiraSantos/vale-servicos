@@ -1,11 +1,11 @@
 import { keys } from '@/constants/keys'
+import { useStorage } from '@/ui/hooks/useStorage'
 import {
   ColorModeProviderProps,
   ColorModeContext,
   ColorModeType,
   ThemeModeType,
-} from '@/contexts/ColorModeContext'
-import { useStorage } from '@/hooks/useStorage'
+} from '@/ui/contexts/ColorModeContext'
 import { ThemeDark, ThemeLight } from '@/ui/styles/theme'
 import { ThemeProvider } from '@shopify/restyle'
 import { FC, useState } from 'react'

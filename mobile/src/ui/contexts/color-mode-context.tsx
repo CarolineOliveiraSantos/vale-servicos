@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { keys } from '@/constants/keys'
-import { useStorage } from '@/hooks/useStorage'
+import { useStorage } from '@/ui/hooks/use-storage'
 import { ThemeDark, ThemeLight } from '@/ui/styles/theme'
 import { ThemeProvider } from '@shopify/restyle'
 import { FC, ReactNode, createContext, useEffect, useState } from 'react'

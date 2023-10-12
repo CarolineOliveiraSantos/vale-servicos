@@ -1,23 +1,23 @@
 import { env } from '@/constants/env'
+import { HttpClient } from '@/data/protocols/http/http-client'
 import { AuthDto } from '@/domain/dtos/AuthDto'
 import { ContractorAlreadyExists } from '@/domain/errors/ContractorAlreadyExists'
 import { UnexpectedError } from '@/domain/errors/UnexpectedError'
 import { HttpStatusCode } from '@/domain/helpers/http/HttpStatusCode'
 import { ContractorModel } from '@/domain/models/ContractorModel'
-import { HttpService } from '@/interfaces/http/HttpService'
 import {
   SingUpWithEmailUseCase,
-  SingUpWithEmailUseCaseBody,
+  SingUpWithEmailUseCaseDto,
   SingUpWithEmailUseCaseResponse,
-} from '@/interfaces/use-cases/SingUpWithEmailUseCase'
+} from '@/domain/use-cases/SingUpWithEmailUseCase'
 
 export class SingUpWithEmailUseCaseImpl implements SingUpWithEmailUseCase {
-  constructor(private readonly httpService: HttpService) {}
+  constructor(private readonly httpClient: HttpClient) {}
 
   async execute(
-    body: SingUpWithEmailUseCaseBody,
+    body: SingUpWithEmailUseCaseDto,
   ): Promise<SingUpWithEmailUseCaseResponse> {
-    const { data, statusCode } = await this.httpService.post<AuthDto>(
+    const { data, statusCode } = await this.httpClient.post<AuthDto>(
       new URL('api/contractor/sing-up/email', env.BASE_URL).toString(),
       { body },
     )

@@ -1,5 +1,5 @@
-import { useColorMode } from '@/hooks/useColorMode'
-import { useTheme } from '@/hooks/useTheme'
+import { useColorMode } from '@/ui/hooks/use-color-mode'
+import { useTheme } from '@/ui/hooks/use-theme'
 import { FC } from 'react'
 import {
   StatusBar as ReactNativeStatusBar,

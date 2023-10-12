@@ -1,10 +1,10 @@
-import { InputProvider } from '@/contexts/InputContext'
-import { useInput } from '@/hooks/useInput'
+import { InputProvider } from '@/ui/contexts/input-context'
+import { useInput } from '@/ui/hooks/use-input'
 import { FC } from 'react'
 
 import { Box } from '../shared/Box'
 import { Text } from '../shared/Text'
-import { View, ViewProps } from '../shared/View'
+import { ViewProps } from '../shared/View'
 export interface RootProps extends ViewProps {
   _focus?: ViewProps['style']
   errorMessage?: string
