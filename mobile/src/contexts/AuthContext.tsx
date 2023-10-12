@@ -1,11 +1,9 @@
 import { env } from '@/constants/env'
 import { ContractorModel } from '@/domain/models/ContractorModel'
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
-import * as Facebook from 'expo-auth-session/providers/facebook'
-import * as WebBrowser from 'expo-web-browser'
 import { createContext, FC, ReactNode, useEffect, useState } from 'react'
 import { Platform } from 'react-native'
-import {} from 'react-native-fbsdk-next'
+import { LoginManager, Profile } from 'react-native-fbsdk-next'
 export interface AuthContextProps {
   promptGoogleSingIn: () => Promise<void>
   promptFacebookSingIn: () => Promise<void>
@@ -16,7 +14,6 @@ export const AuthContext = createContext<AuthContextProps>(
 export interface AuthProviderProps {
   children: ReactNode
 }
-WebBrowser.maybeCompleteAuthSession()
 export interface UserDto {}
 const GOOGLE_CLIENT_ID =
   Platform.OS === 'ios'
@@ -24,10 +21,6 @@ const GOOGLE_CLIENT_ID =
     : env.GOOGLE_CLIENT_ID_ANDROID
 export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
   const [Contractor, setContractor] = useState<ContractorModel | null>(null)
-  const [facebookRequest, facebookResponse, facebookPromptAsync] =
-    Facebook.useAuthRequest({
-      clientId: env.FACEBOOK_CLIENT_ID,
-    })
 
   useEffect(() => {
     GoogleSignin.configure({
@@ -41,7 +34,11 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
     await GoogleSignin.signIn()
   }
   const promptFacebookSingIn = async () => {
-    await facebookPromptAsync()
+    const result = await LoginManager.logInWithPermissions(['public_profile'])
+    if (result.grantedPermissions) {
+      const profile = await Profile.getCurrentProfile()
+      console.log(profile)
+    }
   }
 
   return (

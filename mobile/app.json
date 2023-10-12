@@ -9,7 +9,15 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
-    "plugins": ["@react-native-google-signin/google-signin"],
+    "plugins": ["@react-native-google-signin/google-signin", [
+      "react-native-fbsdk-next",
+      {
+        "appID": "219837340908523",
+        "clientToken": "601bd1396f743296fc98c21ea7af63ac",
+        "displayName": "vale-serviços",
+        "scheme": "fb219837340908523"
+       }
+    ]],
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",

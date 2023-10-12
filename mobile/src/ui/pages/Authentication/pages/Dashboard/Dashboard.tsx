@@ -1,4 +1,3 @@
-import { useTheme } from '@/hooks/useTheme'
 import ServiceProviders from '@/ui/assets/animations/serviceProviders.json'
 import { Icons } from '@/ui/components/Icons/Icons'
 import { Text } from '@/ui/components/shared/Text'
@@ -8,27 +7,24 @@ import {
   BottomSheetModalProvider,
 } from '@gorhom/bottom-sheet'
 import LottieView from 'lottie-react-native'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
 
-import { useAuthWithFacebook } from '../../hooks/useAuthWithFacebook'
+import { useAuthWithFacebook } from '../../hooks/use-auth-with-facebook'
 import { useAuthWithGoogle } from '../../hooks/useAuthWithGoogle'
 import { Button } from './components/Button'
 import { Modal } from './components/Modal'
 const DashboardBase = () => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null)
-  const { colors } = useTheme()
   const handleOpenModal = () => {
-    setIsModalOpen(true)
     bottomSheetModalRef.current?.present()
   }
   const authWithGoogle = useAuthWithGoogle()
   const authWithFacebook = useAuthWithFacebook()
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   return (
     <View
-      backgroundColor={isModalOpen ? 'overlay' : 'main-background'}
+      backgroundColor="main-background"
       gap="md"
       flex={1}
       padding="xl"
@@ -60,10 +56,7 @@ const DashboardBase = () => {
       />
 
       <Button title="Outras opções" onPress={handleOpenModal} />
-      <Modal
-        ref={bottomSheetModalRef}
-        onDismiss={() => setIsModalOpen(false)}
-      />
+      <Modal ref={bottomSheetModalRef} />
     </View>
   )
 }
