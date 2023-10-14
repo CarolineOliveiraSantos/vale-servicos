@@ -1,6 +1,7 @@
-import { Icons } from '@/ui/components/Icons/Icons'
-import { RoundedIcon } from '@/ui/components/RoundedIcon'
-import { View } from '@/ui/components/shared/View'
+import { Icons } from '@/ui/components/icons/icons'
+import { RoundedIcon } from '@/ui/components/rounded-icon'
+import { View } from '@/ui/components/shared/view'
+import { R } from '@/ui/helpers/i18n/resources'
 import { useTheme } from '@/ui/hooks/use-theme'
 import { useNavigation } from '@react-navigation/native'
 import React, { memo } from 'react'
@@ -17,8 +18,8 @@ const HeaderBase = () => {
     >
       <RoundedIcon
         onPress={goBack}
-        accessibilityLabel="Voltar"
-        accessibilityHint="Navegar para a tela anterior"
+        accessibilityLabel={R.string.goBack}
+        accessibilityHint={R.string.navigateToThePreviousScreen}
       >
         <Icons.arrowLeft color={colors['text-primary']} />
       </RoundedIcon>

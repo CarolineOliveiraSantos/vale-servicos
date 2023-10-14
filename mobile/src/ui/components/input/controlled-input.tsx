@@ -1,6 +1,6 @@
 import { Controller, UseControllerProps, FieldValues } from 'react-hook-form'
 
-import { Input, InputProps } from './Input'
+import { Input, InputProps } from './input'
 export type ControlledInputProps<T extends FieldValues> = InputProps &
   UseControllerProps<T>
 export function ControlledInput<FormType extends FieldValues>({

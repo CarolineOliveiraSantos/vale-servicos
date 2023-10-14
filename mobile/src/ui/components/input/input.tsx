@@ -2,7 +2,7 @@ import { useInput } from '@/ui/hooks/use-input'
 import { useTheme } from '@/ui/hooks/use-theme'
 import { FC } from 'react'
 
-import { TextInput, TextInputProps } from '../shared/TextInput'
+import { TextInput, TextInputProps } from '../shared/text-input'
 
 export type InputProps = TextInputProps
 export const Input: FC<InputProps> = ({ onFocus, onBlur, ...props }) => {

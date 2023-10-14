@@ -1,4 +1,3 @@
-
 import { Image } from './image'
 
 export interface CategoryProps {
@@ -8,7 +7,7 @@ export interface CategoryProps {
 }
 export class Category {
   private props: CategoryProps
-  constructor(props : CategoryProps) {
+  constructor(props: CategoryProps) {
     this.props = props
   }
 

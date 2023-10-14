@@ -6,7 +6,7 @@ export const useHttpClient = () => {
   const value = useContext(HttpClientContext)
   if (Object.keys(value).length === 0) {
     throw new WithoutProviderError(
-      'useHttpService must be used within an HttpServiceProvider',
+      'useHttpClient must be used within an HttpClientProvider',
     )
   }
   return value

@@ -2,8 +2,8 @@ import { useTheme } from '@/ui/hooks/use-theme'
 import { FC } from 'react'
 import { AccessibilityProps, ActivityIndicator } from 'react-native'
 
-import { Text } from './shared/Text'
-import { TouchableOpacity } from './shared/TouchableOpacity'
+import { Text } from './shared/text'
+import { TouchableOpacity } from './shared/touchable-opacity'
 export interface ButtonProps extends AccessibilityProps {
   onPress(): void
   title: string

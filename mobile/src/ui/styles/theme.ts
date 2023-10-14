@@ -66,7 +66,7 @@ export const ThemeLight = createTheme({
       color: 'text-secondary',
     },
     error: {
-      fontSize: 14,
+      fontSize: 12,
       lineHeight: 24,
       fontWeight: 'normal',
       fontFamily: 'Inter_500Medium',
@@ -163,7 +163,7 @@ export const ThemeDark = createTheme({
       color: 'text-primary',
     },
     error: {
-      fontSize: 14,
+      fontSize: 12,
       lineHeight: 24,
       fontWeight: 'normal',
       fontFamily: 'Inter_500Medium',
@@ -181,7 +181,7 @@ export const ThemeDark = createTheme({
     'rounded-xl': 12,
     'rounded-2xl': 16,
     'rounded-3xl': 24,
-    'rounded-full': 9999,
+    'rounded-full': Number.MAX_SAFE_INTEGER,
   },
   breakpoints: {
     phone: 0,

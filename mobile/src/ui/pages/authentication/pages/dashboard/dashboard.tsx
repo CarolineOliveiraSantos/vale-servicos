@@ -1,7 +1,8 @@
 import ServiceProviders from '@/ui/assets/animations/serviceProviders.json'
-import { Icons } from '@/ui/components/Icons/Icons'
-import { Text } from '@/ui/components/shared/Text'
-import { View } from '@/ui/components/shared/View'
+import { Icons } from '@/ui/components/icons/icons'
+import { Text } from '@/ui/components/shared/text'
+import { View } from '@/ui/components/shared/view'
+import { R } from '@/ui/helpers/i18n/resources'
 import {
   BottomSheetModal,
   BottomSheetModalProvider,
@@ -11,7 +12,7 @@ import { useRef } from 'react'
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
 
 import { useAuthWithFacebook } from '../../hooks/use-auth-with-facebook'
-import { useAuthWithGoogle } from '../../hooks/useAuthWithGoogle'
+import { useAuthWithGoogle } from '../../hooks/use-auth-with-google'
 import { Button } from './components/Button'
 import { Modal } from './components/Modal'
 const DashboardBase = () => {
@@ -21,7 +22,6 @@ const DashboardBase = () => {
   }
   const authWithGoogle = useAuthWithGoogle()
   const authWithFacebook = useAuthWithFacebook()
-
   return (
     <View
       backgroundColor="main-background"
@@ -39,23 +39,23 @@ const DashboardBase = () => {
       />
 
       <Text variant="header" textAlign="center">
-        Bem vindo ao lugar ideal para encontrar prestadores de serviços
+        {R.string.welcomeToTheIdealPlaceToFindServiceProviders}
       </Text>
 
       <Button
         icon={<Icons.google />}
-        title="Continuar com Google"
+        title={R.string.singInWithGoogle}
         isLoading={authWithGoogle.isLoading}
         onPress={authWithGoogle.execute}
       />
       <Button
         icon={<Icons.facebook />}
-        title="Continuar com Facebook"
+        title={R.string.singInWithFacebook}
         isLoading={authWithFacebook.isLoading}
         onPress={authWithFacebook.execute}
       />
 
-      <Button title="Outras opções" onPress={handleOpenModal} />
+      <Button title={R.string.otherOptions} onPress={handleOpenModal} />
       <Modal ref={bottomSheetModalRef} />
     </View>
   )

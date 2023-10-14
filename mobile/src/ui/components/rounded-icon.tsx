@@ -3,7 +3,7 @@ import { FC } from 'react'
 import {
   TouchableOpacity,
   TouchableOpacityProps,
-} from './shared/TouchableOpacity'
+} from './shared/touchable-opacity'
 
 export const RoundedIcon: FC<TouchableOpacityProps> = (props) => {
   return (

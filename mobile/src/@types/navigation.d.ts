@@ -5,7 +5,8 @@ export type Routes = {
   Principalll: undefined
   loginContratante: undefined
   Prestadores: { id: string }
-  SingUpWithEmail: undefined
+  'sign-in-with-email': undefined
+  'sign-up-with-email': undefined
   Dashboard: undefined
   Detalhes: {
     prestador: any
@@ -17,6 +18,6 @@ export type Routes = {
 export type RoutesProps = NavigationProp<Routes>
 declare global {
   namespace ReactNavigation {
-    interface RootParamList extends Routes {}
+    type RootParamList = Routes
   }
 }

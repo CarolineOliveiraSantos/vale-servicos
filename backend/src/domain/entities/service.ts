@@ -9,9 +9,10 @@ export interface ServiceProps {
 }
 export class Service {
   private props: ServiceProps
-  constructor(props : ServiceProps) {
+  constructor(props: ServiceProps) {
     this.props = props
   }
+
   public get id() {
     return this.props.id
   }

@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { keys } from '@/constants/keys'
-import { useStorage } from '@/ui/hooks/use-storage'
+import { Storage } from '@/data/protocols/storage/storage'
 import { ThemeDark, ThemeLight } from '@/ui/styles/theme'
 import { ThemeProvider } from '@shopify/restyle'
-import { FC, ReactNode, createContext, useEffect, useState } from 'react'
+import { FC, createContext, useEffect, useState } from 'react'
 import { Appearance, useColorScheme } from 'react-native'
 export type ColorModeType = 'dark' | 'light' | 'system'
 export type ThemeModeType = 'dark' | 'light'
-export interface ColorModeProviderProps {
-  children: ReactNode
+export interface ColorModeProviderProps extends React.PropsWithChildren {
+  storage: Storage
 }
 export interface ColorModeContextProps {
   colorMode: ColorModeType
@@ -20,11 +20,13 @@ export interface ColorModeContextProps {
 export const ColorModeContext = createContext<ColorModeContextProps>(
   {} as ColorModeContextProps,
 )
-export const ColorModeProvider: FC<ColorModeProviderProps> = ({ children }) => {
+export const ColorModeProvider: FC<ColorModeProviderProps> = ({
+  children,
+  storage,
+}) => {
   const [themeMode, setThemeMode] = useState<ThemeModeType>('dark')
   const [colorMode, setColorMode] = useState<ColorModeType>('dark')
 
-  const { storage } = useStorage()
   const colorScheme = useColorScheme()
 
   Appearance.addChangeListener(({ colorScheme }) => {

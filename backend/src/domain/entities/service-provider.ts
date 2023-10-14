@@ -1,4 +1,3 @@
-
 import { Replace } from '../helpers/replace'
 import { Address } from './address'
 import { Image } from './image'
@@ -24,12 +23,9 @@ export class ServiceProvider {
     updatedAt,
     id,
     ...props
-  }: Replace<
-    ServiceProviderProps,
-    {   createdAt?: Date; updatedAt?: Date }
-  >) {
+  }: Replace<ServiceProviderProps, { createdAt?: Date; updatedAt?: Date }>) {
     this.props = {
-      id: id ,
+      id,
       createdAt: createdAt || new Date(),
       updatedAt: updatedAt || new Date(),
       ...props,

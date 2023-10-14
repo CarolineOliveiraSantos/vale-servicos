@@ -1,4 +1,3 @@
-
 export interface AddressProps {
   id: string
   street: string
@@ -6,11 +5,11 @@ export interface AddressProps {
   zipCode: string
   city: string
   state: string
-  stateNumber: string
+  number: string
 }
 export class Address {
   private props: AddressProps
-  constructor(props : AddressProps) {
+  constructor(props: AddressProps) {
     this.props = props
   }
 
@@ -50,12 +49,12 @@ export class Address {
     this.props.neighborhood = neighborhood
   }
 
-  public get stateNumber() {
-    return this.props.stateNumber
+  public get number() {
+    return this.props.number
   }
 
-  public set stateNumber(stateNumber: string) {
-    this.props.stateNumber = stateNumber
+  public set number(number: string) {
+    this.props.number = number
   }
 
   public get zipCode() {

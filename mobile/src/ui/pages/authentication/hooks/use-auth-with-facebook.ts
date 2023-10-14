@@ -12,8 +12,7 @@ export const useAuthWithFacebook = () => {
         'openid',
       ])
       if (!result.isCancelled) {
-        const accessToken = await AccessToken.getCurrentAccessToken()
-        console.log(accessToken)
+        await AccessToken.getCurrentAccessToken()
       }
     } finally {
       setIsLoading(false)
