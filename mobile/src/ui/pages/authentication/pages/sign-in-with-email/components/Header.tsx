@@ -4,9 +4,8 @@ import { View } from '@/ui/components/shared/view'
 import { R } from '@/ui/helpers/i18n/resources'
 import { useTheme } from '@/ui/hooks/use-theme'
 import { useNavigation } from '@react-navigation/native'
-import React, { memo } from 'react'
 
-const HeaderBase = () => {
+export const Header = () => {
   const { colors } = useTheme()
   const { goBack } = useNavigation()
   return (
@@ -26,4 +25,3 @@ const HeaderBase = () => {
     </View>
   )
 }
-export const Header = memo(HeaderBase)

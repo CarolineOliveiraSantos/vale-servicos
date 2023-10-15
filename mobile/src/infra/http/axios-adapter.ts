@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  HttpClient,
-  Options,
-  Response,
+  type HttpClient,
+  type Options,
+  type Response,
 } from '@/data/protocols/http/http-client'
 import { UnexpectedError } from '@/domain/errors/UnexpectedError'
 import axios, { isAxiosError } from 'axios'
@@ -16,7 +16,7 @@ export class AxiosAdapter implements HttpClient {
       if (isAxiosError(error)) {
         return {
           data: error.response?.data,
-          statusCode: error.response?.status || 500,
+          statusCode: error.response?.status ?? 500,
         }
       }
       throw new UnexpectedError()

@@ -1,8 +1,8 @@
 import api from '@/services/api'
 import { Feather as Icon, FontAwesome5 } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import React, { useState, useEffect } from 'react'
-import { View, StyleSheet, Text, Alert, Image } from 'react-native'
+import { useState, useEffect } from 'react'
+import { View, StyleSheet, Text, Alert } from 'react-native'
 import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
 const DadosPessoais = () => {
@@ -41,30 +41,33 @@ const DadosPessoais = () => {
     try {
       await api.delete(`prestadorApagar/${id}`)
       setPrestadores(prestadores.filter((prestador) => prestador.id !== id))
-      return navigation.navigate('Home')
+      navigation.navigate('Home')
     } catch (err) {
       alert('Erro ao deletar prestador, tente novamente.')
     }
   }
 
-  const createAlert = () =>
+  const createAlert = () => {
     Alert.alert(
       'Excluir',
       'Tem certeza que deseja excluir sua conta?',
       [
         {
           text: 'Cancelar',
-          onPress: () => console.log(),
+          onPress: () => {
+            console.log()
+          },
         },
         {
           text: 'Excluir',
-          onPress: () => {
-            return handleDeleteAccount()
+          onPress: async () => {
+            await handleDeleteAccount()
           },
         },
       ],
       { cancelable: false },
     )
+  }
 
   return (
     <>
@@ -101,7 +104,7 @@ const DadosPessoais = () => {
                 fontSize: 4,
               },
             ]}
-          ></Text>
+          />
 
           {prestadores.map((prestador) => (
             <View keyExtractor={(prestador) => String(prestador.id)}>
@@ -147,7 +150,7 @@ const DadosPessoais = () => {
                     fontSize: 4,
                   },
                 ]}
-              ></Text>
+              />
               <Text style={styles.data}>Sobre você</Text>
               <Text style={styles.dataValue}>{prestador.sobre}</Text>
 
@@ -166,14 +169,21 @@ const DadosPessoais = () => {
                     fontSize: 4,
                   },
                 ]}
-              ></Text>
+              />
               <BaseButton style={styles.button}>
-                <Text style={styles.buttonText} onPress={() => createAlert()}>
+                <Text
+                  style={styles.buttonText}
+                  onPress={() => {
+                    createAlert()
+                  }}
+                >
                   Excluir conta
                 </Text>
                 <Text
                   style={styles.buttonText}
-                  onPress={() => handleNavigateToAlterarDados(prestador)}
+                  onPress={() => {
+                    handleNavigateToAlterarDados(prestador)
+                  }}
                 >
                   Editar
                 </Text>

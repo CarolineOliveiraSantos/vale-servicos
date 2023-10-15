@@ -1,17 +1,17 @@
-import { Theme } from '@/ui/styles/theme'
+import { type Theme } from '@/ui/styles/theme'
 import {
   createRestyleComponent,
-  ColorProps,
-  OpacityProps,
-  VisibleProps,
-  TypographyProps,
-  SpacingProps,
-  TextShadowProps,
-  BackgroundColorProps,
-  LayoutProps,
-  BorderProps,
-  ShadowProps,
-  PositionProps,
+  type ColorProps,
+  type OpacityProps,
+  type VisibleProps,
+  type TypographyProps,
+  type SpacingProps,
+  type TextShadowProps,
+  type BackgroundColorProps,
+  type LayoutProps,
+  type BorderProps,
+  type ShadowProps,
+  type PositionProps,
   color,
   visible,
   typography,
@@ -24,9 +24,9 @@ import {
   shadow,
   position,
 } from '@shopify/restyle'
-import React from 'react'
+import type React from 'react'
 import {
-  TouchableOpacityProps as RNTouchableOpacityProps,
+  type TouchableOpacityProps as RNTouchableOpacityProps,
   TouchableOpacity as RNTouchableOpacity,
 } from 'react-native'
 export type BaseTouchableOpacityProps = ColorProps<Theme> &

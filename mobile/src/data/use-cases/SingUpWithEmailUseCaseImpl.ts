@@ -1,14 +1,14 @@
 import { env } from '@/constants/env'
-import { HttpClient } from '@/data/protocols/http/http-client'
-import { AuthDto } from '@/domain/dtos/AuthDto'
+import { type HttpClient } from '@/data/protocols/http/http-client'
+import { type AuthDto } from '@/domain/dtos/AuthDto'
 import { ContractorAlreadyExists } from '@/domain/errors/ContractorAlreadyExists'
 import { UnexpectedError } from '@/domain/errors/UnexpectedError'
 import { HttpStatusCode } from '@/domain/helpers/http/HttpStatusCode'
 import { ContractorModel } from '@/domain/models/ContractorModel'
 import {
-  SingUpWithEmailUseCase,
-  SingUpWithEmailUseCaseDto,
-  SingUpWithEmailUseCaseResponse,
+  type SingUpWithEmailUseCase,
+  type SingUpWithEmailUseCaseDto,
+  type SingUpWithEmailUseCaseResponse,
 } from '@/domain/use-cases/SingUpWithEmailUseCase'
 
 export class SingUpWithEmailUseCaseImpl implements SingUpWithEmailUseCase {

@@ -1,6 +1,6 @@
-import { NavigationProp } from '@react-navigation/native'
-/* eslint-disable no-unused-vars */
-export type Routes = {
+import { type NavigationProp } from '@react-navigation/native'
+
+export interface Routes {
   Login: undefined
   Principalll: undefined
   loginContratante: undefined

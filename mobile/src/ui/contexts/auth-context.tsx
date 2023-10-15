@@ -1,4 +1,4 @@
-import { createContext, FC, useState } from 'react'
+import { createContext, type FC, useState } from 'react'
 export interface UserDto {}
 
 export interface AuthContextProps {
@@ -16,8 +16,8 @@ export const AuthProvider: FC<React.PropsWithChildren> = ({ children }) => {
     <AuthContext.Provider
       value={{
         user,
-        setUser: async (user) => {
-          setUser(user)
+        setUser: async (userDto) => {
+          setUser(userDto)
         },
       }}
     >

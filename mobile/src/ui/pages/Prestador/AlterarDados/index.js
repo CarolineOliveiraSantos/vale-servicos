@@ -1,7 +1,7 @@
 import api from '@/services/api'
 import { FontAwesome5, Feather as Icon } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { View, StyleSheet, Text, TextInput, Alert } from 'react-native'
 import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
@@ -55,18 +55,21 @@ const AlterarDados = () => {
         img: 'fé pra todo lado',
       }
       const response = await api.put(`editarprestador/${prestadorCpf}`, data)
-      return handleNavigateToDadosPessoais()
+      handleNavigateToDadosPessoais()
     } catch (err) {
       Alert(erroAlterar())
     }
   }
-  const erroAlterar = () =>
+  const erroAlterar = () => {
     Alert.alert('Erro ao Alterar Dados', 'Tente novamente!', [
       {
         text: 'Ok',
-        onPress: () => console.log('Erro'),
+        onPress: () => {
+          console.log('Erro')
+        },
       },
     ])
+  }
 
   return (
     <View style={styles.container}>
@@ -98,11 +101,12 @@ const AlterarDados = () => {
               fontSize: 4,
             },
           ]}
-        ></Text>
+        />
         {prestadores.map((prestador) => (
           <View keyExtractor={(prestador) => String(prestador.id)}>
             <Text style={styles.textText}>Nome:</Text>
             <TextInput
+              accessibilityLabel="Text input field"
               style={styles.input}
               onChangeText={setNome}
               autoCorrect={false}
@@ -111,6 +115,7 @@ const AlterarDados = () => {
             />
             <Text style={styles.textText}>Email:</Text>
             <TextInput
+              accessibilityLabel="Text input field"
               style={styles.input}
               onChangeText={setEmail}
               placeholder={prestador.email}
@@ -118,6 +123,7 @@ const AlterarDados = () => {
             />
             <Text style={styles.textText}>CPF:</Text>
             <TextInput
+              accessibilityLabel="Text input field"
               style={styles.input}
               keyboardType="number-pad"
               onChangeText={setCpf}
@@ -126,6 +132,7 @@ const AlterarDados = () => {
             />
             <Text style={styles.textText}>Senha:</Text>
             <TextInput
+              accessibilityLabel="Text input field"
               style={styles.input}
               placeholder="Senha"
               secureTextEntry={true}
@@ -134,6 +141,7 @@ const AlterarDados = () => {
             />
             <Text style={styles.textText}>Telefone:</Text>
             <TextInput
+              accessibilityLabel="Text input field"
               style={styles.input}
               keyboardType="number-pad"
               onChangeText={setTelefone}
@@ -142,6 +150,7 @@ const AlterarDados = () => {
             />
             <Text style={styles.textText}>Cidade:</Text>
             <TextInput
+              accessibilityLabel="Text input field"
               style={styles.input}
               onChangeText={setCity}
               autoCorrect={false}
@@ -150,6 +159,7 @@ const AlterarDados = () => {
             />
             <Text style={styles.textText}>Referência:</Text>
             <TextInput
+              accessibilityLabel="Text input field"
               style={styles.input}
               onChangeText={setReferencia}
               autoCorrect={false}
@@ -158,6 +168,7 @@ const AlterarDados = () => {
             />
             <Text style={styles.textText}>Fale sobre você:</Text>
             <TextInput
+              accessibilityLabel="Text input field"
               style={styles.input}
               onChangeText={setSobre}
               placeholder={prestador.sobre}

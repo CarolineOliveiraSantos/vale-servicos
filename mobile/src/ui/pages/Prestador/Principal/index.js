@@ -5,7 +5,6 @@ import {
   Feather,
 } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import React from 'react'
 import { View, StyleSheet, Text, Image, Alert } from 'react-native'
 
 const Principal = () => {
@@ -26,24 +25,27 @@ const Principal = () => {
   function handleNavigateToHome() {
     navigation.navigate('Home')
   }
-  const createAlert = () =>
+  const createAlert = () => {
     Alert.alert(
       'Sair',
       'Tem certeza que deseja sair?',
       [
         {
           text: 'Cancelar',
-          onPress: () => console.log(),
+          onPress: () => {
+            console.log()
+          },
         },
         {
           text: 'Sair',
           onPress: () => {
-            return handleNavigateToHome()
+            handleNavigateToHome()
           },
         },
       ],
       { cancelable: false },
     )
+  }
 
   return (
     <View style={styles.container}>
@@ -55,7 +57,9 @@ const Principal = () => {
       <View style={styles.menu}>
         <Text
           style={styles.menuIcon}
-          onPress={() => handleNavigateToDadosPessoais(prestador)}
+          onPress={() => {
+            handleNavigateToDadosPessoais(prestador)
+          }}
         >
           <MaterialCommunityIcons
             name="account-badge-horizontal-outline"
@@ -65,13 +69,17 @@ const Principal = () => {
         </Text>
         <Text
           style={styles.menuIcon}
-          onPress={() => handleNavigateToServicos(prestador)}
+          onPress={() => {
+            handleNavigateToServicos(prestador)
+          }}
         >
           <FontAwesome5 name="tools" size={30} color="white" />
         </Text>
         <Text
           style={styles.menuIcon}
-          onPress={() => handleNavigateToAdServicos(prestador)}
+          onPress={() => {
+            handleNavigateToAdServicos(prestador)
+          }}
         >
           <Feather name="plus-circle" size={34} color="white" />
         </Text>

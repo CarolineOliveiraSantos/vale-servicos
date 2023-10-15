@@ -1,7 +1,7 @@
 import api from '@/services/api'
 import { FontAwesome5, Feather as Icon } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { View, StyleSheet, Text, TextInput } from 'react-native'
 import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
@@ -75,8 +75,9 @@ const Cadastro = () => {
               fontSize: 4,
             },
           ]}
-        ></Text>
+        />
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={nome}
           onChangeText={setNome}
@@ -84,6 +85,7 @@ const Cadastro = () => {
           placeholder="Nome completo"
         />
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={email}
           onChangeText={setEmail}
@@ -91,6 +93,7 @@ const Cadastro = () => {
           placeholder="E-mail"
         />
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={cpf}
           keyboardType="number-pad"
@@ -99,6 +102,7 @@ const Cadastro = () => {
           placeholder="Digite seu CPF"
         />
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={senha}
           onChangeText={setSenha}
@@ -106,6 +110,7 @@ const Cadastro = () => {
           placeholder="Senha"
         />
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={telefone}
           maxLength={11}
@@ -114,6 +119,7 @@ const Cadastro = () => {
           placeholder="Whatsapp"
         />
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={city}
           onChangeText={setCity}
@@ -121,6 +127,7 @@ const Cadastro = () => {
           placeholder="Cidade"
         />
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={referencia}
           onChangeText={setReferencia}
@@ -128,6 +135,7 @@ const Cadastro = () => {
           placeholder="Referência de trabalhos anteriores"
         />
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={sobre}
           onChangeText={setSobre}

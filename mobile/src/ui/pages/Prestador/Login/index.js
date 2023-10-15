@@ -1,7 +1,7 @@
 import api from '@/services/api'
 import { FontAwesome5, Feather as Icon } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {
   View,
   StyleSheet,
@@ -35,7 +35,7 @@ const Login = () => {
     try {
       const response = await api.post('sessions', { email, senha })
       if (!response.data.email & !response.data.senha) {
-        return erroLogin()
+        erroLogin()
       } else {
         AsyncStorage.setItem('email', email)
         AsyncStorage.setItem('senha', senha)
@@ -43,20 +43,23 @@ const Login = () => {
         AsyncStorage.setItem('prestador', response.data)
         const prestador = response.data
         // console.log(email, response.data);
-        return handleNavigateToPrincipal(prestador)
+        handleNavigateToPrincipal(prestador)
       }
     } catch (err) {
       Alert(erroLogin())
     }
   }
 
-  const erroLogin = () =>
+  const erroLogin = () => {
     Alert.alert('Erro na Autenticação', 'Dados incorretos, tente novamente!', [
       {
         text: 'Ok',
-        onPress: () => console.log(),
+        onPress: () => {
+          console.log()
+        },
       },
     ])
+  }
 
   return (
     <View style={[styles.container]}>
@@ -88,8 +91,9 @@ const Login = () => {
             fontSize: 4,
           },
         ]}
-      ></Text>
+      />
       <TextInput
+        accessibilityLabel="Text input field"
         style={styles.input}
         value={email}
         onChangeText={setEmail}
@@ -97,6 +101,7 @@ const Login = () => {
         placeholder="Digite seu email"
       />
       <TextInput
+        accessibilityLabel="Text input field"
         style={styles.input}
         value={senha}
         onChangeText={setSenha}

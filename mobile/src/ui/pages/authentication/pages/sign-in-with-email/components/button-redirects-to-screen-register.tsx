@@ -7,7 +7,12 @@ import { useNavigation } from '@react-navigation/native'
 export const ButtonRedirectsToScreenRegister = () => {
   const { navigate } = useNavigation()
   return (
-    <TouchableOpacity onPress={() => navigate('')} accessibilityRole="button">
+    <TouchableOpacity
+      onPress={() => {
+        navigate('')
+      }}
+      accessibilityRole="button"
+    >
       <Box flexDirection="row" gap="2xs" justifyContent="center">
         <Text variant="body">{R.string.doNotHaveARegistrationYet} </Text>
         <Text variant="body">{R.string.register}</Text>

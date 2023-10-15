@@ -1,5 +1,5 @@
 import api from '@/services/api'
-import { Feather as Icon, Entypo, AntDesign } from '@expo/vector-icons'
+import { Feather as Icon } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { useState, useEffect } from 'react'
 import {
@@ -28,24 +28,27 @@ const homeContratante = () => {
   function handleNavigateToHome() {
     navigation.navigate('Home')
   }
-  const createAlert = () =>
+  const createAlert = () => {
     Alert.alert(
       'Sair',
       'Tem certeza que deseja sair?',
       [
         {
           text: 'Cancelar',
-          onPress: () => console.log(),
+          onPress: () => {
+            console.log()
+          },
         },
         {
           text: 'Sair',
           onPress: () => {
-            return handleNavigateToHome()
+            handleNavigateToHome()
           },
         },
       ],
       { cancelable: false },
     )
+  }
 
   const [servicos, setServicos] = useState([])
 
@@ -61,7 +64,9 @@ const homeContratante = () => {
         {/* <View style={styles.searchSection}> */}
         <Text
           style={[{ marginTop: 5, paddingRight: 10 }]}
-          onPress={() => handleNavigateToDadosPessoais(contratante)}
+          onPress={() => {
+            handleNavigateToDadosPessoais(contratante)
+          }}
         >
           <Text>
             <Icon name="user" size={30} color="#0426B0" />
@@ -83,9 +88,12 @@ const homeContratante = () => {
       <ScrollView>
         {servicos.map((servico) => (
           <TouchableOpacity
+            accessibilityRole="button"
             keyExtractor={(servico) => String(servico.id)}
             style={[styles.descriptionContainer, { marginTop: 15 }]}
-            onPress={() => handleNavigateToPrestadores(servico, contratante)}
+            onPress={() => {
+              handleNavigateToPrestadores(servico, contratante)
+            }}
             activeOpacity={0.8}
           >
             {/* <SvgUri

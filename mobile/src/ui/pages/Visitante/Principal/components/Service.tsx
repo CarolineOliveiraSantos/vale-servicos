@@ -1,6 +1,6 @@
 import { useTheme } from '@/ui/hooks/use-theme'
 import { useNavigation } from '@react-navigation/native'
-import { FC } from 'react'
+import { type FC } from 'react'
 import { TouchableOpacity, View, StyleSheet, Text } from 'react-native'
 export interface ServicoModel {
   id: string

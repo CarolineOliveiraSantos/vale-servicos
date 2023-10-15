@@ -1,4 +1,4 @@
-import { Routes } from '@/@types/navigation'
+import { type Routes } from '@/@types/navigation'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import { Dashboard } from '../../ui/pages/authentication/pages/dashboard/dashboard'

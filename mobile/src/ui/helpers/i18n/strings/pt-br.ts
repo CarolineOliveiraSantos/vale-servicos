@@ -1,4 +1,4 @@
-import { Translation } from './translations'
+import { type Translation } from './translations'
 
 export const PtBr: Translation = {
   msgInvalidMail: 'Email invalido',

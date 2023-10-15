@@ -1,7 +1,7 @@
 import api from '@/services/api'
 import { Feather as Icon, AntDesign } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { View, StyleSheet, Text, TextInput } from 'react-native'
 import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
@@ -46,7 +46,7 @@ const AlterarServicos = () => {
         descricao,
       }
       const response = await api.put(`alterarservico/${servicoId}`, data)
-      return handleNavigateToListaServicos()
+      handleNavigateToListaServicos()
     } catch (err) {
       Alert(erroAlterar())
     }
@@ -55,7 +55,9 @@ const AlterarServicos = () => {
     Alert.alert('Erro ao Alterar Dados', 'Tente novamente!', [
       {
         text: 'Ok',
-        onPress: () => console.log('Erro alterar'),
+        onPress: () => {
+          console.log('Erro alterar')
+        },
       },
     ])
 
@@ -89,11 +91,12 @@ const AlterarServicos = () => {
               fontSize: 4,
             },
           ]}
-        ></Text>
+        />
         {servicos.map((servico) => (
           <View keyExtractor={(servico) => String(servico.id)}>
             <Text style={styles.textText}>Nova descrição do serviço:</Text>
             <TextInput
+              accessibilityLabel="Text input field"
               style={styles.input}
               onChangeText={setDescricao}
               placeholder={servico.descricao}

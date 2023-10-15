@@ -1,16 +1,9 @@
 import api from '@/services/api'
-import { Feather as Icon, Feather, FontAwesome } from '@expo/vector-icons'
+import { Feather, FontAwesome } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import * as MailComposer from 'expo-mail-composer'
-import React, { useEffect, useState } from 'react'
-import {
-  View,
-  StyleSheet,
-  Text,
-  Linking,
-  TouchableOpacity,
-  DevSettings,
-} from 'react-native'
+import { useEffect, useState } from 'react'
+import { View, StyleSheet, Text, Linking, TouchableOpacity } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 
 const Detalhess = () => {
@@ -80,6 +73,7 @@ const Detalhess = () => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
+        accessibilityRole="button"
         style={[styles.linkSection, { marginTop: 15 }]}
         activeOpacity={1}
       >
@@ -87,7 +81,9 @@ const Detalhess = () => {
           name="arrow-left"
           size={30}
           color="#0426B0"
-          onPress={() => handleNavigateToPrestadores(prestador)}
+          onPress={() => {
+            handleNavigateToPrestadores(prestador)
+          }}
         />
       </TouchableOpacity>
 
@@ -127,7 +123,7 @@ const Detalhess = () => {
               fontSize: 4,
             },
           ]}
-        ></Text>
+        />
         <ScrollView showsVerticalScrollIndicator={false} horizontal={false}>
           <Text
             style={[
@@ -168,7 +164,7 @@ const Detalhess = () => {
                 fontSize: 4,
               },
             ]}
-          ></Text>
+          />
 
           <Text
             style={[
@@ -189,7 +185,9 @@ const Detalhess = () => {
           <View style={styles.avalia}>
             <Text
               style={styles.linkText}
-              onPress={() => handleNavigateToAvaliacoes(prestador)}
+              onPress={() => {
+                handleNavigateToAvaliacoes(prestador)
+              }}
             >
               Avaliações
             </Text>
@@ -197,15 +195,20 @@ const Detalhess = () => {
               name="star"
               size={25}
               color="gold"
-              onPress={() => handleNavigateToPrestadores(prestador)}
+              onPress={() => {
+                handleNavigateToPrestadores(prestador)
+              }}
             />
           </View>
           <Text style={[styles.description]}>Descrição do Serviço</Text>
           <Text style={styles.dataValue}>{prestador.descricao}</Text>
 
           <TouchableOpacity
+            accessibilityRole="button"
             style={styles.linkSection}
-            onPress={() => handleNavigateToAllServicos(prestador)}
+            onPress={() => {
+              handleNavigateToAllServicos(prestador)
+            }}
           >
             <Text style={styles.linkText}>Conheça meus outros serviços</Text>
             <Feather name="arrow-right" size={30} color="#0426B0" />
@@ -223,13 +226,14 @@ const Detalhess = () => {
                 fontSize: 4,
               },
             ]}
-          ></Text>
+          />
 
           <TouchableOpacity
+            accessibilityRole="button"
             style={styles.buttonn}
-            onPress={() =>
+            onPress={() => {
               handleNavigateToAvaliar(prestador, contratante, prestadores)
-            }
+            }}
           >
             <Text
               style={[
@@ -251,7 +255,11 @@ const Detalhess = () => {
           Contatar Prestador?
         </Text>
 
-        <TouchableOpacity activeOpacity={1} style={styles.buttonPad1}>
+        <TouchableOpacity
+          accessibilityRole="button"
+          activeOpacity={1}
+          style={styles.buttonPad1}
+        >
           <Text style={[styles.buttonText]} onPress={sendMail}>
             Email
           </Text>

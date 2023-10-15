@@ -1,4 +1,4 @@
-import { ContractorDto } from '../dtos/ContractorDto'
+import { type ContractorDto } from '../dtos/ContractorDto'
 
 export class ContractorModel {
   constructor(private readonly contractorDto: ContractorDto) {}

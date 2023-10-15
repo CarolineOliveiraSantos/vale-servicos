@@ -63,7 +63,7 @@ const AdServicos = () => {
     }
     try {
       const response = await api.post(`addservico/${prestadorIdd}`, data)
-      return handleNavigateToListaServicos(prestador)
+      handleNavigateToListaServicos(prestador)
     } catch (err) {
       alert('Erro ao adicionar serviço, tente novamente.')
       console.log(err)
@@ -98,7 +98,7 @@ const AdServicos = () => {
               fontSize: 4,
             },
           ]}
-        ></Text>
+        />
         <Text style={[styles.data, { marginBottom: 9 }]}>
           Qual a categoria do serviço?
         </Text>
@@ -110,13 +110,16 @@ const AdServicos = () => {
         >
           {servicos.map((item) => (
             <TouchableOpacity
+              accessibilityRole="button"
               keyExtractor={(item) => String(item.id)}
               style={[
                 styles.item,
                 selectedItems.includes(item.id) ? styles.selectedItem : {},
               ]}
               className={selectedItems.includes(item.id) ? 'selected' : ''}
-              onPress={() => handleSelectedItem(item.id)}
+              onPress={() => {
+                handleSelectedItem(item.id)
+              }}
               activeOpacity={0.5}
             >
               {/* <SvgUri
@@ -144,12 +147,13 @@ const AdServicos = () => {
               fontSize: 4,
             },
           ]}
-        ></Text>
+        />
         <Text style={[styles.data, { marginBottom: 9 }]}>
           Descreva seu serviço:
         </Text>
 
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={descricao}
           onChangeText={setDescricao}

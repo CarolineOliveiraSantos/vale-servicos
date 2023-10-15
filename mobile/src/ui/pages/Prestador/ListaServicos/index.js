@@ -1,9 +1,9 @@
 import api from '@/services/api'
 import { Feather as Icon, AntDesign, MaterialIcons } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
-import { BaseButton, ScrollView } from 'react-native-gesture-handler'
+import { ScrollView } from 'react-native-gesture-handler'
 
 const ListaServicos = () => {
   const navigation = useNavigation()
@@ -82,7 +82,7 @@ const ListaServicos = () => {
               fontSize: 4,
             },
           ]}
-        ></Text>
+        />
         {servicos.map((servico) => (
           <View
             style={styles.dataContainer}
@@ -92,7 +92,9 @@ const ListaServicos = () => {
             <Text style={styles.dataValue}>{servico.descricao}</Text>
             <Text
               style={styles.dataValueIcon}
-              onPress={() => handleNavigateToVerServicos(servico, prestador)}
+              onPress={() => {
+                handleNavigateToVerServicos(servico, prestador)
+              }}
             >
               <AntDesign
                 name="arrowright"

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { SecureStorage } from '@/data/protocols/storage/secure-storage'
+import { type SecureStorage } from '@/data/protocols/storage/secure-storage'
 import * as ExpoSecureStore from 'expo-secure-store'
 export class SecureStorageAdapter implements SecureStorage {
   async getItem<T = any>(key: string): Promise<T | null> {

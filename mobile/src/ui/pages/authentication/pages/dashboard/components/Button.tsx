@@ -2,8 +2,8 @@ import { Text } from '@/ui/components/shared/text'
 import { TouchableOpacity } from '@/ui/components/shared/touchable-opacity'
 import { View } from '@/ui/components/shared/view'
 import { useTheme } from '@/ui/hooks/use-theme'
-import { FC, ReactNode } from 'react'
-import { AccessibilityProps, ActivityIndicator } from 'react-native'
+import { type FC, type ReactNode } from 'react'
+import { type AccessibilityProps, ActivityIndicator } from 'react-native'
 
 export type ButtonProps = AccessibilityProps & {
   icon?: ReactNode

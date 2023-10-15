@@ -1,4 +1,4 @@
-import { ContractorModel } from '@/domain/models/ContractorModel'
+import { type ContractorModel } from '@/domain/models/ContractorModel'
 export interface SingUpWithEmailUseCaseDto {
   email: string
   password: string
@@ -10,7 +10,7 @@ export interface SingUpWithEmailUseCaseResponse {
 }
 
 export interface SingUpWithEmailUseCase {
-  execute(
+  execute: (
     body: SingUpWithEmailUseCaseDto,
-  ): Promise<SingUpWithEmailUseCaseResponse>
+  ) => Promise<SingUpWithEmailUseCaseResponse>
 }

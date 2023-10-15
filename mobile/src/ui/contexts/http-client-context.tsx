@@ -1,8 +1,8 @@
-import { HttpClient } from '@/data/protocols/http/http-client'
+import { type HttpClient } from '@/data/protocols/http/http-client'
 import { AxiosAdapter } from '@/infra/http/axios-adapter'
-import { FC, ReactNode, createContext } from 'react'
+import { type FC, type ReactNode, createContext } from 'react'
 
-export type HttpClientContextProps = {
+export interface HttpClientContextProps {
   httpClient: HttpClient
 }
 export const HttpClientContext = createContext<HttpClientContextProps>(

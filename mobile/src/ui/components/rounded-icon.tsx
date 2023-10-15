@@ -1,8 +1,8 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 
 import {
   TouchableOpacity,
-  TouchableOpacityProps,
+  type TouchableOpacityProps,
 } from './shared/touchable-opacity'
 
 export const RoundedIcon: FC<TouchableOpacityProps> = (props) => {

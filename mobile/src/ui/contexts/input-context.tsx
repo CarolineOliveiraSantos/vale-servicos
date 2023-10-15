@@ -1,8 +1,8 @@
-import { FC, ReactNode, createContext, useState } from 'react'
+import { type FC, type ReactNode, createContext, useState } from 'react'
 
-export type IInputContext = {
-  changeToFocus(): void
-  changeWithoutFocus(): void
+export interface IInputContext {
+  changeToFocus: () => void
+  changeWithoutFocus: () => void
   isFocus: boolean
 }
 export const InputContext = createContext<IInputContext>({} as IInputContext)

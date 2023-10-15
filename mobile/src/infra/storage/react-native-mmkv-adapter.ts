@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Storage } from '@/data/protocols/storage/storage'
+import { type Storage } from '@/data/protocols/storage/storage'
 import { MMKV } from 'react-native-mmkv'
 const storage = new MMKV()
 export class ReactNativeMMKVAdapter implements Storage {

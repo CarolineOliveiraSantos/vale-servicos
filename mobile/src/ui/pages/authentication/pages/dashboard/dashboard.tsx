@@ -4,7 +4,7 @@ import { Text } from '@/ui/components/shared/text'
 import { View } from '@/ui/components/shared/view'
 import { R } from '@/ui/helpers/i18n/resources'
 import {
-  BottomSheetModal,
+  type BottomSheetModal,
   BottomSheetModalProvider,
 } from '@gorhom/bottom-sheet'
 import LottieView from 'lottie-react-native'

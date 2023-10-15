@@ -1,9 +1,9 @@
 import { useColorMode } from '@/ui/hooks/use-color-mode'
 import { useTheme } from '@/ui/hooks/use-theme'
-import { FC } from 'react'
+import { type FC } from 'react'
 import {
   StatusBar as ReactNativeStatusBar,
-  StatusBarProps as ReactNativeStatusBarProps,
+  type StatusBarProps as ReactNativeStatusBarProps,
 } from 'react-native'
 export const StatusBar: FC<ReactNativeStatusBarProps> = (props) => {
   const { colors } = useTheme()

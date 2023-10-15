@@ -1,9 +1,9 @@
 import api from '@/services/api'
-import { Feather as Icon, Feather } from '@expo/vector-icons'
+import { Feather as Icon } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import React, { useState, useEffect } from 'react'
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
-import { BaseButton, ScrollView } from 'react-native-gesture-handler'
+import { useState } from 'react'
+import { View, StyleSheet, Text } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
 
 const Avaliacaoo = () => {
   const navigation = useNavigation()

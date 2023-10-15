@@ -1,7 +1,7 @@
 import api from '@/services/api'
 import { Feather as Icon, Feather } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 
@@ -78,7 +78,7 @@ const Prestadoress = () => {
             fontSize: 4,
           },
         ]}
-      ></Text>
+      />
       <ScrollView showsVerticalScrollIndicator={false} horizontal={false}>
         {prestadores.map((prestador) => (
           <View keyExtractor={(prestador) => String(prestador.id)}>
@@ -93,8 +93,11 @@ const Prestadoress = () => {
               <Text style={styles.dataValue}>{prestador.telefone}</Text>
 
               <TouchableOpacity
+                accessibilityRole="button"
                 style={styles.linkSection}
-                onPress={() => handleNavigateToDetalhes(prestador, contratante)}
+                onPress={() => {
+                  handleNavigateToDetalhes(prestador, contratante)
+                }}
               >
                 <Text style={styles.linkText}>Ver mais</Text>
                 <Feather name="arrow-right" size={30} color="#0426B0" />

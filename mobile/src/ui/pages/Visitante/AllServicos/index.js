@@ -1,7 +1,7 @@
 import api from '@/services/api'
 import { Feather as Icon } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 

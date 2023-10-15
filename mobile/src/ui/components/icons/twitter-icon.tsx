@@ -1,5 +1,5 @@
-import { FC } from 'react'
-import Svg, { SvgProps, Path } from 'react-native-svg'
+import { type FC } from 'react'
+import Svg, { type SvgProps, Path } from 'react-native-svg'
 export const TwitterIcon: FC<SvgProps> = (props) => (
   <Svg viewBox="0 -4 48 48" {...props}>
     <Path

@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import { useState, useEffect } from 'react'
 import { View, Text, StyleSheet, FlatList } from 'react-native'
 
-import { Service, ServicoModel } from './components/Service'
+import { Service, type ServicoModel } from './components/Service'
 
 const Principalll = () => {
   const navigation = useNavigation()

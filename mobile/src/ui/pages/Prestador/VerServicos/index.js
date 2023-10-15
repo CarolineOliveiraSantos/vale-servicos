@@ -1,7 +1,7 @@
 import api from '@/services/api'
 import { Feather as Icon, FontAwesome5 } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { View, StyleSheet, Text, Alert } from 'react-native'
 import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
@@ -45,30 +45,33 @@ const VerServicos = () => {
         },
       })
       setPrestadores(prestadores.filter((prestador) => prestador.id !== id))
-      return handleNavigateToListaServicos()
+      handleNavigateToListaServicos()
     } catch (err) {
       alert('Erro ao excluir serviço, tente novamente.')
     }
   }
 
-  const createAlert = () =>
+  const createAlert = () => {
     Alert.alert(
       'Excluir',
       'Tem certeza que deseja excluir esse serviço?',
       [
         {
           text: 'Cancelar',
-          onPress: () => console.log(),
+          onPress: () => {
+            console.log()
+          },
         },
         {
           text: 'Excluir',
-          onPress: () => {
-            return handleDeleteAccount()
+          onPress: async () => {
+            await handleDeleteAccount()
           },
         },
       ],
       { cancelable: false },
     )
+  }
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} horizontal={false}>
@@ -103,7 +106,7 @@ const VerServicos = () => {
               fontSize: 4,
             },
           ]}
-        ></Text>
+        />
 
         <View style={styles.descriptionContainer}>
           {/* <Text style={[styles.description, {marginTop: 7}]}>Imagem:</Text>
@@ -133,11 +136,13 @@ const VerServicos = () => {
               fontSize: 4,
             },
           ]}
-        ></Text>
+        />
         <BaseButton style={styles.button}>
           <Text
             style={styles.buttonText}
-            onPress={() => handleNavigateToAlterarServicos(servico, prestador)}
+            onPress={() => {
+              handleNavigateToAlterarServicos(servico, prestador)
+            }}
           >
             Editar
           </Text>

@@ -1,9 +1,9 @@
 import { Text } from '@/ui/components/shared/text'
 import { View } from '@/ui/components/shared/view'
 import { useTheme } from '@/ui/hooks/use-theme'
-import { FC, ReactNode } from 'react'
+import { type FC, type ReactNode } from 'react'
 import {
-  AccessibilityProps,
+  type AccessibilityProps,
   ActivityIndicator,
   TouchableNativeFeedback,
 } from 'react-native'

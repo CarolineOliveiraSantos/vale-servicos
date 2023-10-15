@@ -1,4 +1,4 @@
-import { SingUpWithEmailUseCase } from '@/domain/use-cases/SingUpWithEmailUseCase'
+import { type SingUpWithEmailUseCase } from '@/domain/use-cases/SingUpWithEmailUseCase'
 import { Button } from '@/ui/components/button'
 import { Icons } from '@/ui/components/icons/icons'
 import { ControlledInput } from '@/ui/components/input/controlled-input'

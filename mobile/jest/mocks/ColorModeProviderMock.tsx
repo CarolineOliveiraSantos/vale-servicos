@@ -1,14 +1,14 @@
 import { keys } from '@/constants/keys'
-import { useStorage } from '@/ui/hooks/useStorage'
 import {
-  ColorModeProviderProps,
+  type ColorModeProviderProps,
   ColorModeContext,
-  ColorModeType,
-  ThemeModeType,
+  type ColorModeType,
+  type ThemeModeType,
 } from '@/ui/contexts/ColorModeContext'
+import { useStorage } from '@/ui/hooks/useStorage'
 import { ThemeDark, ThemeLight } from '@/ui/styles/theme'
 import { ThemeProvider } from '@shopify/restyle'
-import { FC, useState } from 'react'
+import { type FC, useState } from 'react'
 import { useColorScheme, Appearance } from 'react-native'
 export const ColorModeProviderMock: FC<ColorModeProviderProps> = ({
   children,

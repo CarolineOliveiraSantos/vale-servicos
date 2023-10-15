@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { keys } from '@/constants/keys'
-import { Storage } from '@/data/protocols/storage/storage'
+import { type Storage } from '@/data/protocols/storage/storage'
 import { ThemeDark, ThemeLight } from '@/ui/styles/theme'
 import { ThemeProvider } from '@shopify/restyle'
-import { FC, createContext, useEffect, useState } from 'react'
+import { type FC, createContext, useEffect, useState } from 'react'
 import { Appearance, useColorScheme } from 'react-native'
 export type ColorModeType = 'dark' | 'light' | 'system'
 export type ThemeModeType = 'dark' | 'light'
@@ -13,9 +13,9 @@ export interface ColorModeProviderProps extends React.PropsWithChildren {
 export interface ColorModeContextProps {
   colorMode: ColorModeType
   themeMode: ThemeModeType
-  changeToThemeDark(): Promise<void>
-  changeToThemeLight(): Promise<void>
-  changeToThemeSystem(): Promise<void>
+  changeToThemeDark: () => Promise<void>
+  changeToThemeLight: () => Promise<void>
+  changeToThemeSystem: () => Promise<void>
 }
 export const ColorModeContext = createContext<ColorModeContextProps>(
   {} as ColorModeContextProps,
@@ -26,8 +26,7 @@ export const ColorModeProvider: FC<ColorModeProviderProps> = ({
 }) => {
   const [themeMode, setThemeMode] = useState<ThemeModeType>('dark')
   const [colorMode, setColorMode] = useState<ColorModeType>('dark')
-
-  const colorScheme = useColorScheme()
+  const systemColorScheme = useColorScheme()
 
   Appearance.addChangeListener(({ colorScheme }) => {
     if (colorScheme && colorMode === 'system') {
@@ -46,8 +45,8 @@ export const ColorModeProvider: FC<ColorModeProviderProps> = ({
   }
   const changeToThemeSystem = async () => {
     setColorMode('system')
-    if (colorScheme) {
-      setThemeMode(colorScheme)
+    if (systemColorScheme) {
+      setThemeMode(systemColorScheme)
     } else {
       setThemeMode('light')
     }
@@ -56,12 +55,15 @@ export const ColorModeProvider: FC<ColorModeProviderProps> = ({
   useEffect(() => {
     const loadColorModeInStorage = async () => {
       await storage.deleteItem(keys.COLOR_MODE)
-      const colorMode = await storage.getItem<ColorModeType>(keys.COLOR_MODE)
-      if (colorMode === 'dark') {
+      const colorModeInStorage = await storage.getItem<ColorModeType>(
+        keys.COLOR_MODE,
+      )
+
+      if (colorModeInStorage === 'dark') {
         await changeToThemeDark()
-      } else if (colorMode === 'light') {
+      } else if (colorModeInStorage === 'light') {
         await changeToThemeLight()
-      } else if (colorMode === 'system') {
+      } else if (colorModeInStorage === 'system') {
         await changeToThemeSystem()
       } else {
         await changeToThemeSystem()

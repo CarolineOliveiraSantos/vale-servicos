@@ -1,11 +1,14 @@
-import { Routes } from '@/@types/navigation'
+import { type Routes } from '@/@types/navigation'
 import { Text } from '@/ui/components/shared/text'
 import { View } from '@/ui/components/shared/view'
 import { R } from '@/ui/helpers/i18n/resources'
 import { useTheme } from '@/ui/hooks/use-theme'
-import { BottomSheetModal, BottomSheetModalProps } from '@gorhom/bottom-sheet'
-import { NavigationProp, useNavigation } from '@react-navigation/native'
-import { ForwardRefRenderFunction, memo, forwardRef } from 'react'
+import {
+  BottomSheetModal,
+  type BottomSheetModalProps,
+} from '@gorhom/bottom-sheet'
+import { type NavigationProp, useNavigation } from '@react-navigation/native'
+import { type ForwardRefRenderFunction, memo, forwardRef } from 'react'
 
 import { Button } from './Button'
 export const ModalBase: ForwardRefRenderFunction<
@@ -36,7 +39,9 @@ export const ModalBase: ForwardRefRenderFunction<
         <Button title={R.string.visitor} onPress={() => {}} />
         <Button
           title={R.string.email}
-          onPress={() => navigate('sign-in-with-email')}
+          onPress={() => {
+            navigate('sign-in-with-email')
+          }}
         />
       </View>
     </BottomSheetModal>

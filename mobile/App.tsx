@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { ReactNativeMMKVAdapter } from '@/infra/storage/react-native-mmkv-adapter'
 import { Routes } from '@/main/routes/routes'
 import { Loading } from '@/ui/components/loading'

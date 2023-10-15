@@ -1,6 +1,6 @@
 import {
-  SingUpWithEmailUseCase,
-  SingUpWithEmailUseCaseDto,
+  type SingUpWithEmailUseCase,
+  type SingUpWithEmailUseCaseDto,
 } from '@/domain/use-cases/SingUpWithEmailUseCase'
 import { useState } from 'react'
 

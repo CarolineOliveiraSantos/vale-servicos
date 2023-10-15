@@ -1,11 +1,11 @@
 import api from '@/services/api'
 import { FontAwesome5, Feather as Icon } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { View, StyleSheet, Text, TextInput } from 'react-native'
 import { BaseButton, ScrollView } from 'react-native-gesture-handler'
 
-const cadastroContratante = () => {
+const CadastroContratante = () => {
   const navigation = useNavigation()
 
   function handleNavigateToLoginContratante() {
@@ -69,8 +69,9 @@ const cadastroContratante = () => {
               fontSize: 4,
             },
           ]}
-        ></Text>
+        />
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={nome}
           onChangeText={setNome}
@@ -78,12 +79,14 @@ const cadastroContratante = () => {
           placeholder="Nome completo"
         />
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={email}
           onChangeText={setEmail}
           placeholder="E-mail"
         />
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={cpf}
           keyboardType="number-pad"
@@ -92,6 +95,7 @@ const cadastroContratante = () => {
           placeholder="Digite seu CPF"
         />
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={senha}
           onChangeText={setSenha}
@@ -99,6 +103,7 @@ const cadastroContratante = () => {
           placeholder="Digite sua senha"
         />
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={telefone}
           maxLength={11}
@@ -107,6 +112,7 @@ const cadastroContratante = () => {
           placeholder="Ex.:(67)99999-9999"
         />
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={city}
           onChangeText={setCity}
@@ -163,4 +169,4 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 })
-export default cadastroContratante
+export default CadastroContratante

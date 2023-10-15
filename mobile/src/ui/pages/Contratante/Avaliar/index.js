@@ -1,17 +1,10 @@
 import api from '@/services/api'
-import { Entypo, Feather as Icon, AntDesign } from '@expo/vector-icons'
+import { Feather as Icon, AntDesign } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import React, { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { View, Text, StyleSheet, TextInput } from 'react-native'
-import {
-  RectButton,
-  ScrollView,
-  TouchableOpacity,
-} from 'react-native-gesture-handler'
-import { Rating, AirbnbRating } from 'react-native-ratings'
-import { color } from 'react-native-reanimated'
-
-// import { Feather } from "@expo/vector-icons";
+import { RectButton, ScrollView } from 'react-native-gesture-handler'
+import { AirbnbRating } from 'react-native-ratings'
 
 const Avaliar = () => {
   const navigation = useNavigation()
@@ -48,7 +41,7 @@ const Avaliar = () => {
     try {
       const response = await api.post(`avaliacao/${contratanteId}`, data)
       // console.log(response);
-      return navigation.navigate('Detalhess')
+      navigation.navigate('Detalhess')
     } catch (err) {
       alert('Erro ao avaliar serviço, tente novamente.')
     }
@@ -84,7 +77,7 @@ const Avaliar = () => {
               fontSize: 4,
             },
           ]}
-        ></Text>
+        />
         <View>
           <Text style={styles.description}>Avalie o serviço de 0 a 5</Text>
         </View>
@@ -103,6 +96,7 @@ const Avaliar = () => {
         />
 
         <TextInput
+          accessibilityLabel="Text input field"
           style={[styles.input, { height: 80, marginTop: 15 }]}
           value={comentario}
           onChangeText={setComentario}

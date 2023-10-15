@@ -1,11 +1,11 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 import Svg, {
   Circle,
   Path,
   Defs,
   LinearGradient,
   Stop,
-  SvgProps,
+  type SvgProps,
 } from 'react-native-svg'
 export const FacebookIcon: FC<SvgProps> = (props) => (
   <Svg fill="none" viewBox="0 0 32 32" {...props}>

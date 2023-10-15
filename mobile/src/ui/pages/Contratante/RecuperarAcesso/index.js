@@ -1,15 +1,8 @@
 import api from '@/services/api'
 import { FontAwesome5, Feather as Icon } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
-import React, { useState } from 'react'
-import {
-  View,
-  StyleSheet,
-  Text,
-  TextInput,
-  AsyncStorage,
-  Alert,
-} from 'react-native'
+import { useState } from 'react'
+import { View, StyleSheet, Text, TextInput, Alert } from 'react-native'
 import { BaseButton } from 'react-native-gesture-handler'
 
 const RecuperarAcessoo = () => {
@@ -38,17 +31,20 @@ const RecuperarAcessoo = () => {
       }
     }
   }
-  const erroRecuperar = () =>
+  const erroRecuperar = () => {
     Alert.alert(
       'Erro ao Recuperar Acesso',
       'Dados incorretos, tente novamente!',
       [
         {
           text: 'Ok',
-          onPress: () => console.log('Erro recuperar acesso'),
+          onPress: () => {
+            console.log('Erro recuperar acesso')
+          },
         },
       ],
     )
+  }
 
   return (
     <View style={styles.container}>
@@ -79,8 +75,9 @@ const RecuperarAcessoo = () => {
             fontSize: 4,
           },
         ]}
-      ></Text>
+      />
       <TextInput
+        accessibilityLabel="Text input field"
         style={styles.input}
         value={cpf}
         onChangeText={setCpf}
@@ -90,6 +87,7 @@ const RecuperarAcessoo = () => {
         placeholder="Digite o seu CPF"
       />
       <TextInput
+        accessibilityLabel="Text input field"
         style={styles.input}
         value={senha}
         onChangeText={setSenha}

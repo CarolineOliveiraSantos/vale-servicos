@@ -91,15 +91,24 @@ export default function RegisterImage() {
           }}
         >
           <TouchableOpacity
+            accessibilityRole="button"
             style={styles.button}
-            onPress={() => handleSelectTypeImage()}
+            onPress={() => {
+              handleSelectTypeImage()
+            }}
           >
             {types && (
               <View style={styles.containerType}>
-                <TouchableOpacity onPress={handleSelectGalery}>
+                <TouchableOpacity
+                  accessibilityRole="button"
+                  onPress={handleSelectGalery}
+                >
                   <Text style={styles.textButton}>Selecionar da galeria</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={handleSelectCamera}>
+                <TouchableOpacity
+                  accessibilityRole="button"
+                  onPress={handleSelectCamera}
+                >
                   <Text style={styles.textButton}>Capturar da câmera</Text>
                 </TouchableOpacity>
               </View>
@@ -112,12 +121,12 @@ export default function RegisterImage() {
                 }}
               />
             ) : (
-              <Text></Text>
+              <Text />
             )}
           </TouchableOpacity>
         </View>
         <Text style={styles.bioLabel}>Selecione uma imagem de perfil</Text>
-        <TouchableOpacity style={styles.bioButton}>
+        <TouchableOpacity accessibilityRole="button" style={styles.bioButton}>
           <Text style={styles.Label} onPress={UploadImage}>
             Avançar
           </Text>

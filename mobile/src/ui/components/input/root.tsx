@@ -1,10 +1,10 @@
 import { InputProvider } from '@/ui/contexts/input-context'
 import { useInput } from '@/ui/hooks/use-input'
 import { useTheme } from '@/ui/hooks/use-theme'
-import { FC, useEffect } from 'react'
-import { ViewProps } from 'react-native'
+import { type FC, useEffect } from 'react'
+import { type ViewProps } from 'react-native'
 import Animated, {
-  AnimateProps,
+  type AnimateProps,
   Extrapolate,
   interpolate,
   interpolateColor,

@@ -1,7 +1,7 @@
 import api from '@/services/api'
 import { FontAwesome5, Feather as Icon } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {
   View,
   StyleSheet,
@@ -12,7 +12,7 @@ import {
 } from 'react-native'
 import { BaseButton } from 'react-native-gesture-handler'
 
-const loginContratante = () => {
+const LoginContratante = () => {
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
 
@@ -35,7 +35,7 @@ const loginContratante = () => {
     try {
       const response = await api.post('sessioncontratante', { email, senha })
       if (!response.data.email & !response.data.senha) {
-        return erroLogin()
+        erroLogin()
       } else {
         AsyncStorage.setItem('email', email)
         AsyncStorage.setItem('senha', senha)
@@ -43,20 +43,23 @@ const loginContratante = () => {
         AsyncStorage.setItem('contratante', response.data)
         const contratante = response.data
         // console.log(email, response.data);
-        return handleNavigateToHomeContratante(contratante)
+        handleNavigateToHomeContratante(contratante)
       }
     } catch (err) {
-      return erroLogin()
+      erroLogin()
     }
   }
 
-  const erroLogin = () =>
+  const erroLogin = () => {
     Alert.alert('Erro na Autenticação', 'Dados incorretos, tente novamente!', [
       {
         text: 'Ok',
-        onPress: () => console.log('Erro Login'),
+        onPress: () => {
+          console.log('Erro Login')
+        },
       },
     ])
+  }
 
   return (
     <View style={[styles.container]}>
@@ -88,8 +91,9 @@ const loginContratante = () => {
               fontSize: 4,
             },
           ]}
-        ></Text>
+        />
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={email}
           onChangeText={setEmail}
@@ -97,6 +101,7 @@ const loginContratante = () => {
           placeholder="Digite seu email"
         />
         <TextInput
+          accessibilityLabel="Text input field"
           style={styles.input}
           value={senha}
           onChangeText={setSenha}
@@ -178,4 +183,4 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 })
-export default loginContratante
+export default LoginContratante
