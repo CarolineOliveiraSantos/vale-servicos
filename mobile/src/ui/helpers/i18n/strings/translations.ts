@@ -1,11 +1,13 @@
 export interface Translation {
   msgInvalidMail: string
-  singInWithGoogle: string
-  singInWithFacebook: string
+  signInLikeAVisitor: string
+  signInWithGoogle: string
+  signInWithFacebook: string
+  signInWithEmail: string
   welcomeToTheIdealPlaceToFindServiceProviders: string
   otherOptions: string
   email: string
-  visitor: string
+  visitant: string
   howDoYouWantToContinue: string
   navigateToThePreviousScreen: string
   goBack: string

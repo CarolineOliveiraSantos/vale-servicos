@@ -1,7 +1,7 @@
 import { HttpClientContext } from '@/ui/contexts/http-client-context'
 import { useContext } from 'react'
 
-import { WithoutProviderError } from '../../domain/errors/WithoutProviderError'
+import { WithoutProviderError } from '../../domain/errors/without-provider-error'
 export const useHttpClient = () => {
   const value = useContext(HttpClientContext)
   if (Object.keys(value).length === 0) {

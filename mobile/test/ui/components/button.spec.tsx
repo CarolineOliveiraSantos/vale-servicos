@@ -1,5 +1,5 @@
 import { fireEvent, render } from '@/jest/test-utils'
-import { Button } from '@/ui/components/Button'
+import { Button } from '@/ui/components/button'
 import { faker } from '@faker-js/faker'
 
 let title = faker.lorem.text()
@@ -49,6 +49,29 @@ describe('<Button />', () => {
     it('should render with role button', () => {
       const { getByRole } = render(<Button onPress={onPress} title={title} />)
       expect(getByRole('button')).toBeTruthy()
+    })
+    it('should render button with accessibilityHint if pass', () => {
+      const accessibilityHint = faker.lorem.word()
+      const { getByTestId } = render(
+        <Button
+          onPress={onPress}
+          title={title}
+          accessibilityHint={accessibilityHint}
+        />,
+      )
+      expect(getByTestId('button')).toHaveProp('accessibilityHint')
+    })
+    it('should render button with accessibilityLabel if pass', () => {
+      const accessibilityLabel = faker.lorem.word()
+      const { getByTestId } = render(
+        // eslint-disable-next-line react-native-a11y/has-accessibility-hint
+        <Button
+          onPress={onPress}
+          title={title}
+          accessibilityLabel={accessibilityLabel}
+        />,
+      )
+      expect(getByTestId('button')).toHaveProp('accessibilityLabel')
     })
   })
 })

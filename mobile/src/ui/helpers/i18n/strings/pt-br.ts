@@ -2,13 +2,15 @@ import { type Translation } from './translations'
 
 export const PtBr: Translation = {
   msgInvalidMail: 'Email invalido',
-  singInWithFacebook: 'Continuar com o Facebook',
-  singInWithGoogle: 'Continuar com o Google',
+  signInWithFacebook: 'Continuar com o Facebook',
+  signInWithGoogle: 'Continuar com o Google',
+  signInWithEmail: 'Continuar com Email',
+  signInLikeAVisitor: 'Continuar como um Visitante',
   welcomeToTheIdealPlaceToFindServiceProviders:
     'Bem vindo ao lugar ideal para encontrar prestadores de serviços',
   otherOptions: 'Outras opções',
   email: 'Email',
-  visitor: 'Visitante',
+  visitant: 'Visitante',
   howDoYouWantToContinue: 'Como deseja continuar ?',
   navigateToThePreviousScreen: 'Navegar para a tela anterior',
   goBack: 'Voltar',

@@ -1,4 +1,4 @@
-import { type SingUpWithEmailUseCase } from '@/domain/use-cases/SingUpWithEmailUseCase'
+import type { SignInWithEmailUseCase } from '@/domain/use-cases/sign-in-with-email-use-case'
 import { Button } from '@/ui/components/button'
 import { Icons } from '@/ui/components/icons/icons'
 import { ControlledInput } from '@/ui/components/input/controlled-input'
@@ -15,26 +15,26 @@ import { useAuthWithEmail } from '../../hooks/use-auth-with-email'
 import { ButtonRedirectsToScreenRegister } from './components/button-redirects-to-screen-register'
 import { Header } from './components/Header'
 import { schema } from './schema-validation'
-export interface SingUpWithEmailForm {
+export interface SignInWithEmailForm {
   email: string
   password: string
 }
 
-export interface SingUpWithEmailProps {
-  singUpWithEmailUseCase: SingUpWithEmailUseCase
+export interface SingInWithEmailProps {
+  signInWithEmailUseCase: SignInWithEmailUseCase
 }
-export const SignInWithEmail: React.FC<SingUpWithEmailProps> = ({
-  singUpWithEmailUseCase,
+export const SignInWithEmail: React.FC<SingInWithEmailProps> = ({
+  signInWithEmailUseCase,
 }) => {
   const {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<SingUpWithEmailForm>({
+  } = useForm<SignInWithEmailForm>({
     resolver: yupResolver(schema),
   })
   const authWithEmail = useAuthWithEmail({
-    singUpWithEmailUseCase,
+    signInWithEmailUseCase,
   })
 
   const { spacing, colors } = useTheme()

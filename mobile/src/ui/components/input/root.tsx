@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import { InputProvider } from '@/ui/contexts/input-context'
 import { useInput } from '@/ui/hooks/use-input'
 import { useTheme } from '@/ui/hooks/use-theme'

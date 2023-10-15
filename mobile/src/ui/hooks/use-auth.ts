@@ -1,7 +1,7 @@
 import { AuthContext } from '@/ui/contexts/auth-context'
 import { useContext } from 'react'
 
-import { WithoutProviderError } from '../../domain/errors/WithoutProviderError'
+import { WithoutProviderError } from '../../domain/errors/without-provider-error'
 export const useAuth = () => {
   const value = useContext(AuthContext)
   if (Object.keys(value).length === 0) {

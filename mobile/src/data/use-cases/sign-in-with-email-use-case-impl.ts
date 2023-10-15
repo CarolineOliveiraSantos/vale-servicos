@@ -1,22 +1,22 @@
 import { env } from '@/constants/env'
 import { type HttpClient } from '@/data/protocols/http/http-client'
 import { type AuthDto } from '@/domain/dtos/AuthDto'
-import { ContractorAlreadyExists } from '@/domain/errors/ContractorAlreadyExists'
-import { UnexpectedError } from '@/domain/errors/UnexpectedError'
-import { HttpStatusCode } from '@/domain/helpers/http/HttpStatusCode'
+import { ContractorAlreadyExists } from '@/domain/errors/contractor-already-exists'
+import { UnexpectedError } from '@/domain/errors/unexpected-error'
+import { HttpStatusCode } from '@/domain/helpers/http/http-status-code'
 import { ContractorModel } from '@/domain/models/ContractorModel'
-import {
-  type SingUpWithEmailUseCase,
-  type SingUpWithEmailUseCaseDto,
-  type SingUpWithEmailUseCaseResponse,
-} from '@/domain/use-cases/SingUpWithEmailUseCase'
+import type {
+  SignInWithEmailUseCase,
+  SignInWithEmailUseCaseDto,
+  SignInWithEmailUseCaseResponse,
+} from '@/domain/use-cases/sign-in-with-email-use-case'
 
-export class SingUpWithEmailUseCaseImpl implements SingUpWithEmailUseCase {
+export class SingInWithEmailUseCaseImpl implements SignInWithEmailUseCase {
   constructor(private readonly httpClient: HttpClient) {}
 
   async execute(
-    body: SingUpWithEmailUseCaseDto,
-  ): Promise<SingUpWithEmailUseCaseResponse> {
+    body: SignInWithEmailUseCaseDto,
+  ): Promise<SignInWithEmailUseCaseResponse> {
     const { data, statusCode } = await this.httpClient.post<AuthDto>(
       new URL('api/contractor/sing-up/email', env.BASE_URL).toString(),
       { body },

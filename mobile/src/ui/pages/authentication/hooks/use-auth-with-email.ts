@@ -1,21 +1,21 @@
-import {
-  type SingUpWithEmailUseCase,
-  type SingUpWithEmailUseCaseDto,
-} from '@/domain/use-cases/SingUpWithEmailUseCase'
+import type {
+  SignInWithEmailUseCase,
+  SignInWithEmailUseCaseDto,
+} from '@/domain/use-cases/sign-in-with-email-use-case'
 import { useState } from 'react'
 
 export interface UseAuthWithEmailProps {
-  singUpWithEmailUseCase: SingUpWithEmailUseCase
+  signInWithEmailUseCase: SignInWithEmailUseCase
 }
 export const useAuthWithEmail = ({
-  singUpWithEmailUseCase,
+  signInWithEmailUseCase,
 }: UseAuthWithEmailProps) => {
   const [isLoading, setIsLoading] = useState(false)
 
-  const execute = async (dto: SingUpWithEmailUseCaseDto) => {
+  const execute = async (dto: SignInWithEmailUseCaseDto) => {
     try {
       setIsLoading(true)
-      await singUpWithEmailUseCase.execute(dto)
+      await signInWithEmailUseCase.execute(dto)
     } finally {
       setIsLoading(false)
     }

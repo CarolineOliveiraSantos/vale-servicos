@@ -3,13 +3,18 @@ import { TouchableOpacity } from '@/ui/components/shared/touchable-opacity'
 import { View } from '@/ui/components/shared/view'
 import { useTheme } from '@/ui/hooks/use-theme'
 import { type FC, type ReactNode } from 'react'
-import { type AccessibilityProps, ActivityIndicator } from 'react-native'
+import {
+  type AccessibilityProps,
+  ActivityIndicator,
+  StyleSheet,
+} from 'react-native'
 
 export type ButtonProps = AccessibilityProps & {
   icon?: ReactNode
   title: string
   onPress: () => void
   isLoading?: boolean
+  testID?: string
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -58,7 +63,7 @@ export const Button: FC<ButtonProps> = ({
           borderColor="button-border"
         >
           {icon}
-          <Text variant="button" textAlign="center" style={{ flex: 1 }}>
+          <Text variant="button" textAlign="center" style={styles.text}>
             {title}
           </Text>
         </View>
@@ -66,3 +71,8 @@ export const Button: FC<ButtonProps> = ({
     </TouchableOpacity>
   )
 }
+const styles = StyleSheet.create({
+  text: {
+    flex: 1,
+  },
+})

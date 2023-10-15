@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  type HttpClient,
-  type Options,
-  type Response,
+import type {
+  HttpClient,
+  Options,
+  Response,
 } from '@/data/protocols/http/http-client'
-import { UnexpectedError } from '@/domain/errors/UnexpectedError'
+import { UnexpectedError } from '@/domain/errors/unexpected-error'
 import axios, { isAxiosError } from 'axios'
 
 export class AxiosAdapter implements HttpClient {
@@ -13,10 +13,14 @@ export class AxiosAdapter implements HttpClient {
       const { data, status } = await axios.get(url)
       return { data, statusCode: status }
     } catch (error) {
-      if (isAxiosError(error)) {
+      if (
+        isAxiosError(error) &&
+        error.response?.status &&
+        error.response.data
+      ) {
         return {
-          data: error.response?.data,
-          statusCode: error.response?.status ?? 500,
+          data: error.response.data,
+          statusCode: error.response.status,
         }
       }
       throw new UnexpectedError()
@@ -28,10 +32,14 @@ export class AxiosAdapter implements HttpClient {
       const { data, status } = await axios.post(url, options?.body)
       return { data, statusCode: status }
     } catch (error) {
-      if (isAxiosError(error)) {
+      if (
+        isAxiosError(error) &&
+        error.response?.status &&
+        error.response.data
+      ) {
         return {
           data: error.response?.data,
-          statusCode: error.response?.status || 500,
+          statusCode: error.response?.status,
         }
       }
       throw new UnexpectedError()
@@ -43,10 +51,14 @@ export class AxiosAdapter implements HttpClient {
       const { data, status } = await axios.put(url, options?.body)
       return { data, statusCode: status }
     } catch (error) {
-      if (isAxiosError(error)) {
+      if (
+        isAxiosError(error) &&
+        error.response?.status &&
+        error.response.data
+      ) {
         return {
           data: error.response?.data,
-          statusCode: error.response?.status || 500,
+          statusCode: error.response?.status,
         }
       }
       throw new UnexpectedError()
@@ -58,10 +70,14 @@ export class AxiosAdapter implements HttpClient {
       const { data, status } = await axios.delete(url, options?.body)
       return { data, statusCode: status }
     } catch (error) {
-      if (isAxiosError(error)) {
+      if (
+        isAxiosError(error) &&
+        error.response?.status &&
+        error.response.data
+      ) {
         return {
           data: error.response?.data,
-          statusCode: error.response?.status || 500,
+          statusCode: error.response?.status,
         }
       }
       throw new UnexpectedError()
@@ -73,10 +89,14 @@ export class AxiosAdapter implements HttpClient {
       const { data, status } = await axios.patch(url, options?.body)
       return { data, statusCode: status }
     } catch (error) {
-      if (isAxiosError(error)) {
+      if (
+        isAxiosError(error) &&
+        error.response?.status &&
+        error.response.data
+      ) {
         return {
           data: error.response?.data,
-          statusCode: error.response?.status || 500,
+          statusCode: error.response?.status,
         }
       }
       throw new UnexpectedError()

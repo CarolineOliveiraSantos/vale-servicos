@@ -1,61 +1,22 @@
-import { keys } from '@/constants/keys'
-import {
-  type ColorModeProviderProps,
-  ColorModeContext,
-  type ColorModeType,
-  type ThemeModeType,
-} from '@/ui/contexts/ColorModeContext'
-import { useStorage } from '@/ui/hooks/useStorage'
-import { ThemeDark, ThemeLight } from '@/ui/styles/theme'
+import { ColorModeContext } from '@/ui/contexts/color-mode-context'
+import { ThemeLight } from '@/ui/styles/theme'
 import { ThemeProvider } from '@shopify/restyle'
-import { type FC, useState } from 'react'
-import { useColorScheme, Appearance } from 'react-native'
-export const ColorModeProviderMock: FC<ColorModeProviderProps> = ({
+import type React from 'react'
+import { type FC } from 'react'
+export const ColorModeProviderMock: FC<React.PropsWithChildren> = ({
   children,
 }) => {
-  const [themeMode, setThemeMode] = useState<ThemeModeType>('dark')
-  const [colorMode, setColorMode] = useState<ColorModeType>('dark')
-  const { storage } = useStorage()
-  const colorScheme = useColorScheme()
-
-  Appearance.addChangeListener(({ colorScheme }) => {
-    if (colorScheme && colorMode === 'system') {
-      setThemeMode(colorScheme)
-    }
-  })
-  const changeToThemeDark = async () => {
-    setColorMode('dark')
-    setThemeMode('dark')
-    await storage.setItem<ColorModeType>(keys.COLOR_MODE, 'dark')
-  }
-  const changeToThemeLight = async () => {
-    setColorMode('light')
-    setThemeMode('light')
-    await storage.setItem<ColorModeType>(keys.COLOR_MODE, 'light')
-  }
-  const changeToThemeSystem = async () => {
-    setColorMode('system')
-    if (colorScheme) {
-      setThemeMode(colorScheme)
-    } else {
-      setThemeMode('light')
-    }
-    await storage.setItem<ColorModeType>(keys.COLOR_MODE, 'light')
-  }
-
   return (
     <ColorModeContext.Provider
       value={{
-        changeToThemeDark,
-        changeToThemeLight,
-        changeToThemeSystem,
-        colorMode,
-        themeMode,
+        changeToThemeDark: async () => {},
+        changeToThemeLight: async () => {},
+        changeToThemeSystem: async () => {},
+        colorMode: 'light',
+        themeMode: 'dark',
       }}
     >
-      <ThemeProvider theme={themeMode === 'dark' ? ThemeDark : ThemeLight}>
-        {children}
-      </ThemeProvider>
+      <ThemeProvider theme={ThemeLight}>{children}</ThemeProvider>
     </ColorModeContext.Provider>
   )
 }

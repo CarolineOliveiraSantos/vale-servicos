@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { pathsToModuleNameMapper } = require('ts-jest')
 
 const { compilerOptions } = require('./tsconfig.json')
@@ -8,6 +9,7 @@ module.exports = {
   setupFiles: [
     '<rootDir>/jest/jest-setup.ts',
     '<rootDir>/node_modules/@react-native-google-signin/google-signin/jest/build/setup.js',
+    '<rootDir>/node_modules/react-native-gesture-handler/jestSetup.js',
   ],
   setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
   preset: 'jest-expo',

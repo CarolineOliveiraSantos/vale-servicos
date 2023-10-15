@@ -1,4 +1,4 @@
-import { WithoutProviderError } from '@/domain/errors/WithoutProviderError'
+import { WithoutProviderError } from '@/domain/errors/without-provider-error'
 import { ColorModeContext } from '@/ui/contexts/color-mode-context'
 import { useContext } from 'react'
 export const useColorMode = () => {
