@@ -1,16 +1,11 @@
-import { HttpStatusCode } from '@/helpers/http/http-status-code'
+import { HttpStatus } from '@/helpers/http/http-status'
 
-import { UnauthorizedError } from '../errors/unauthorized-error'
-import { HttpException } from './http-exception'
+import { Exception } from './exception'
 
-export class UnauthorizedException extends HttpException {
+export class UnauthorizedException extends Exception {
   constructor() {
-    const contractorAlreadyExists = new UnauthorizedError()
-    super(HttpStatusCode.UNAUTHORIZED_ERROR, {
-      error: contractorAlreadyExists.message,
-      message: contractorAlreadyExists.message,
-      cause: contractorAlreadyExists,
-    })
-    super.name = 'UnauthorizedException'
+    super('Unauthorized')
+    this.name = 'UnauthorizedError'
+    this.statusCode = HttpStatus.UNAUTHORIZED_ERROR
   }
 }

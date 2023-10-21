@@ -1,8 +1,8 @@
 import {
-  FacebookAccount,
-  FacebookAuthentication,
+  type FacebookAccount,
+  type FacebookAuthentication,
 } from '@/interfaces/auth/facebook-authentication'
-import { HttpService } from '@/interfaces/http/http-service'
+import { type HttpService } from '@/interfaces/http/http-service'
 import { UnauthorizedException } from '@/utils/http/exceptions/unauthorized-exception'
 export interface AppToken {
   access_token: string
@@ -30,7 +30,7 @@ export interface UserInfo {
 }
 
 export class FacebookAuthenticationImpl implements FacebookAuthentication {
-  private BASE_URL = 'https://graph.facebook.com/'
+  private readonly BASE_URL = 'https://graph.facebook.com/'
   constructor(
     private readonly httpService: HttpService,
     private readonly clientSecret: string,

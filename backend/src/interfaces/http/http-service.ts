@@ -10,8 +10,8 @@ export interface HttpServiceOptions {
   params?: object
 }
 export interface HttpService {
-  get<T = any>(
+  get: <T = any>(
     url: string,
     options?: HttpServiceOptions,
-  ): Promise<HttpServiceResponse<T>>
+  ) => Promise<HttpServiceResponse<T>>
 }

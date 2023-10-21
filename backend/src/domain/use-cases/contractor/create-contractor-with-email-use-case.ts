@@ -1,7 +1,5 @@
-import { Contractor } from '@/domain/entities/contractor'
-import { Either } from '@/shared/either'
+import { type Contractor } from '@/domain/entities/contractor'
 
-import { HttpException } from '../../errors/http-exception'
 export interface ContractorWithEmailUseCaseDto {
   firstName: string
   lastName: string
@@ -9,7 +7,5 @@ export interface ContractorWithEmailUseCaseDto {
   password: string
 }
 export interface CreateContractorWithEmailUseCase {
-  execute(
-    data: ContractorWithEmailUseCaseDto,
-  ): Promise<Either<HttpException, Contractor>>
+  execute: (data: ContractorWithEmailUseCaseDto) => Promise<Contractor>
 }

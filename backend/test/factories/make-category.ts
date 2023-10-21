@@ -1,6 +1,7 @@
-import { Category, CategoryProps } from '@/domain/entities/category'
-import { makeImage } from './make-image'
+import { Category, type CategoryProps } from '@/domain/entities/category'
 import { faker } from '@faker-js/faker'
+
+import { makeImage } from './make-image'
 
 export const makeCategory = (category: Partial<CategoryProps> = {}) => {
   return new Category({

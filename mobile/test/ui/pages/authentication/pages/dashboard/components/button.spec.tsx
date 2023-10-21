@@ -1,5 +1,5 @@
 import { fireEvent, render } from '@/jest/test-utils'
-import { Button } from '@/ui/pages/authentication/pages/dashboard/components/button'
+import { Button } from '@/ui/pages/authentication/dashboard/components/button'
 import { faker } from '@faker-js/faker'
 import { View } from 'react-native'
 

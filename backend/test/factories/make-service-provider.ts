@@ -1,9 +1,9 @@
-import { faker } from '@faker-js/faker'
-
 import {
-  ServiceProviderProps,
+  type ServiceProviderProps,
   ServiceProvider,
 } from '@/domain/entities/service-provider'
+import { faker } from '@faker-js/faker'
+
 import { makePhone } from './make-phone'
 
 export const makeServiceProvider = (

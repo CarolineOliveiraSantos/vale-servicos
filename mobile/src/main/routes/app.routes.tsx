@@ -1,7 +1,8 @@
 import { type Routes } from '@/@types/navigation'
+import { SignUpWithEmail } from '@/ui/pages/authentication/sign-up-with-email/sign-up-with-email'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import { Dashboard } from '../../ui/pages/authentication/pages/dashboard/dashboard'
+import { Dashboard } from '../../ui/pages/authentication/dashboard/dashboard'
 import AllServicos from '../../ui/pages/Visitante/AllServicos/index'
 import Avaliacoes from '../../ui/pages/Visitante/Avaliacao/index'
 import Detalhes from '../../ui/pages/Visitante/Detalhes/index'
@@ -16,6 +17,7 @@ export const AppRoutes = () => {
       screenOptions={{ headerShown: false }}
     >
       <Screen name="sign-in-with-email" component={MakeSingInWithEmail} />
+      <Screen name="sign-up-with-email" component={SignUpWithEmail} />
       <Screen name="Dashboard" component={Dashboard} />
       <Screen name="Principalll" component={Principalll} />
       <Screen name="Prestadores" component={Prestadores} />

@@ -1,11 +1,10 @@
-import { CreateContractorWithEmailUseCase } from '@/domain/use-cases/contractor/create-contractor-with-email-use-case'
-import { ResponseEntity } from '@/helpers/http/response-entity'
-import { HttpRequest } from '@/interfaces/http/http-request'
-import { HttpResponse } from '@/interfaces/http/http-response'
-import { Controller } from '@/interfaces/presentation/controller/controller'
-import { CreateContractorWithEmailDto } from '@/presentation/dtos/create-contractor-with-email.dto'
-import { ExceptionFilter } from '@/presentation/errors/exception-filter'
-import { ValidateDto } from '@/presentation/validator/ValidateDto'
+import type { CreateContractorWithEmailUseCase } from '@/domain/use-cases/contractor/create-contractor-with-email-use-case'
+import { exceptionHandler } from '@/presentation/errors/exception-handler'
+import { badRequest, ok } from '@/presentation/helpers/http-helpers'
+import type { Controller } from '@/presentation/protocols/controller'
+import type { HttpRequest } from '@/presentation/protocols/http-request'
+import type { HttpResponse } from '@/presentation/protocols/http-response'
+import type { Validation } from '@/presentation/protocols/validation'
 export interface CreateContractorWithEmailControllerRequest {
   firstName: string
   lastName: string
@@ -16,25 +15,23 @@ export interface CreateContractorWithEmailControllerRequest {
 export class CreateContractorWithEmailController implements Controller {
   constructor(
     private readonly createContractorWithEmailUseCase: CreateContractorWithEmailUseCase,
+    private readonly validation: Validation,
   ) {}
 
   async handle(
-    request: HttpRequest<CreateContractorWithEmailControllerRequest, any, any>,
-  ): Promise<HttpResponse<any>> {
+    request: HttpRequest<CreateContractorWithEmailControllerRequest>,
+  ): Promise<HttpResponse> {
     try {
-      const createContractorWithEmail = new CreateContractorWithEmailDto({
-        email: request.body.email,
-        firstName: request.body.firstName,
-        lastName: request.body.lastName,
-        password: request.body.password,
-      })
-      await ValidateDto.isValid(createContractorWithEmail)
+      const error = await this.validation.validate(request.body)
+      if (error) {
+        return badRequest(error)
+      }
       const contractor = await this.createContractorWithEmailUseCase.execute(
-        createContractorWithEmail,
+        request.body,
       )
-      return ResponseEntity.ok(contractor)
+      return ok(contractor)
     } catch (error) {
-      return ExceptionFilter.handle(error)
+      return exceptionHandler(error)
     }
   }
 }

@@ -6,5 +6,5 @@ export interface FacebookAccount {
   picture: string
 }
 export interface FacebookAuthentication {
-  loadUser(accessToken: string): Promise<FacebookAccount>
+  loadUser: (accessToken: string) => Promise<FacebookAccount>
 }

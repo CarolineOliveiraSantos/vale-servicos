@@ -23,7 +23,7 @@
       "@/data/*": ["./src/data/*"],
       "@/database/*": ["./src/database/*"],
       "@/domain/*": ["src/domain/*"],
-      "@/helpers/*": ["./src/helpers/*"],
+      "@/helpers/*": ["src/helpers/*"],
       "@/infra/*": ["./src/infra/*"],
       "@/interfaces/*": ["./src/interfaces/*"],
       "@/main/*": ["./src/main/*"],
@@ -31,6 +31,7 @@
       "@/shared/*": ["./src/shared/*"],
       "@/uploads/*": ["./src/uploads/*"],
       "@/utils/*": ["./src/utils/*"],
+      "@/validation/*": ["./src/validation/*"],
       "@/test/*": ["./test/*"]
     }
   }

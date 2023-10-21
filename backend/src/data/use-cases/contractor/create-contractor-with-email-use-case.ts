@@ -1,16 +1,13 @@
+import { type Hash } from '@/data/protocols/encrypt/hash'
 import { Contractor } from '@/domain/entities/contractor'
-import { HttpException } from '@/domain/errors/http-exception'
-import { CreateContractorRepository } from '@/domain/gateways/repositories/contractor/create-contractor-repository'
-import { LoadContractorByEmailRepository } from '@/domain/gateways/repositories/contractor/load-contractor-by-email-repository'
+import { type CreateContractorRepository } from '@/domain/gateways/repositories/contractor/create-contractor-repository'
+import { type LoadContractorByEmailRepository } from '@/domain/gateways/repositories/contractor/load-contractor-by-email-repository'
+import { type GenerateUUID } from '@/domain/gateways/uuid/generate-uuid'
 import {
-  ContractorWithEmailUseCaseDto,
-  CreateContractorWithEmailUseCase,
+  type ContractorWithEmailUseCaseDto,
+  type CreateContractorWithEmailUseCase,
 } from '@/domain/use-cases/contractor/create-contractor-with-email-use-case'
-import { HttpStatusCode } from '@/helpers/http/http-status-code'
-import { Hash } from '@/interfaces/encrypt/hash'
-import { Either, left, right } from '@/shared/either'
-import { ContractorAlreadyExists } from '@/utils/http/errors/contractor-already-exists'
-
+import { ContractorAlreadyExistsException } from '@/utils/http/exceptions/contractor-already-exists-exception'
 export class CreateContractorWithEmailUseCaseImpl
   implements CreateContractorWithEmailUseCase
 {
@@ -18,28 +15,24 @@ export class CreateContractorWithEmailUseCaseImpl
     private readonly createContractorRepository: CreateContractorRepository,
     private readonly loadContractorByEmailRepository: LoadContractorByEmailRepository,
     private readonly hash: Hash,
+    private readonly generateUUID: GenerateUUID,
   ) {}
 
-  async execute(
-    data: ContractorWithEmailUseCaseDto,
-  ): Promise<Either<HttpException, Contractor>> {
+  async execute(data: ContractorWithEmailUseCaseDto): Promise<Contractor> {
     const contractorExists =
       await this.loadContractorByEmailRepository.findByEmail(data.email)
     if (contractorExists) {
-      return left({
-        error: new ContractorAlreadyExists(),
-        statusCode: HttpStatusCode.CONFLICT,
-      })
+      throw new ContractorAlreadyExistsException()
     }
     const passwordHash = await this.hash.hash(data.password)
     const contractor = new Contractor({
-      id: 'k',
+      id: await this.generateUUID.randomUUID(),
       firstName: data.firstName,
       email: data.email,
       lastName: data.lastName,
       password: passwordHash,
     })
     await this.createContractorRepository.create(contractor)
-    return right(contractor)
+    return contractor
   }
 }

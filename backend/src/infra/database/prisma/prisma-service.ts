@@ -5,6 +5,7 @@ export class PrismaService extends PrismaClient {
   private constructor() {
     super({ log: ['info'] })
   }
+
   static getInstance(): PrismaService {
     if (!this._instance) {
       this._instance = new PrismaService()

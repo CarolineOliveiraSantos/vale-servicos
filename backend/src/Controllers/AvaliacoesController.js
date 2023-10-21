@@ -40,7 +40,7 @@ module.exports = {
       .count()
 
     res.header('X-Total-Count', count['count(*)'])
-    return console.log(count)
+    console.log(count)
   },
 
   // Editar avaliação

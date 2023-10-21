@@ -1,6 +1,6 @@
 import { Contractor } from '@/domain/entities/contractor'
 import { Phone } from '@/domain/entities/phone'
-import { Contractor as RawContractor } from '@prisma/client'
+import { type Contractor as RawContractor } from '@prisma/client'
 export class PrismaContractorMapper {
   static toPrisma(contractor: Contractor): RawContractor {
     return {

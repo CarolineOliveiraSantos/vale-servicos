@@ -3,7 +3,7 @@ import {
   mockGoBack,
   mockNavigate,
 } from '@/test/mocks/navigation/react-navigation-native-mock'
-import { Dashboard } from '@/ui/pages/authentication/pages/dashboard/dashboard'
+import { Dashboard } from '@/ui/pages/authentication/dashboard/dashboard'
 describe('<Dashboard />', () => {
   beforeEach(() => {
     mockGoBack.mockClear()

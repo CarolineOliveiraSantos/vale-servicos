@@ -1,10 +1,11 @@
 import {
   SubCategory,
-  SubCategoryProps,
+  type SubCategoryProps,
 } from '@/domain/entities/sub-category'
+import { faker } from '@faker-js/faker'
+
 import { makeCategory } from './make-category'
 import { makeImage } from './make-image'
-import { faker } from '@faker-js/faker'
 
 export const makeSubCategory = (
   subCategory: Partial<SubCategoryProps> = {},

@@ -1,10 +1,11 @@
-import { ExpressRouterAdapter } from '@/main/adapters/express-router-adapter'
-import { CreateContractorComposer } from '@/main/composers/contractor/create-contractor-composer'
-import { Router } from 'express'
+import { makeExpressRouterAdapter } from '@/main/adapters/make-express-router-adapter'
+import { type Router } from 'express'
+
+import { makeCreateContractorWithEmailController } from '../factories/controller/contractor/make-create-contractor-with-email-controller'
 
 export default function CreateContractorRoute(router: Router) {
   router.post(
     '/contractor/sing-up/email',
-    ExpressRouterAdapter.adapter(CreateContractorComposer.route()),
+    makeExpressRouterAdapter(makeCreateContractorWithEmailController()),
   )
 }

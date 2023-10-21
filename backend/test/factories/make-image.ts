@@ -1,4 +1,4 @@
-import { Image, ImageProps } from '@/domain/entities/image'
+import { Image, type ImageProps } from '@/domain/entities/image'
 import { faker } from '@faker-js/faker'
 
 export const makeImage = (image: Partial<ImageProps> = {}) => {

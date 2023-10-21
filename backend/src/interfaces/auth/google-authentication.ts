@@ -6,5 +6,5 @@ export interface GoogleAccount {
   picture: string
 }
 export interface GoogleAuthentication {
-  loadUser(accessToken: string): Promise<GoogleAccount>
+  loadUser: (accessToken: string) => Promise<GoogleAccount>
 }

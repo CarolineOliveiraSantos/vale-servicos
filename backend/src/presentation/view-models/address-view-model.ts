@@ -1,5 +1,4 @@
-import { Address } from '@/domain/entities/address'
-
+import { type Address } from '@/domain/entities/address'
 export class AddressViewModel {
   static toHTTP(address: Address) {
     return {
@@ -7,9 +6,10 @@ export class AddressViewModel {
       city: address.city,
       neighborhood: address.neighborhood,
       state: address.state,
-      stateNumber: address.stateNumber,
+      number: address.number,
       street: address.street,
       zipCode: address.zipCode,
     }
   }
 }
+export type AddressViewModelHttpDto = ReturnType<typeof AddressViewModel.toHTTP>

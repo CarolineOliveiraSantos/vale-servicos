@@ -1,4 +1,4 @@
-import { type ContractorDto } from './ContractorDto'
+import type { ContractorDto } from './ContractorDto'
 
 export interface AuthDto {
   contractor: ContractorDto

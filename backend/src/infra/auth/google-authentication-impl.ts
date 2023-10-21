@@ -1,8 +1,8 @@
 import {
-  GoogleAccount,
-  GoogleAuthentication,
+  type GoogleAccount,
+  type GoogleAuthentication,
 } from '@/interfaces/auth/google-authentication'
-import { HttpService } from '@/interfaces/http/http-service'
+import { type HttpService } from '@/interfaces/http/http-service'
 import { UnauthorizedException } from '@/utils/http/exceptions/unauthorized-exception'
 export interface GoogleResponseAccount {
   email: string

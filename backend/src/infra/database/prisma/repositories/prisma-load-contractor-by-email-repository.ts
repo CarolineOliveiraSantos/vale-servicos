@@ -1,7 +1,8 @@
-import { Contractor } from '@/domain/entities/contractor'
-import { LoadContractorByEmailRepository } from '@/domain/gateways/repositories/contractor/load-contractor-by-email-repository'
-import { PrismaService } from '../prisma-service'
+import { type Contractor } from '@/domain/entities/contractor'
+import { type LoadContractorByEmailRepository } from '@/domain/gateways/repositories/contractor/load-contractor-by-email-repository'
+
 import { PrismaContractorMapper } from '../mappers/prisma-contractor-mapper'
+import { type PrismaService } from '../prisma-service'
 
 export class PrismaLoadContractorByEmailRepository
   implements LoadContractorByEmailRepository

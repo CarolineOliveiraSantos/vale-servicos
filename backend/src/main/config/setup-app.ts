@@ -7,6 +7,6 @@ export const setupApp = async () => {
   const app = express()
   app.use(jsonParser)
   app.use(cors)
-  setupRoutes(app)
+  await setupRoutes(app)
   return { app }
 }

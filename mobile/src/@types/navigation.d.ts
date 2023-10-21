@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
 import { type NavigationProp } from '@react-navigation/native'
 
-export interface Routes {
+export type Routes = {
   Login: undefined
   Principalll: undefined
   loginContratante: undefined

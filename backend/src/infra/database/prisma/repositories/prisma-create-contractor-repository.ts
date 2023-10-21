@@ -1,8 +1,8 @@
-import { Contractor } from '@/domain/entities/contractor'
-import { CreateContractorRepository } from '@/domain/gateways/repositories/contractor/create-contractor-repository'
+import type { Contractor } from '@/domain/entities/contractor'
+import type { CreateContractorRepository } from '@/domain/gateways/repositories/contractor/create-contractor-repository'
 
 import { PrismaContractorMapper } from '../mappers/prisma-contractor-mapper'
-import { PrismaService } from '../prisma-service'
+import type { PrismaService } from '../prisma-service'
 
 export class PrismaCreateContractorRepository
   implements CreateContractorRepository

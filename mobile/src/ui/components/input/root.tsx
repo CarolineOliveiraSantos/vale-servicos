@@ -2,7 +2,7 @@
 import { InputProvider } from '@/ui/contexts/input-context'
 import { useInput } from '@/ui/hooks/use-input'
 import { useTheme } from '@/ui/hooks/use-theme'
-import { type FC, useEffect } from 'react'
+import { type FC, useEffect, useId } from 'react'
 import { type ViewProps } from 'react-native'
 import Animated, {
   type AnimateProps,
@@ -19,11 +19,13 @@ import { Text } from '../shared/text'
 export interface RootProps extends AnimateProps<ViewProps> {
   _focus?: AnimateProps<ViewProps>['style']
   errorMessage?: string
+  label?: string
 }
 export const RootBase: FC<RootProps> = ({
   errorMessage,
   style,
   _focus,
+  label,
   ...props
 }) => {
   const { isFocus } = useInput()
@@ -52,10 +54,18 @@ export const RootBase: FC<RootProps> = ({
       ),
     }
   }, [isFocus])
+  const id = useId()
   return (
     <>
+      {label ? (
+        <Text nativeID={id} variant="body">
+          {label}
+        </Text>
+      ) : null}
       <Animated.View
         {...props}
+        accessibilityLabelledBy={id}
+        aria-labelledby={id}
         style={[
           {
             backgroundColor: theme.colors['input-background'],
